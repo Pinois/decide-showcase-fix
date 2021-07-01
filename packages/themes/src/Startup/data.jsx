@@ -450,14 +450,25 @@ export default {
       title: 'Envie de nous contacter ?',
       cta: 'Envoyer',
       validationSchema: Yup.object({
-        name: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
+        name: Yup.string().max(25, 'Must be 25 characters or less').required('Required'),
         // Message
         message: Yup.string().required('Required'),
         email: Yup.string().email('Must be an email').required('Required'),
         // date: Yup.string().required('Required'),
       }),
       // eslint-disable-next-line no-undef
-      onSubmit: values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
+      onSubmit: values => {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": "contact", ...e })
+        })
+          .then(() => alert("Success!"))
+          .catch(error => alert(error));
+
+        e.preventDefault();
+      },
+      //values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
       fields: [
         {
           name: 'name',

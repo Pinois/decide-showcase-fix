@@ -37,12 +37,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
+        name: 'DEC!DE',
         short_name: 'DEC!DE',
         start_url: '/',
-        background_color: `#189AB4`,
-        theme_color: `#189AB4`,
-        display: 'minimal-ui',
+        background_color: `#00303D`,
+        theme_color: `#f2931d`,
+        display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
