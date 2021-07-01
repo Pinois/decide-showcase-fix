@@ -78,7 +78,7 @@ const Contact = ({
             {},
           )}
         >
-          <Form>
+          <Form method="POST" data-netlify="true">
             <Fade cascade bottom duration={600}>
               <div>
                 {mailer.fields.map(field => (
