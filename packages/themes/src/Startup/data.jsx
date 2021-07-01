@@ -461,12 +461,12 @@ export default {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "contact", ...e })
+          body: encode({ "form-name": "contact", ...values })
         })
           .then(() => alert("Success!"))
           .catch(error => alert(error));
 
-        e.preventDefault();
+        values.preventDefault();
       },
       //values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
       fields: [
