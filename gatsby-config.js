@@ -1,10 +1,10 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Pagerland Gatsby',
-    description: '',
-    author: 'Pagerland Team',
+    title: 'DEC!DE',
+    description: 'DEC!DE ASBL',
+    author: 'DEC!DE ASBL',
   },
   pathPrefix: process.env.GATSBY_APP_DIR || '',
   plugins: [
@@ -38,7 +38,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',
-        short_name: 'starter',
+        short_name: 'DEC!DE',
         start_url: '/',
         background_color: `#189AB4`,
         theme_color: `#189AB4`,
@@ -55,4 +55,4 @@ module.exports = {
     },
     'gatsby-plugin-offline',
   ],
-};
+}

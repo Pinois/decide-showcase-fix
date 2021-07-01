@@ -33,6 +33,7 @@ const Team = ({
   PersonWrapperProps,
   AvatarProps,
   NameProps,
+  DescProps,
   PositionProps,
   LinkedinIconProps,
   TwitterIconProps,
@@ -43,7 +44,8 @@ const Team = ({
       <Box {...CaptionProps}>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps}>{text}</Typography>
+          <Typography {...TextProps} dangerouslySetInnerHTML={text}>
+          </Typography>
         </Fade>
       </Box>
       <Grid {...GridProps}>
@@ -53,6 +55,8 @@ const Team = ({
               <Avatar {...AvatarProps} {...person.avatar} />
               <Typography {...NameProps}>{person.name}</Typography>
               <Typography {...PositionProps}>{person.position}</Typography>
+              <Typography {...DescProps}>{person.desc}</Typography>
+
               {person.social.linkedin && (
                 <Link href={person.social.linkedin}>
                   <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
@@ -72,13 +76,13 @@ const Team = ({
           </Fade>
         ))}
       </Grid>
-      <Fade top cascade duration={600}>
+      {/* <Fade top cascade duration={600}>
         <Button {...CtaProps} {...cta}>
           {cta.label}
         </Button>
-      </Fade>
+      </Fade> */}
     </Container>
-  </Box>
+  </Box >
 );
 
 Team.propTypes = {
@@ -138,6 +142,7 @@ Team.propTypes = {
    * Props of person position
    */
   PositionProps: PropTypes.object,
+  DescProps: PropTypes.object,
   /**
    * Props of linkedin link icon
    */
@@ -200,7 +205,7 @@ Team.defaultProps = {
       md: 5,
     },
     mx: 'auto',
-    maxWidth: 736,
+    maxWidth: 1188,
   },
   TitleProps: {
     as: 'h2',
@@ -212,6 +217,9 @@ Team.defaultProps = {
   TextProps: {
     color: 'gray.1',
     mb: 4,
+    p: 2,
+    m: 2,
+    textAlign: 'justify',
   },
   GridProps: {
     mb: {
@@ -238,7 +246,12 @@ Team.defaultProps = {
     color: 'black',
   },
   PositionProps: {
-    color: 'gray.1',
+    color: 'secondary',
+    mb: 2,
+    fontStyle: 'italic',
+  },
+  DescProps: {
+    color: 'primary',
     mb: 2,
   },
   CtaProps: {
@@ -249,7 +262,7 @@ Team.defaultProps = {
   },
   LinkedinIconProps: {
     mx: 2,
-    color: 'primary',
+    color: 'accent',
     fontSize: 24,
   },
   TwitterIconProps: {

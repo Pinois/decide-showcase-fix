@@ -44,15 +44,20 @@ const Services = ({
               <Img src={service.icon} {...ServiceIconProps} />
               <Typography {...ServiceTitleProps}>{service.title}</Typography>
               <Typography {...ServiceTextProps}>{service.text}</Typography>
+              <Button {...CtaProps} onClick={(e) => {
+                e.preventDefault(); window.open(service.buttonLink, "_blank")
+              }}>
+                {service.buttonText} →
+              </Button>
             </Box>
           </Fade>
         ))}
       </Grid>
-      <Fade top cascade duration={600}>
-        <Button {...CtaProps} {...cta}>
+      {/*  <Fade top cascade duration={600}>
+      <Button {...CtaProps} {...cta}>
           {cta.label}
-        </Button>
-      </Fade>
+        </Button> 
+        </Fade> */}
     </Container>
   </Box>
 );
@@ -172,33 +177,39 @@ Services.defaultProps = {
   },
   GridProps: {
     gridTemplateColumns: {
-      _: '1fr',
-      lg: 'repeat(3, 1fr)',
+      _: '2fr',
+      lg: 'repeat(2, 2fr)',
     },
-    gridGap: '64px',
-    maxWidth: 1088,
+    gridGap: '40px',
+    maxWidth: 1188,
     mx: 'auto',
-    mb: 5,
+    mb: 4,
   },
   ServiceIconProps: {
     display: 'block',
     mx: 'auto',
-    mb: 3,
+    mb: 4,
+    height: 400,
   },
   ServiceTitleProps: {
     textAlign: 'center',
     as: 'h3',
     variant: 'h3',
-    mb: 3,
+    mb: 4,
+    p: 2,
+    m: 2,
   },
   ServiceTextProps: {
     color: 'gray.1',
-    textAlign: 'center',
+    textAlign: 'justify',
+    p: 2,
+    m: 2,
   },
   CtaProps: {
     textAlign: 'center',
-    mx: 'auto',
-    variant: 'secondary',
+    mx: '2',
+    p: '2',
+    variant: 'default',
     as: 'a',
   },
   ...data.services,

@@ -85,6 +85,8 @@ const Contact = ({
                   <Input key={field.name} {...field} />
                 ))}
               </div>
+              <Input multiline name="message" key="message" label="Message" placeholder="Votre message" />
+
               <Button type="submit" {...MailerButtonProps}>
                 {mailer.cta}
               </Button>

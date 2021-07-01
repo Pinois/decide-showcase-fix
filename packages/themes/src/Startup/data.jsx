@@ -13,31 +13,37 @@ import Twitter from '@pagerland/icons/src/monochrome/Twitter';
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
 
 import * as Yup from 'yup';
-import Welcome from './assets/welcome.jpg';
-import Welcome2x from './assets/welcome@2x.jpg';
-import AboutUs from './assets/about-us.jpg';
-import AboutUs2x from './assets/about-us@2x.jpg';
+//import Welcome from './assets/welcome.jpg';
+//import Welcome2x from './assets/welcome@2x.jpg';
+import AboutUs from './assets/about.jpeg';
+import AboutUs2x from './assets/about.jpeg';
+import LandingImage from './assets/landing_image.jpeg'
 
-import Avatar1 from './assets/avatars/avatar-1.jpg';
-import Avatar12x from './assets/avatars/avatar-1@2x.jpg';
-import Avatar2 from './assets/avatars/avatar-2.jpg';
-import Avatar22x from './assets/avatars/avatar-2@2x.jpg';
-import Avatar3 from './assets/avatars/avatar-3.jpg';
-import Avatar32x from './assets/avatars/avatar-3@2x.jpg';
-import Avatar4 from './assets/avatars/avatar-4.jpg';
-import Avatar42x from './assets/avatars/avatar-4@2x.jpg';
-import Avatar5 from './assets/avatars/avatar-5.jpg';
-import Avatar52x from './assets/avatars/avatar-5@2x.jpg';
-import Avatar6 from './assets/avatars/avatar-6.jpg';
-import Avatar62x from './assets/avatars/avatar-6@2x.jpg';
-import Avatar7 from './assets/avatars/avatar-7.jpg';
-import Avatar72x from './assets/avatars/avatar-7@2x.jpg';
-import Avatar8 from './assets/avatars/avatar-8.jpg';
-import Avatar82x from './assets/avatars/avatar-8@2x.jpg';
 
-import Estimations from './assets/estimation.svg';
-import Ecommerce from './assets/ecommerce.svg';
-import Support from './assets/support.svg';
+
+import Avatar1 from './assets/avatars/avatar_gustin.jpeg';
+import Avatar12x from './assets/avatars/avatar_gustin.jpeg';
+import Avatar2 from './assets/avatars/avatar_backer.jpeg';
+import Avatar22x from './assets/avatars/avatar_backer.jpeg';
+import Avatar3 from './assets/avatars/avatar_berhin.jpeg';
+import Avatar32x from './assets/avatars/avatar_berhin.jpeg';
+import Avatar4 from './assets/avatars/avatar_mars.jpeg';
+import Avatar42x from './assets/avatars/avatar_mars.jpeg';
+import Avatar5 from './assets/avatars/avatar_losson.jpeg';
+import Avatar52x from './assets/avatars/avatar_losson.jpeg';
+import Avatar6 from './assets/avatars/avatar_salva.jpeg';
+import Avatar62x from './assets/avatars/avatar_salva.jpeg';
+import Avatar7 from './assets/avatars/avatar_sarah.png';
+import Avatar72x from './assets/avatars/avatar_sarah.png';
+
+// import Estimations from './assets/estimation.svg';
+// mport Ecommerce from './assets/ecommerce.svg';
+import AnimationsImage from './assets/AnimationsImage.jpeg';
+import ComicImage from './assets/ComicImageAndTeam.png';
+import AppMockup from './assets/app_DECIDE-min.gif';
+import NudgeImage from './assets/NudgeImage.jpeg'
+
+// import Support from './assets/support.svg';
 
 import PricingBasic from './assets/pricing/basic.svg';
 import PricingAdvanced from './assets/pricing/advanced.svg';
@@ -55,53 +61,59 @@ import Article5 from './assets/articles/article-5.jpg';
 import Article52x from './assets/articles/article-5@2x.jpg';
 
 export default {
-  title: 'Startup',
+  title: 'DEC!DE & Vous',
   navbar: {
     links: [
       {
         to: '',
-        label: 'Home',
+        label: 'Accueil',
       },
       {
         to: 'services',
-        label: 'Services',
+        label: 'Activités',
       },
       {
         to: 'about',
-        label: 'About',
+        label: 'À propos',
       },
       {
         to: 'team',
-        label: 'Team',
+        label: 'L\'équipe',
       },
-      {
+      /*{
         to: 'pricing',
         label: 'Pricing',
-      },
-      {
-        to: 'blog',
-        label: 'News',
-      },
+      },*/
+      // {
+      //   to: 'blog',
+      //   label: 'Actus',
+      // },
       {
         to: 'contact',
         label: 'Contact',
       },
+
+
+      /*{
+        to: 'contact',
+        label: 'Contact',
+      },*/
     ],
     actions: [
       {
-        href:
-          'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
-        label: 'Buy this theme',
+        /*href:
+          'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',*/
+        label: 'Faire un don',
+        href: 'https://fr.tipeee.com/decide-et-vous'
       },
     ],
   },
   welcome: {
-    title: 'The only landing page template you need for your company',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu magna pharetra sem ullamcorper bibendum quis et mauris. Phasellus tincidunt iaculis porttitor.',
+    title: 'DEC!DE: Le coup de pouce dont l’écologie a besoin',
+    text: 'DEC!DE propose un programme d’éducation à l’environnement qui a pour objectif d’induire des changements de comportement au travers d’une démarche transmédia.',
     actions: [
       {
-        label: 'Check our services',
+        label: 'Voir nos activités',
         to: 'services',
         as: Link,
         ...smoothLinkProps,
@@ -109,8 +121,8 @@ export default {
       },
     ],
     img: {
-      src: Welcome,
-      srcSet: `${Welcome} 1x, ${Welcome2x} 2x`,
+      src: LandingImage,
+      srcSet: `${LandingImage} 1x, ${LandingImage} 2x`,
     },
     avatars: [
       {
@@ -128,76 +140,85 @@ export default {
       {
         src: Avatar4,
         srcSet: `${Avatar4} 1x, ${Avatar42x} 2x`,
-      },
-      {
-        src: Avatar5,
-        srcSet: `${Avatar5} 1x, ${Avatar52x} 2x`,
-      },
+      }
     ],
   },
   services: {
-    title: 'Our services',
+    title: 'Activités',
+    text:
+      'DEC!DE a pris le parti de développer une approche transmédia dans le but de créer une expérience pédagogique unique, immersive et ludique. Chaque média pourra être utilisé de manière autonome et constituer un point d’entrée vers l’information. Des “ponts narratifs” pourront être faits, d’un média à l’autre, pour renforcer l’objet de la communication et la diffusion de contenus.',
     services: [
       {
-        icon: Estimations,
-        title: 'Estimation',
+        icon: AnimationsImage,
+        title: 'Animations de sensibilisation et de solutions',
         text:
-          'Vivamus eleifend nec purus eget rutrum. Cras urna lacus, consectetur ut erat sed, commodo gravida mauris. Sed eu vulputate sapien. Nulla consectetur efficitur congue.',
+          "Chez DEC!DE, nous sommes convaincu.es que des changements de comportements ne peuvent s'opérer que si les enjeux liés à ces comportements sont correctement compris. C'est pourquoi nous accordons une place primordiale à la sensibilisation et à l'information de nos publics ainsi qu’à la cocréation de solutions.",
+        buttonText: 'En savoir plus',
+        buttonLink: 'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54'
       },
       {
-        icon: Ecommerce,
-        title: 'Ecommerce',
+        icon: AppMockup,
+        title: 'App Mobile - "Duolingo de l\'écologie"',
         text:
-          'Vivamus eleifend nec purus eget rutrum. Cras urna lacus, consectetur ut erat sed, commodo gravida mauris. Sed eu vulputate sapien. Nulla consectetur efficitur congue.',
+          'L’objectif de l’application est d’offrir un parcours ludique d’apprentissage autour des principaux enjeux de la transition écologique. L’application sera développée dans une approche transmédia et “serious game”, principalement à destination des écoles secondaires et des jeunes parents, mais sera également accessible et déclinable pour les  entreprises.',
+        buttonText: 'En savoir plus',
+        buttonLink: 'https://decideetvous.medium.com/app-mobile-duolingo-de-l%C3%A9cologie-33af392a0eed'
       },
       {
-        icon: Support,
-        title: 'Support',
+        icon: ComicImage,
+        title: 'Bande Dessinée',
         text:
-          'Vivamus eleifend nec purus eget rutrum. Cras urna lacus, consectetur ut erat sed, commodo gravida mauris. Sed eu vulputate sapien. Nulla consectetur efficitur congue.',
+          'Anissa, adolescente de 14 ans, est embarquée par Gérard le fée, moustachu gentleman, dans des aventures écologiques et loufoques.',
+        buttonText: 'En savoir plus',
+        buttonLink: 'https://decideetvous.medium.com/bande-dessin%C3%A9e-dec-de-8f5ca267c35b'
+      },
+      {
+        icon: NudgeImage,
+        title: 'Outils Nudge',
+        text: 'Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant les y contraindre. Nous proposons d’installer des nudges pour motiver les comportements respectueux pour l’environnement dans les écoles et les entreprises.',
+        buttonText: 'En savoir plus',
+        buttonLink: 'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2'
       },
     ],
-    cta: {
-      label: 'Request a free demo',
-      href:
-        'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
-    },
+    /* cta: {
+       label: 'En savoir plus',
+       href:
+         'To Do',
+     }, */
   },
   about: {
     img: {
       src: AboutUs,
       srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
     },
-    title: 'About us',
+    title: 'À propos',
     text:
-      'Nunc nec ultricies quam. Integer iaculis erat id leo consequat ultricies. Pellentesque mattis ultricies rhoncus. Maecenas vehicula efficitur sagittis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam laoreet at erat sit amet efficitur. Nam interdum tellus molestie, elementum felis in, consectetur ipsum. Aenean justo dolor, pretium nec dui eget, vulputate ullamcorper dolor.',
-    cta: {
-      label: 'Learn more bout us',
+      'Le projet DEC!DE et vous est né de l’envie de Marion de combiner ses connaissances des outils nudges et sa volonté de faire face à la crise environnementale et climatique. Entre septembre 2018 et octobre 2020, Marion travaille seule à l’élaboration de son projet. Elle en imagine les lignes directrices et crée, en collaboration avec Plumea, l’identité graphique de DEC!DE et vous. “Seul on va plus vite, ensemble on va plus loin”, ça Marion l’a bien compris ! C’est pourquoi, en octobre 2020, Manon et Guillaume rejoignent l’aventure. Fort.es de leurs expériences personnelles et complémentaires, iels redéfinissent et complètent le projet DEC!DE. En décembre 2020, l’asbl est créée. Six mois après la création de l’asbl, la petite équipe s’agrandit avec l’arrivée de Marceline dans l’équipe.',
+    /*cta: {
+      label: 'En savoir plus',
       href:
-        'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
-    },
+        'To Do',
+    }, */
   },
   team: {
-    title: 'Meet our team',
+    title: "L'équipe",
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu magna pharetra sem ullamcorper bibendum quis et mauris. Phasellus tincidunt iaculis porttitor. Sed ut mi varius, gravida nulla eget, bibendum est. Ut auctor nec erat vitae placerat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-    cta: {
-      label: 'Contact us',
-      href:
-        'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
-    },
+      { __html: "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association." },
+    // cta: {
+    //   label: 'Contactez nous',
+    //   to: 'contact'
+    // },
     people: [
       {
         avatar: {
           src: Avatar1,
           srcSet: `${Avatar1} 1x, ${Avatar12x} 2x`,
         },
-        name: 'Timothy Wilson',
-        position: 'Co-Founder, CEO',
+        name: 'Guillaume Gustin',
+        position: "Développeur Full-Stack",
+        desc: "Web - App Mobile",
         social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
+          linkedin: 'https://www.linkedin.com/in/guillaume-gustin/'
         },
       },
       {
@@ -205,12 +226,11 @@ export default {
           src: Avatar2,
           srcSet: `${Avatar2} 1x, ${Avatar22x} 2x`,
         },
-        name: 'Bernard Nguyen',
-        position: 'Co-Founder, CEO',
+        name: 'Marion De Backer',
+        position: "Co-fondatrice & Eco-conseillère",
+        desc: "Conception Nudges",
         social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
+          linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/'
         },
       },
       {
@@ -218,12 +238,11 @@ export default {
           src: Avatar3,
           srcSet: `${Avatar3} 1x, ${Avatar32x} 2x`,
         },
-        name: 'Bessie Richards',
-        position: 'Co-Founder, CEO',
+        name: 'Manon Berhin',
+        position: 'Co-fondatrice & Eco-conseillère',
+        desc: "Animations",
         social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
+          linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/'
         },
       },
       {
@@ -231,64 +250,11 @@ export default {
           src: Avatar4,
           srcSet: `${Avatar4} 1x, ${Avatar42x} 2x`,
         },
-        name: 'Judith Black',
-        position: 'Co-Founder, CEO',
+        name: 'Marceline Prevost',
+        position: 'Designeuse industrielle et sociale',
+        desc: "Conception Nudges",
         social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
-        },
-      },
-      {
-        avatar: {
-          src: Avatar5,
-          srcSet: `${Avatar5} 1x, ${Avatar52x} 2x`,
-        },
-        name: 'Robert Edwards',
-        position: 'Co-Founder, CEO',
-        social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
-        },
-      },
-      {
-        avatar: {
-          src: Avatar6,
-          srcSet: `${Avatar6} 1x, ${Avatar62x} 2x`,
-        },
-        name: 'Dianne Robertson',
-        position: 'Co-Founder, CEO',
-        social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
-        },
-      },
-      {
-        avatar: {
-          src: Avatar7,
-          srcSet: `${Avatar7} 1x, ${Avatar72x} 2x`,
-        },
-        name: 'Shane Black',
-        position: 'Co-Founder, CEO',
-        social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
-        },
-      },
-      {
-        avatar: {
-          src: Avatar8,
-          srcSet: `${Avatar8} 1x, ${Avatar82x} 2x`,
-        },
-        name: 'Nathan Fox',
-        position: 'Co-Founder, CEO',
-        social: {
-          linkedin: '#',
-          twitter: '#',
-          skype: '#',
+          linkedin: 'https://www.linkedin.com/in/marceline-prevost-770537b8/'
         },
       },
     ],
@@ -395,7 +361,8 @@ export default {
     },
   },
   blog: {
-    title: 'Latest news',
+    title: 'Actus',
+    text: 'TO DO: sélectionner posts insta (Marion ? :))',
     articles: [
       {
         url: '#',
@@ -436,103 +403,98 @@ export default {
       },
     ],
     cta: {
-      label: 'Read all news on Medium',
+      label: 'Voir toutes les publications',
       href:
-        'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
+        'https://www.instagram.com/decide_etvous/',
     },
   },
   contact: {
-    title: 'Contact us',
+    title: 'Contact',
     sections: [
       {
         icon: MapMarker,
-        text: textToMultiline`5263 Sunset St undefined Salinas,\nWest Virginia 25420\nUnited States`,
+        text: textToMultiline`Avenue de la Charmille 10/34\n1200 Woluwe-Saint-Lambert\nBelgique`,
       },
       {
         icon: MobilePhone,
-        text: '(219) 555-0114',
+        text: '(0) 478 48 53 02',
       },
       {
         icon: PaperAirplane,
-        text: 'nathan.roberts@example.com',
+        text: 'contact@decideetvous.com',
       },
     ],
     socialLinks: [
       {
         icon: FacebookF,
-        href: 'https://mypags.app',
+        href: 'https://www.facebook.com/decideetvous',
         title: 'Facebook',
       },
       {
         icon: Instagram,
-        href: 'https://mypags.app',
+        href: 'https://www.instagram.com/decide_etvous/',
         title: 'Instagram',
       },
-      {
+      /*{
         icon: Twitter,
         href: 'https://mypags.app',
         title: 'Twitter',
-      },
+      },*/
       {
         icon: Linkedin,
-        href: 'https://mypags.app',
+        href: 'https://www.linkedin.com/company/dec-de/',
         title: 'Linkedin',
       },
     ],
     mailer: {
-      title: 'Request a demo',
-      cta: 'Send request',
+      title: 'Envie de nous contacter ?',
+      cta: 'Envoyer',
       validationSchema: Yup.object({
         name: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
-        company: Yup.string().required('Required'),
+        // Message
+        message: Yup.string().required('Required'),
         email: Yup.string().email('Must be an email').required('Required'),
-        date: Yup.string().required('Required'),
+        // date: Yup.string().required('Required'),
       }),
       // eslint-disable-next-line no-undef
       onSubmit: values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
       fields: [
         {
           name: 'name',
-          label: 'First name',
-          placeholder: 'ie. John Doe',
-          initialValue: '',
-        },
-        {
-          name: 'company',
-          label: 'Company',
-          placeholder: 'i.e. Best Trade Ltd.',
+          label: 'Nom',
+          placeholder: 'Martine Dupont',
           initialValue: '',
         },
         {
           name: 'email',
           label: 'E-mail',
-          placeholder: 'i.e. john.doe@email.com',
+          placeholder: 'martine.dupont@email.com',
           type: 'email',
           initialValue: '',
         },
-        {
-          name: 'date',
-          label: 'Date and time',
-          placeholder: 'Choose',
-          type: 'datetime-local',
-          initialValue: '',
-        },
+        /* {
+           name: 'date',
+           label: 'Date and time',
+           placeholder: 'Choose',
+           type: 'datetime-local',
+           initialValue: '',
+         },*/
       ],
     },
   },
   footer: {
     links: [
       {
-        label: 'Disclaimer',
+        label: '', // Politique de confidentialité
         href:
-          'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
+          '',
       },
       {
-        label: 'Terms & conditions',
+        label: 'Engineered by G. Gustin',
         href:
-          'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',
+          'https://guillaumegustin.com/',
       },
     ],
   },
-  copyright: '© 2020 Coffeecream Themes',
+  copyright: '© DEC!DE ASBL',
 };

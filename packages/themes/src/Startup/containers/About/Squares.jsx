@@ -60,7 +60,7 @@ const Squares = () => (
       <Square
         color="accent"
         zIndex={2}
-        right={-48}
+        right={-18}
         bottom={36}
         width={80}
         height={80}
@@ -69,7 +69,7 @@ const Squares = () => (
       <Square
         color="secondary"
         zIndex={2}
-        right={-55}
+        right={40}
         top={205}
         width={33}
         height={33}

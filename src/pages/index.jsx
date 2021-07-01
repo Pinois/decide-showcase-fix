@@ -28,7 +28,7 @@ const Startup = ({ url }) => (
       <meta name="theme-color" content={theme.colors.primary} />
       <meta property="og:image" content={`${url}${preview}`} />
     </Helmet>
-    <SEO title="Startup" />
+    <SEO title="DEC!DE" />
 
     <Sticky style={{ zIndex: 999, position: 'relative' }}>
       <Navbar />
@@ -38,8 +38,8 @@ const Startup = ({ url }) => (
     <Services name="services" />
     <About name="about" />
     <Team name="team" />
-    <Pricing name="pricing" />
-    <Blog name="blog" />
+    {/* <Pricing name="pricing" />
+    <Blog name="blog" /> */}
     <Contact name="contact" />
 
     <Copyright />

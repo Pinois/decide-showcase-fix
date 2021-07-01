@@ -41,9 +41,9 @@ const About = ({
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
           <Typography {...TextProps}>{text}</Typography>
-          <Button {...CtaProps} {...cta}>
+          {/* <Button {...CtaProps} {...cta}>
             {cta.label}
-          </Button>
+          </Button> */}
         </Fade>
       </Box>
     </Container>
@@ -148,13 +148,17 @@ About.defaultProps = {
   },
   ImageProps: {
     maxWidth: '100%',
+    pl: 3,
+    pr: 3
   },
   CaptionProps: {
     textAlign: {
       _: 'center',
       lg: 'left',
     },
-    maxWidth: 544,
+    maxWidth: 644,
+    pl: 3,
+    pr: 3
   },
   TitleProps: {
     as: 'h2',
@@ -163,6 +167,7 @@ About.defaultProps = {
     mb: 4,
   },
   TextProps: {
+    textAlign: 'justify',
     color: 'gray.1',
     mb: 48,
   },

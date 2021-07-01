@@ -108,12 +108,11 @@ Copyright.defaultProps = {
     display: 'flex',
   },
   LinkListItemProps: {
-    mx: 3,
+    mx: 3
   },
   LinkProps: {
     as: 'a',
-    variant: 'body2',
-    color: 'gray.3',
+    variant: 'body2'
   },
 };
 
