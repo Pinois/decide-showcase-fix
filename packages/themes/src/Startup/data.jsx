@@ -463,16 +463,23 @@ export default {
         // date: Yup.string().required('Required'),
       }),
       // eslint-disable-next-line no-undef
-      onSubmit: values => {
+      onSubmit: (values, actions) => {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({ "form-name": "contact", ...values })
         })
-          .then(() => alert("Success!"))
-          .catch(error => alert(error));
+          .then(() => {
+            alert("DEC!DE vous remercie de ce message! A bientôt.");
+            actions.resetForm()
+          })
+          .catch(() => {
+            alert('Error');
+          })
+          .finally(() => actions.setSubmitting(false))
 
         values.preventDefault();
+
       },
       //values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
       fields: [
