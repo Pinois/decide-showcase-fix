@@ -60,6 +60,12 @@ import Article42x from './assets/articles/article-4@2x.jpg';
 import Article5 from './assets/articles/article-5.jpg';
 import Article52x from './assets/articles/article-5@2x.jpg';
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 export default {
   title: 'DEC!DE & Vous',
   navbar: {

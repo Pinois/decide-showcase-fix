@@ -82,7 +82,7 @@ const Contact = ({
             <Fade cascade bottom duration={600}>
               <div>
                 {mailer.fields.map(field => (
-                  <Input key={field.name} {...field} />
+                  <Input key={field.name} name={field.name} {...field} />
                 ))}
               </div>
               <Input multiline name="message" key="message" label="Message" placeholder="Votre message" />
