@@ -18,7 +18,7 @@ import {
   Contact,
 } from '@pagerland/themes/src/Startup/containers';
 
-import preview from '@pagerland/themes/src/Startup/assets/preview.jpg';
+import preview from '@pagerland/themes/src/Startup/assets/preview.png';
 
 import SEO from '../components/SEO';
 
@@ -52,7 +52,7 @@ Startup.propTypes = {
 };
 
 Startup.defaultProps = {
-  url: 'src/images/icon.png',
+  url: 'https://decideetvous.com/',
 };
 
 export default Startup;
