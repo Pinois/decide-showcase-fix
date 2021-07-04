@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Sticky from 'react-sticky-el';
 
-
 import { Helmet } from 'react-helmet';
 
 import Theme, { theme } from '@pagerland/themes/src/Startup';
@@ -52,7 +51,7 @@ Startup.propTypes = {
 };
 
 Startup.defaultProps = {
-  url: PropTypes.string,
+  url: 'https://decideetvous.com/',
 };
 
 export default Startup;
