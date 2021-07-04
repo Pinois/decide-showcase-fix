@@ -52,7 +52,7 @@ Startup.propTypes = {
 };
 
 Startup.defaultProps = {
-  url: preview,
+  url: PropTypes.string,
 };
 
 export default Startup;
