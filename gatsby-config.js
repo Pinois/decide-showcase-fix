@@ -3,7 +3,8 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: 'DEC!DE',
-    description: 'DEC!DE ASBL',
+    description:
+      'DEC!DE propose un programme d’éducation à l’environnement qui a pour objectif d’induire des changements de comportement au travers d’une démarche transmédia.',
     author: 'DEC!DE ASBL',
   },
   pathPrefix: process.env.GATSBY_APP_DIR || '',
@@ -40,7 +41,7 @@ module.exports = {
         name: 'DEC!DE',
         short_name: 'DEC!DE',
         start_url: '/',
-        background_color: `#00303D`,
+        background_color: `#ffff`,
         theme_color: `#f2931d`,
         display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.

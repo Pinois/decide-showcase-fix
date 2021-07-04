@@ -112,7 +112,8 @@ Copyright.defaultProps = {
   },
   LinkProps: {
     as: 'a',
-    variant: 'body2'
+    variant: 'body2',
+    color: 'gray.3'
   },
 };
 
