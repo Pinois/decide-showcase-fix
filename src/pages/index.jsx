@@ -24,24 +24,21 @@ import SEO from '../components/SEO';
 const Startup = ({ url }) => (
   <Theme>
     <Helmet>
-      <link href={theme.typography.googleFont} rel="stylesheet" />
-      <meta name="theme-color" content={theme.colors.primary} />
-      <meta property="og:image" content={`${url}${preview}`} />
+      <link href={theme.typography.googleFont} rel='stylesheet' />
+      <meta name='theme-color' content={theme.colors.primary} />
+      <meta property='og:image' content={`${url}${preview}`} />
     </Helmet>
-    <SEO title="DEC!DE" />
-
+    <SEO title='DEC!DE' />
     <Sticky style={{ zIndex: 999, position: 'relative' }}>
       <Navbar />
     </Sticky>
-
-    <Welcome name="" />
-    <Services name="services" />
-    <About name="about" />
-    <Team name="team" />
+    <Welcome name='' />
+    <Services name='services' />
+    <About name='about' />
+    <Team name='team' />
     {/* <Pricing name="pricing" />
     <Blog name="blog" /> */}
-    <Contact name="contact" />
-
+    <Contact name='contact' />
     <Copyright />
   </Theme>
 );
