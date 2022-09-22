@@ -44,8 +44,10 @@ const Team = ({
       <Box {...CaptionProps}>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text}>
-          </Typography>
+          <Typography
+            {...TextProps}
+            dangerouslySetInnerHTML={text}
+          ></Typography>
         </Fade>
       </Box>
       <Grid {...GridProps}>
@@ -82,7 +84,7 @@ const Team = ({
         </Button>
       </Fade> */}
     </Container>
-  </Box >
+  </Box>
 );
 
 Team.propTypes = {
@@ -169,7 +171,7 @@ Team.propTypes = {
   cta: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
-    }),
+    })
   ),
   /**
    * List of team members
@@ -184,7 +186,7 @@ Team.propTypes = {
         twitter: PropTypes.string,
         skype: PropTypes.string,
       }),
-    }),
+    })
   ),
 };
 

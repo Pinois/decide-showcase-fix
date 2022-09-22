@@ -36,10 +36,10 @@ import Avatar72x from './assets/avatars/avatar_sarah.png';
 
 // import Estimations from './assets/estimation.svg';
 // mport Ecommerce from './assets/ecommerce.svg';
-import AnimationsImage from './assets/AnimationsImage.jpeg';
+import AnimationsImage from './assets/animations-decide.jpeg';
 import ComicImage from './assets/ComicImageAndTeam.png';
 import AppMockup from './assets/app_DECIDE-min.gif';
-import NudgeImage from './assets/NudgeImage.jpeg';
+import NudgeImage from './assets/nudge-decide.jpeg';
 
 // import Support from './assets/support.svg';
 
@@ -113,8 +113,10 @@ export default {
   },
   welcome: {
     title: 'DEC!DE: Le coup de pouce dont l’écologie a besoin',
-    text:
-      'DEC!DE propose un parcours d’éducation à l’environnement qui a pour but de conscientiser aux enjeux liés à la crise climatique et de la biodiversité et d’encourager des changements de comportement.',
+    text: {
+      __html:
+        '<p>DEC!DE propose un parcours d’éducation à l’environnement qui a pour but de <strong>conscientiser</strong> aux enjeux liés à la crise climatique et de la biodiversité et d’<strong>encourager</strong> des changements de comportement.</p>',
+    },
     actions: [
       {
         label: 'Voir nos activités',
@@ -147,13 +149,19 @@ export default {
     title: 'Activités',
     // text:
     //   'Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs “coup de pouce”.',
+    text: {
+      __html:
+        '<p style="text-align: center">Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! <ul style="list-style: none;"> Comment? <li>1. En comprenant les enjeux environnementaux pour mieux agir.</li> <li>2. En créant de nouveaux récits</li> <li>3. En nous aidant de dispositifs “coup de pouce”.</li></ul></p>',
+    },
 
     services: [
       {
         icon: AnimationsImage,
         title: 'Animations de sensibilisation et de solutions',
-        text:
-          "Chez DEC!DE, nous sommes convaincu.es que des changements de comportements ne peuvent s'opérer que si les enjeux liés à ces comportements sont correctement compris. C'est pourquoi nous accordons une place primordiale à la sensibilisation et à l'information de nos publics ainsi qu’à la cocréation de solutions.",
+        text: {
+          __html:
+            '<p>DEC!DE propose plusieurs modules d’animation aux écoles et aux entreprises, chacun traitant d’une thématique spécifique. Chaque module peut être choisi seul ou inclu au sein d’un parcours composé de deux animations ou plus. <br/> Quelque soit la formule envisagée, nos animations ont toutes un double objectif : <ul><li>rendre compréhensible les enjeux liés à la crise climatique et de la biodiversité;</li><li>imaginer des solutions adaptées aux besoins de chacun.e.</li></ul></p>',
+        },
         buttonText: 'En savoir plus',
         buttonLink:
           'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54',
@@ -161,8 +169,10 @@ export default {
       {
         icon: NudgeImage,
         title: 'Outils Nudge',
-        text:
-          'Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant les y contraindre. Nous proposons d’installer des nudges pour motiver les comportements respectueux pour l’environnement dans les écoles et les entreprises.',
+        text: {
+          __html:
+            '<p>Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant rendre ce comportement contraignant. Nous nous proposons d’installer des nudges pour motiver les comportements respectueux de l’environnement dans les écoles, les entreprises et les espaces publics.</p>',
+        },
         buttonText: 'En savoir plus',
         buttonLink:
           'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2',
@@ -179,9 +189,9 @@ export default {
       src: AboutUs,
       srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
     },
-    title: 'À propos',
+    title: 'L’histoire de DEC!DE',
     text:
-      'Le projet DEC!DE et vous est né de l’envie de Marion de combiner ses connaissances des outils nudges et sa volonté de faire face à la crise environnementale et climatique. Entre septembre 2018 et octobre 2020, Marion travaille seule à l’élaboration de son projet. Elle en imagine les lignes directrices et crée, en collaboration avec Plumea, l’identité graphique de DEC!DE et vous. “Seul on va plus vite, ensemble on va plus loin”, ça Marion l’a bien compris ! C’est pourquoi, en octobre 2020, Manon et Guillaume rejoignent l’aventure. Fort.es de leurs expériences personnelles et complémentaires, iels redéfinissent et complètent le projet DEC!DE. En décembre 2020, l’asbl est créée. Six mois après la création de l’asbl, la petite équipe s’agrandit avec l’arrivée de Marceline dans l’équipe.',
+      'Le projet DEC!DE trouve ses racines dans l’envie de Marion d’associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. En septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l’incubateur “Boost Your Project”, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. En octobre 2020, Marion fait la rencontre de Manon qui partage le souhait similaire de conscientiser les élèves aux enjeux environnementaux et qui désire également développer un projet de sensibilisation. Autour d’un café, elles décident d’unir leurs forces et s’associent. Ensemble, elles redessinent les lignes directrices de DEC!DE et vous, nourries des expertises et des envies de Manon. En décembre 2020, l’union s’officialise ;  DEC!DE et vous est fondée. Au fil de mois, l’équipe s’agrandit davantage avec l’arrivée de Guillaume Gustin qui mettra son expertise de développeur au profit de l’asbl jusqu’en décembre 2021 et de Marceline ensuite, passionnée par le design social à partir de mai 2021. Aujourd’hui, l’asbl est composée de trois membres : Marion, Manon et Marceline. ',
     /*cta: {
       label: 'En savoir plus',
       href:
@@ -390,7 +400,7 @@ export default {
     sections: [
       {
         icon: MapMarker,
-        text: textToMultiline`Avenue de la Charmille 10/34\n1200 Woluwe-Saint-Lambert\nBelgique`,
+        text: textToMultiline`26, rue d’Edimbourg\n1050 Bruxelles\nBelgique`,
       },
       {
         icon: MobilePhone,

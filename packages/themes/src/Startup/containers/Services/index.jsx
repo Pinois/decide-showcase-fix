@@ -34,28 +34,7 @@ const Services = ({
       <Box {...CaptionProps}>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps}>{text}</Typography>
-          <Typography {...TextProps}>
-            <p>
-              Aujourd’hui, les scientifiques sont unanimes : nous sommes
-              responsables du dérèglement climatique et de la disparition
-              massive de la biodiversité.
-              <br />
-              La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire
-              partie de la solution!
-            </p>
-          </Typography>
-          <Typography {...TextProps}>
-            <p>
-              Comment? <br />
-              1. En comprenant les enjeux environnementaux pour mieux agir
-              <br />
-              2. En créant de nouveaux récits
-              <br />
-              3. En nous aidant de dispositifs “coup de pouce”
-              <br />
-            </p>
-          </Typography>
+          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Fade>
       </Box>
       <Grid {...GridProps}>
@@ -64,7 +43,10 @@ const Services = ({
             <Box {...ServiceItemProps}>
               <Img src={service.icon} {...ServiceIconProps} />
               <Typography {...ServiceTitleProps}>{service.title}</Typography>
-              <Typography {...ServiceTextProps}>{service.text}</Typography>
+              <Typography
+                {...ServiceTextProps}
+                dangerouslySetInnerHTML={service.text}
+              />
               <Button
                 {...CtaProps}
                 onClick={(e) => {
