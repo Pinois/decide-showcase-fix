@@ -10,6 +10,7 @@ import Grid from '@pagerland/common/src/components/Grid';
 import Img from '@pagerland/common/src/components/Img';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
+import { RoundedImage } from '../About/styled.components';
 
 const Services = ({
   name,
@@ -41,7 +42,7 @@ const Services = ({
         {services.map((service, key) => (
           <Fade bottom cascade duration={600} delay={key * 100} key={key}>
             <Box {...ServiceItemProps}>
-              <Img src={service.icon} {...ServiceIconProps} />
+              <RoundedImage src={service.icon} {...ServiceIconProps} />
               <Typography {...ServiceTitleProps}>{service.title}</Typography>
               <Typography
                 {...ServiceTextProps}
@@ -190,27 +191,29 @@ Services.defaultProps = {
     gridGap: '40px',
     maxWidth: 1188,
     mx: 'auto',
-    mb: 4,
+    // mb: 4,
   },
   ServiceIconProps: {
     display: 'block',
     mx: 'auto',
     mb: 4,
-    height: 400,
+    maxHeight: 400,
   },
   ServiceTitleProps: {
     textAlign: 'center',
     as: 'h3',
     variant: 'h3',
     mb: 4,
-    p: 2,
+    pl: 20,
+    // p: 20,
     m: 2,
   },
   ServiceTextProps: {
+    // maxWidth: 644,
     color: 'gray.1',
+    // mb: 4,
     textAlign: 'justify',
-    p: 2,
-    m: 2,
+    // p: 2,
   },
   CtaProps: {
     textAlign: 'center',

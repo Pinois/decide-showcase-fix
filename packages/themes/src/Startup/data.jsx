@@ -17,6 +17,11 @@ import * as Yup from 'yup';
 //import Welcome2x from './assets/welcome@2x.jpg';
 import AboutUs from './assets/about.jpeg';
 import AboutUs2x from './assets/about.jpeg';
+
+import MarionPortait from './assets/marion-decide.jpeg';
+import ManonPortrait from './assets/manon-decide.jpeg';
+import MarsPortrait from './assets/mars-decide.jpeg';
+
 import LandingImage from './assets/landing_image.jpeg';
 
 import Avatar1 from './assets/avatars/avatar_gustin.jpeg';
@@ -151,7 +156,7 @@ export default {
     //   'Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs “coup de pouce”.',
     text: {
       __html:
-        '<p style="text-align: center">Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! <ul style="list-style: none;"> Comment? <li>1. En comprenant les enjeux environnementaux pour mieux agir.</li> <li>2. En créant de nouveaux récits</li> <li>3. En nous aidant de dispositifs “coup de pouce”.</li></ul></p>',
+        '<p style="text-align: center"><h3 style="text-align:center;color: #aebdb4"> <b>Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution!</b></h3> <ul style="list-style: none;"> Comment? <li>1. En comprenant les enjeux environnementaux pour mieux agir.</li> <li>2. En créant de nouveaux récits</li> <li>3. En nous aidant de dispositifs “coup de pouce”.</li></ul></p>',
     },
 
     services: [
@@ -191,7 +196,7 @@ export default {
     },
     title: 'L’histoire de DEC!DE',
     text:
-      'Le projet DEC!DE trouve ses racines dans l’envie de Marion d’associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. En septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l’incubateur “Boost Your Project”, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. En octobre 2020, Marion fait la rencontre de Manon qui partage le souhait similaire de conscientiser les élèves aux enjeux environnementaux et qui désire également développer un projet de sensibilisation. Autour d’un café, elles décident d’unir leurs forces et s’associent. Ensemble, elles redessinent les lignes directrices de DEC!DE et vous, nourries des expertises et des envies de Manon. En décembre 2020, l’union s’officialise ;  DEC!DE et vous est fondée. Au fil de mois, l’équipe s’agrandit davantage avec l’arrivée de Guillaume Gustin qui mettra son expertise de développeur au profit de l’asbl jusqu’en décembre 2021 et de Marceline ensuite, passionnée par le design social à partir de mai 2021. Aujourd’hui, l’asbl est composée de trois membres : Marion, Manon et Marceline. ',
+      'Le projet DEC!DE trouve ses racines dans l’envie de Marion d’associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. En septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l’incubateur “Boost Your Project”, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. En octobre 2020, Marion fait la rencontre de Manon qui partage le souhait similaire de conscientiser les élèves aux enjeux environnementaux et qui désire également développer un projet de sensibilisation. Autour d’un café, elles décident d’unir leurs forces et s’associent. Ensemble, elles redessinent les lignes directrices de DEC!DE et vous, nourries des expertises et des envies de Manon. En décembre 2020, l’union s’officialise ;  DEC!DE et vous est fondée.      Au fil de mois, l’équipe s’agrandit davantage avec l’arrivée de Guillaume Gustin qui mettra son expertise de développeur au profit de l’asbl jusqu’en décembre 2021 et de Marceline ensuite, passionnée par le design social à partir de mai 2021. Aujourd’hui, l’asbl est composée de trois membres : Marion, Manon et Marceline.',
     /*cta: {
       label: 'En savoir plus',
       href:
@@ -202,7 +207,21 @@ export default {
     title: "L'équipe",
     text: {
       __html:
-        "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association.",
+        "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
+      // __html:
+      //   "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association.",
+    },
+    imgMarion: {
+      src: AboutUs,
+      srcSet: `${MarionPortait} 1x, ${MarionPortait} 2x`,
+    },
+    imgManon: {
+      src: AboutUs,
+      srcSet: `${ManonPortrait} 1x, ${ManonPortrait} 2x`,
+    },
+    imgMars: {
+      src: AboutUs,
+      srcSet: `${MarsPortrait} 1x, ${MarsPortrait} 2x`,
     },
     // cta: {
     //   label: 'Contactez nous',
