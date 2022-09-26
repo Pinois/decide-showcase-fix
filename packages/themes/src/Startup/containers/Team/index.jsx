@@ -350,6 +350,7 @@ Team.defaultProps = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    mb: 50,
     flexDirection: {
       _: 'column',
       lg: 'row',
