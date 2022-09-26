@@ -181,7 +181,6 @@ const Team = ({
       </Container>
 
       <Container>
-        {/* <SquaresAlternative /> */}
         <Typography variant='h3' mt={100} mb={20}>
           Le Conseil d’Administration
         </Typography>
