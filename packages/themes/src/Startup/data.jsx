@@ -176,7 +176,7 @@ export default {
         title: 'Outils Nudge',
         text: {
           __html:
-            '<p>Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant rendre ce comportement contraignant. Nous nous proposons d’installer des nudges pour motiver les comportements respectueux de l’environnement dans les écoles, les entreprises et les espaces publics.</p>',
+            '<p>Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant rendre ce comportement contraignant. Nous installons des nudges pour motiver les comportements respectueux de l’environnement dans les écoles, les entreprises et les espaces publics.</p>',
         },
         buttonText: 'En savoir plus',
         buttonLink:

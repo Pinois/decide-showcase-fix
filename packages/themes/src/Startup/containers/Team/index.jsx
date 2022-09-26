@@ -87,12 +87,12 @@ const Team = ({
               Un diplôme en gestion de la communication d'organisation et des
               relations publiques en poche, Marion s'engage dans différents
               projets liés à la lutte contre le changement climatique et décide
-              de compléter sa formation en entamant une formation à l’Institut
-              Eco-Conseil de Namur pour devenir éco-conseillère. En parallèle,
-              elle développe le projet DEC!DE qui prendra son vrai envol grâce à
-              la rencontre avec Manon, en octobre 2020. Passionnée par
-              l’éducation et le concept du nudge, Marion met son expertise au
-              service du développement des outils nudge, de l’animation ainsi
+              de compléter ses connaissances en entamant une formation à
+              l’Institut Eco-Conseil de Namur pour devenir éco-conseillère. En
+              parallèle, elle développe le projet DEC!DE qui prendra son vrai
+              envol grâce à la rencontre avec Manon, en octobre 2020. Passionnée
+              par l’éducation et le concept du nudge, Marion met son expertise
+              au service du développement des outils nudge, de l’animation ainsi
               que de la communication de l’association.
             </Typography>
             <Link href='https://www.linkedin.com/in/marion-de-backer1618/'>
@@ -134,11 +134,11 @@ const Team = ({
               ressent le besoin urgent de se mettre en action. Elle se forme
               alors à l’éco-conseil à l’Institut Eco-Conseil de Namur et c’est
               sa rencontre avec Marion qui fait basculer sa carrière
-              professionnelle puisqu’à deux, elles fondent l’asbl DEC!DE. Forte
-              de son expérience de coordinatrice de projets – qu’elle a acquise
-              lors de sa première vie pro – et de ses connaissances des enjeux
-              climatiques et environnementaux, Manon travaille au développement
-              des animations de l’asbl.
+              professionnelle puisqu’à deux, elles fondent l’asbl DEC!DE et
+              vous. Forte de son expérience de coordinatrice de projets –
+              qu’elle a acquise lors de sa première vie pro – et de ses
+              connaissances des enjeux climatiques et environnementaux, Manon
+              travaille au développement des animations de l’asbl.
             </Typography>
             <Link href='https://www.linkedin.com/in/manon-berhin-0aa82154/'>
               <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
@@ -194,7 +194,7 @@ const Team = ({
           Secrétaire : <strong>Véronique Schmitz</strong>
         </Typography>
         <Typography variant='body1'>
-          Administratrice déléguée : <strong>Marion DeBacker</strong>
+          Administratrice déléguée : <strong>Marion De Backer</strong>
         </Typography>
       </Container>
 
