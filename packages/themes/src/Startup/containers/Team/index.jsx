@@ -59,7 +59,6 @@ const Team = ({
             <RoundedImage {...ImageProps} {...img} />
           </Fade>
         </Box>
-        {/* <Squares /> */}
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
           <Typography
@@ -75,7 +74,6 @@ const Team = ({
           <Fade cascade duration={600}>
             <RoundedImage {...ImageProps} {...imgMarion} />
           </Fade>
-          <Squares />
         </Box>
         <Box {...CaptionProps}>
           <Fade bottom cascade duration={600}>
@@ -114,7 +112,6 @@ const Team = ({
           <Fade cascade duration={600}>
             <RoundedImage {...ImageProps} {...imgManon} />
           </Fade>
-          <Squares />
         </Box>
         <Box
           {...CaptionProps}
@@ -153,7 +150,6 @@ const Team = ({
           <Fade cascade duration={600}>
             <RoundedImage {...ImageProps} {...imgMars} />
           </Fade>
-          <Squares />
         </Box>
         <Box {...CaptionProps}>
           <Fade bottom cascade duration={600}>
@@ -400,9 +396,10 @@ Team.defaultProps = {
   TextProps: {
     color: 'gray.1',
     mb: 4,
-    p: 8,
-    m: 2,
-    mx: 50,
+    mx: {
+      _: 0,
+      md: 50,
+    },
     textAlign: 'justify',
   },
   GridProps: {

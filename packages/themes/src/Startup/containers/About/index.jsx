@@ -35,7 +35,6 @@ const About = ({
         <Fade cascade duration={600}>
           <RoundedImage {...ImageProps} {...img} />
         </Fade>
-        <Squares />
       </Box>
       <Box {...CaptionProps}>
         <Typography {...TitleProps}>{title}</Typography>
@@ -157,7 +156,10 @@ About.defaultProps = {
       lg: 'left',
     },
     maxWidth: 644,
-    ml: 15,
+    ml: {
+      _: 0,
+      md: 20,
+    },
     pl: 3,
     pr: 3,
   },

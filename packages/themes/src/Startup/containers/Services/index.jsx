@@ -194,10 +194,9 @@ Services.defaultProps = {
     // mb: 4,
   },
   ServiceIconProps: {
-    display: 'block',
     mx: 'auto',
     mb: 4,
-    maxHeight: 400,
+    width: '100%',
   },
   ServiceTitleProps: {
     textAlign: 'center',
