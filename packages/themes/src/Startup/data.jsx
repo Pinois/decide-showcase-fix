@@ -510,12 +510,12 @@ export default {
   footer: {
     links: [
       {
-        label: '', // Politique de confidentialité
-        href: '',
+        label: '🚀 by G. Gustin | L. Lepinois',
+        href: 'https://guillaumegustin.com/',
       },
       {
-        label: 'Engineered by G. Gustin',
-        href: 'https://guillaumegustin.com/',
+        label: 'Brewed from Coffeecream',
+        href: '',
       },
     ],
   },
