@@ -514,7 +514,7 @@ export default {
         href: 'https://guillaumegustin.com/',
       },
       {
-        label: 'Brewed from Coffeecream',
+        label: '🎨 by Coffeecream',
         href: '',
       },
     ],
