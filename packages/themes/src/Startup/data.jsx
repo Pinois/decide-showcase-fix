@@ -17,9 +17,12 @@ import * as Yup from 'yup';
 //import Welcome2x from './assets/welcome@2x.jpg';
 import AboutUs from './assets/about.jpeg';
 import AboutUs2x from './assets/about.jpeg';
-import LandingImage from './assets/landing_image.jpeg'
 
+import MarionPortait from './assets/marion-decide.jpeg';
+import ManonPortrait from './assets/manon-decide.jpeg';
+import MarsPortrait from './assets/mars-decide.jpeg';
 
+import LandingImage from './assets/landing_image.jpeg';
 
 import Avatar1 from './assets/avatars/avatar_gustin.jpeg';
 import Avatar12x from './assets/avatars/avatar_gustin.jpeg';
@@ -38,10 +41,10 @@ import Avatar72x from './assets/avatars/avatar_sarah.png';
 
 // import Estimations from './assets/estimation.svg';
 // mport Ecommerce from './assets/ecommerce.svg';
-import AnimationsImage from './assets/AnimationsImage.jpeg';
+import AnimationsImage from './assets/animations-decide.jpeg';
 import ComicImage from './assets/ComicImageAndTeam.png';
 import AppMockup from './assets/app_DECIDE-min.gif';
-import NudgeImage from './assets/NudgeImage.jpeg'
+import NudgeImage from './assets/nudge-decide.jpeg';
 
 // import Support from './assets/support.svg';
 
@@ -62,9 +65,9 @@ import Article52x from './assets/articles/article-5@2x.jpg';
 
 const encode = (data) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 export default {
   title: 'DEC!DE & Vous',
@@ -84,7 +87,7 @@ export default {
       },
       {
         to: 'team',
-        label: 'L\'équipe',
+        label: "L'équipe",
       },
       /*{
         to: 'pricing',
@@ -99,7 +102,6 @@ export default {
         label: 'Contact',
       },
 
-
       /*{
         to: 'contact',
         label: 'Contact',
@@ -110,13 +112,16 @@ export default {
         /*href:
           'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',*/
         label: 'Faire un don',
-        href: 'https://fr.tipeee.com/decide-et-vous'
+        href: 'https://fr.tipeee.com/decide-et-vous',
       },
     ],
   },
   welcome: {
     title: 'DEC!DE: Le coup de pouce dont l’écologie a besoin',
-    text: 'DEC!DE propose un programme d’éducation à l’environnement qui a pour objectif d’induire des changements de comportement au travers d’une démarche transmédia.',
+    text: {
+      __html:
+        '<p>DEC!DE propose un parcours d’éducation à l’environnement qui a pour but de <strong>conscientiser</strong> aux enjeux liés à la crise climatique et de la biodiversité et d’<strong>encourager</strong> des changements de comportement.</p>',
+    },
     actions: [
       {
         label: 'Voir nos activités',
@@ -132,10 +137,6 @@ export default {
     },
     avatars: [
       {
-        src: Avatar1,
-        srcSet: `${Avatar1} 1x, ${Avatar12x} 2x`,
-      },
-      {
         src: Avatar2,
         srcSet: `${Avatar2} 1x, ${Avatar22x} 2x`,
       },
@@ -146,44 +147,40 @@ export default {
       {
         src: Avatar4,
         srcSet: `${Avatar4} 1x, ${Avatar42x} 2x`,
-      }
+      },
     ],
   },
   services: {
     title: 'Activités',
-    text:
-      'DEC!DE a pris le parti de développer une approche transmédia dans le but de créer une expérience pédagogique unique, immersive et ludique. Chaque média pourra être utilisé de manière autonome et constituer un point d’entrée vers l’information. Des “ponts narratifs” pourront être faits, d’un média à l’autre, pour renforcer l’objet de la communication et la diffusion de contenus.',
+    // text:
+    //   'Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs “coup de pouce”.',
+    text: {
+      __html:
+        '<p style="text-align: center"><h3 style="text-align:center;color: #aebdb4"> <b>Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution!</b></h3> <ul style="list-style: none;"> Comment? <li>1. En comprenant les enjeux environnementaux pour mieux agir.</li> <li>2. En créant de nouveaux récits</li> <li>3. En nous aidant de dispositifs “coup de pouce”.</li></ul></p>',
+    },
+
     services: [
       {
         icon: AnimationsImage,
         title: 'Animations de sensibilisation et de solutions',
-        text:
-          "Chez DEC!DE, nous sommes convaincu.es que des changements de comportements ne peuvent s'opérer que si les enjeux liés à ces comportements sont correctement compris. C'est pourquoi nous accordons une place primordiale à la sensibilisation et à l'information de nos publics ainsi qu’à la cocréation de solutions.",
+        text: {
+          __html:
+            '<p>DEC!DE propose plusieurs modules d’animation aux écoles et aux entreprises, chacun traitant d’une thématique spécifique. Chaque module peut être choisi seul ou inclu au sein d’un parcours composé de deux animations ou plus. <br/> Quelque soit la formule envisagée, nos animations ont toutes un double objectif : <ul><li>rendre compréhensible les enjeux liés à la crise climatique et de la biodiversité;</li><li>imaginer des solutions adaptées aux besoins de chacun.e.</li></ul></p>',
+        },
         buttonText: 'En savoir plus',
-        buttonLink: 'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54'
-      },
-      {
-        icon: AppMockup,
-        title: 'App Mobile - "Duolingo de l\'écologie"',
-        text:
-          'L’objectif de l’application est d’offrir un parcours ludique d’apprentissage autour des principaux enjeux de la transition écologique. L’application sera développée dans une approche transmédia et “serious game”, principalement à destination des écoles secondaires et des jeunes parents, mais sera également accessible et déclinable pour les  entreprises.',
-        buttonText: 'En savoir plus',
-        buttonLink: 'https://decideetvous.medium.com/app-mobile-duolingo-de-l%C3%A9cologie-33af392a0eed'
-      },
-      {
-        icon: ComicImage,
-        title: 'Bande Dessinée',
-        text:
-          'Anissa, adolescente de 14 ans, est embarquée par Gérard le fée, moustachu gentleman, dans des aventures écologiques et loufoques.',
-        buttonText: 'En savoir plus',
-        buttonLink: 'https://decideetvous.medium.com/bande-dessin%C3%A9e-dec-de-8f5ca267c35b'
+        buttonLink:
+          'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54',
       },
       {
         icon: NudgeImage,
         title: 'Outils Nudge',
-        text: 'Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant les y contraindre. Nous proposons d’installer des nudges pour motiver les comportements respectueux pour l’environnement dans les écoles et les entreprises.',
+        text: {
+          __html:
+            '<p>Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant rendre ce comportement contraignant. Nous installons des nudges pour motiver les comportements respectueux de l’environnement dans les écoles, les entreprises et les espaces publics.</p>',
+        },
         buttonText: 'En savoir plus',
-        buttonLink: 'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2'
+        buttonLink:
+          'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2',
       },
     ],
     /* cta: {
@@ -197,9 +194,9 @@ export default {
       src: AboutUs,
       srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
     },
-    title: 'À propos',
+    title: 'L’histoire de DEC!DE',
     text:
-      'Le projet DEC!DE et vous est né de l’envie de Marion de combiner ses connaissances des outils nudges et sa volonté de faire face à la crise environnementale et climatique. Entre septembre 2018 et octobre 2020, Marion travaille seule à l’élaboration de son projet. Elle en imagine les lignes directrices et crée, en collaboration avec Plumea, l’identité graphique de DEC!DE et vous. “Seul on va plus vite, ensemble on va plus loin”, ça Marion l’a bien compris ! C’est pourquoi, en octobre 2020, Manon et Guillaume rejoignent l’aventure. Fort.es de leurs expériences personnelles et complémentaires, iels redéfinissent et complètent le projet DEC!DE. En décembre 2020, l’asbl est créée. Six mois après la création de l’asbl, la petite équipe s’agrandit avec l’arrivée de Marceline dans l’équipe.',
+      'Le projet DEC!DE trouve ses racines dans l’envie de Marion d’associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. Entre septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l’incubateur “Boost Your Project”, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. En octobre 2020, Marion fait la rencontre de Manon qui partage le souhait similaire de conscientiser les élèves aux enjeux environnementaux et qui désire également développer un projet de sensibilisation. Autour d’un café, elles décident d’unir leurs forces et s’associent. Ensemble, elles redessinent les lignes directrices de DEC!DE et vous, nourries des expertises et des envies de Manon. En décembre 2020, l’union s’officialise ;  DEC!DE et vous est fondée.      Au fil de mois, l’équipe s’agrandit davantage avec l’arrivée de Guillaume Gustin qui mettra son expertise de développeur au profit de l’asbl jusqu’en décembre 2021 et de Marceline ensuite, passionnée par le design social à partir de mai 2021. Aujourd’hui, l’asbl est composée de trois membres : Marion, Manon et Marceline.',
     /*cta: {
       label: 'En savoir plus',
       href:
@@ -208,8 +205,24 @@ export default {
   },
   team: {
     title: "L'équipe",
-    text:
-      { __html: "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association." },
+    text: {
+      __html:
+        "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
+      // __html:
+      //   "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association.",
+    },
+    imgMarion: {
+      src: AboutUs,
+      srcSet: `${MarionPortait} 1x, ${MarionPortait} 2x`,
+    },
+    imgManon: {
+      src: AboutUs,
+      srcSet: `${ManonPortrait} 1x, ${ManonPortrait} 2x`,
+    },
+    imgMars: {
+      src: AboutUs,
+      srcSet: `${MarsPortrait} 1x, ${MarsPortrait} 2x`,
+    },
     // cta: {
     //   label: 'Contactez nous',
     //   to: 'contact'
@@ -217,26 +230,14 @@ export default {
     people: [
       {
         avatar: {
-          src: Avatar1,
-          srcSet: `${Avatar1} 1x, ${Avatar12x} 2x`,
-        },
-        name: 'Guillaume Gustin',
-        position: "Développeur Full-Stack",
-        desc: "Web - App Mobile",
-        social: {
-          linkedin: 'https://www.linkedin.com/in/guillaume-gustin/'
-        },
-      },
-      {
-        avatar: {
           src: Avatar2,
           srcSet: `${Avatar2} 1x, ${Avatar22x} 2x`,
         },
         name: 'Marion De Backer',
-        position: "Co-fondatrice & Eco-conseillère",
-        desc: "Conception Nudges",
+        position: 'Co-fondatrice & Eco-conseillère',
+        desc: 'Conception Nudges',
         social: {
-          linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/'
+          linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
         },
       },
       {
@@ -246,9 +247,9 @@ export default {
         },
         name: 'Manon Berhin',
         position: 'Co-fondatrice & Eco-conseillère',
-        desc: "Animations",
+        desc: 'Animations',
         social: {
-          linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/'
+          linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
         },
       },
       {
@@ -258,9 +259,9 @@ export default {
         },
         name: 'Marceline Prevost',
         position: 'Designeuse industrielle et sociale',
-        desc: "Conception Nudges",
+        desc: 'Conception Nudges',
         social: {
-          linkedin: 'https://www.linkedin.com/in/marceline-prevost-770537b8/'
+          linkedin: 'https://www.linkedin.com/in/marceline-prevost-770537b8/',
         },
       },
     ],
@@ -410,8 +411,7 @@ export default {
     ],
     cta: {
       label: 'Voir toutes les publications',
-      href:
-        'https://www.instagram.com/decide_etvous/',
+      href: 'https://www.instagram.com/decide_etvous/',
     },
   },
   contact: {
@@ -419,7 +419,7 @@ export default {
     sections: [
       {
         icon: MapMarker,
-        text: textToMultiline`Avenue de la Charmille 10/34\n1200 Woluwe-Saint-Lambert\nBelgique`,
+        text: textToMultiline`26, rue d’Edimbourg\n1050 Bruxelles\nBelgique`,
       },
       {
         icon: MobilePhone,
@@ -456,7 +456,9 @@ export default {
       title: 'Envie de nous contacter ?',
       cta: 'Envoyer',
       validationSchema: Yup.object({
-        name: Yup.string().max(25, 'Must be 25 characters or less').required('Required'),
+        name: Yup.string()
+          .max(25, 'Must be 25 characters or less')
+          .required('Required'),
         // Message
         message: Yup.string().required('Required'),
         email: Yup.string().email('Must be an email').required('Required'),
@@ -464,22 +466,21 @@ export default {
       }),
       // eslint-disable-next-line no-undef
       onSubmit: (values, actions) => {
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "contact", ...values })
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'contact', ...values }),
         })
           .then(() => {
-            alert("DEC!DE vous remercie de ce message! A bientôt.");
-            actions.resetForm()
+            alert('DEC!DE vous remercie de ce message! A bientôt.');
+            actions.resetForm();
           })
           .catch(() => {
             alert('Error');
           })
-          .finally(() => actions.setSubmitting(false))
+          .finally(() => actions.setSubmitting(false));
 
         values.preventDefault();
-
       },
       //values => window.alert(`Form sent with values ${JSON.stringify(values)}`),
       fields: [
@@ -510,13 +511,11 @@ export default {
     links: [
       {
         label: '', // Politique de confidentialité
-        href:
-          '',
+        href: '',
       },
       {
         label: 'Engineered by G. Gustin',
-        href:
-          'https://guillaumegustin.com/',
+        href: 'https://guillaumegustin.com/',
       },
     ],
   },

@@ -34,7 +34,7 @@ const Welcome = ({
       <Box {...CaptionProps}>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps}>{text}</Typography>
+          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
           <Box {...ActionButtonsProps}>
             {actions.map(({ label, ...props }, key) => (
               <Button {...props} key={key}>
@@ -127,7 +127,7 @@ Welcome.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
-    }),
+    })
   ),
   /**
    * List floating of avatars
@@ -214,7 +214,7 @@ Welcome.defaultProps = {
       height: 70,
       bottom: -90,
       left: 90,
-    }
+    },
   ],
   ...data.welcome,
 };

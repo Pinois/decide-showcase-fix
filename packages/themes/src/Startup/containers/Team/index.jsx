@@ -16,6 +16,10 @@ import Skype from '@pagerland/icons/src/monochrome/Skype';
 import Link from '@pagerland/common/src/components/Link';
 import data from '../../data';
 import Avatar from '../../components/Avatar';
+import { RoundedImage } from '../About/styled.components';
+import Background from '../Contact/Background';
+import Squares from '../Welcome/Squares';
+import { default as SquaresAlternative } from '../Contact/Squares';
 
 const Team = ({
   name,
@@ -38,17 +42,159 @@ const Team = ({
   LinkedinIconProps,
   TwitterIconProps,
   SkypeIconProps,
+  ImageWrapperProps,
+  ImageProps,
+  img,
+  imgMarion,
+  imgManon,
+  imgMars,
+  ProfileContainerProps,
+  ProfileImageWrapperProps,
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
       <Box {...CaptionProps}>
+        <Box {...ImageWrapperProps}>
+          <Fade cascade duration={600}>
+            <RoundedImage {...ImageProps} {...img} />
+          </Fade>
+        </Box>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text}>
-          </Typography>
+          <Typography
+            {...TextProps}
+            dangerouslySetInnerHTML={text}
+          ></Typography>
         </Fade>
       </Box>
-      <Grid {...GridProps}>
+
+      {/* Marion */}
+      <Container {...ProfileContainerProps}>
+        <Box {...ProfileImageWrapperProps}>
+          <Fade cascade duration={600}>
+            <RoundedImage {...ImageProps} {...imgMarion} />
+          </Fade>
+        </Box>
+        <Box {...CaptionProps}>
+          <Fade bottom cascade duration={600}>
+            <Typography {...TitleProps}>Marion De Backer</Typography>
+            <Typography {...PositionProps}>
+              Co-fondatrice & Eco-conseillère
+            </Typography>
+            <Typography {...TextProps}>
+              Un diplôme en gestion de la communication d'organisation et des
+              relations publiques en poche, Marion s'engage dans différents
+              projets liés à la lutte contre le changement climatique et décide
+              de compléter ses connaissances en entamant une formation à
+              l’Institut Eco-Conseil de Namur pour devenir éco-conseillère. En
+              parallèle, elle développe le projet DEC!DE qui prendra son vrai
+              envol grâce à la rencontre avec Manon, en octobre 2020. Passionnée
+              par l’éducation et le concept du nudge, Marion met son expertise
+              au service du développement des outils nudge, de l’animation ainsi
+              que de la communication de l’association.
+            </Typography>
+            <Link href='https://www.linkedin.com/in/marion-de-backer1618/'>
+              <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
+            </Link>
+          </Fade>
+        </Box>
+      </Container>
+
+      {/* Manon */}
+      <Container {...ProfileContainerProps}>
+        <Box
+          {...ProfileImageWrapperProps}
+          order={{
+            _: 1,
+            lg: 2,
+          }}
+        >
+          <Fade cascade duration={600}>
+            <RoundedImage {...ImageProps} {...imgManon} />
+          </Fade>
+        </Box>
+        <Box
+          {...CaptionProps}
+          order={{
+            _: 2,
+            lg: 1,
+          }}
+        >
+          <Fade bottom cascade duration={600}>
+            <Typography {...TitleProps}>Manon Berhin</Typography>
+            <Typography {...PositionProps}>
+              Co-fondatrice & Eco-conseillère
+            </Typography>
+            <Typography {...TextProps}>
+              C’est en 2016 que Manon prend réellement conscience de l’ampleur
+              de la crise climatique. Après un moment de sidération, elle
+              ressent le besoin urgent de se mettre en action. Elle se forme
+              alors à l’éco-conseil à l’Institut Eco-Conseil de Namur et c’est
+              sa rencontre avec Marion qui fait basculer sa carrière
+              professionnelle puisqu’à deux, elles fondent l’asbl DEC!DE et
+              vous. Forte de son expérience de coordinatrice de projets –
+              qu’elle a acquise lors de sa première vie pro – et de ses
+              connaissances des enjeux climatiques et environnementaux, Manon
+              travaille au développement des animations de l’asbl.
+            </Typography>
+            <Link href='https://www.linkedin.com/in/manon-berhin-0aa82154/'>
+              <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
+            </Link>
+          </Fade>
+        </Box>
+      </Container>
+
+      {/* Mars */}
+      <Container {...ProfileContainerProps}>
+        <Box {...ProfileImageWrapperProps}>
+          <Fade cascade duration={600}>
+            <RoundedImage {...ImageProps} {...imgMars} />
+          </Fade>
+        </Box>
+        <Box {...CaptionProps}>
+          <Fade bottom cascade duration={600}>
+            <Typography {...TitleProps}>Marceline Prevost</Typography>
+            <Typography {...PositionProps}>
+              Designeuse industrielle et sociale
+            </Typography>
+            <Typography {...TextProps}>
+              En 2017, Marceline termine sa formation de design industriel à
+              Liège. Déjà durant la conception de projet dans ses études, elle
+              met un point d’honneur à choisir des procédés, des matières
+              premières et développe des objets “éco-responsables” et qui place
+              l’usager au centre du processus. Une fois ce diplôme en poche,
+              elle complète son parcours avec Design Act! (nommé actuellement le
+              SAS), une formation parisienne sur le design social. C’est son
+              expérience dans les processus de création et les divers outils
+              auxquels elle a été initiée qu’elle met à disposition de l’équipe
+              de DEC!DE et de ses publics.
+            </Typography>
+            <Link href='https://www.linkedin.com/in/marceline-prevost-770537b8/'>
+              <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
+            </Link>
+          </Fade>
+        </Box>
+      </Container>
+
+      <Container>
+        <Typography variant='h3' mt={100} mb={20}>
+          Le Conseil d’Administration
+        </Typography>
+        <Typography variant='body1'>
+          Présidente : <strong>Maïté Mannie</strong>
+        </Typography>
+        <Typography variant='body1'>
+          Vice-Président : <strong>Bernard Walschaerts</strong>
+        </Typography>
+        <Typography variant='body1'>
+          Secrétaire : <strong>Véronique Schmitz</strong>
+        </Typography>
+        <Typography variant='body1'>
+          Administratrice déléguée : <strong>Marion De Backer</strong>
+        </Typography>
+      </Container>
+
+      {/* <Grid {...GridProps}>
         {people.map((person, key) => (
           <Fade bottom cascade duration={600} delay={key * 100}>
             <Box {...PersonWrapperProps}>
@@ -75,17 +221,23 @@ const Team = ({
             </Box>
           </Fade>
         ))}
-      </Grid>
+      </Grid> */}
+
       {/* <Fade top cascade duration={600}>
         <Button {...CtaProps} {...cta}>
           {cta.label}
         </Button>
       </Fade> */}
     </Container>
-  </Box >
+  </Box>
 );
 
 Team.propTypes = {
+  ImageWrapperProps: PropTypes.object,
+  /**
+   * Welcome image props
+   * @See @pagerland/common/src/components/Img
+   */
   /**
    * Name of container, can be used for anchors
    */
@@ -169,7 +321,7 @@ Team.propTypes = {
   cta: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
-    }),
+    })
   ),
   /**
    * List of team members
@@ -184,11 +336,35 @@ Team.propTypes = {
         twitter: PropTypes.string,
         skype: PropTypes.string,
       }),
-    }),
+    })
   ),
 };
 
 Team.defaultProps = {
+  ProfileContainerProps: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    mb: 50,
+    flexDirection: {
+      _: 'column',
+      lg: 'row',
+    },
+  },
+  ProfileImageWrapperProps: {
+    position: 'relative',
+    mb: {
+      _: 60,
+      lg: 0,
+    },
+  },
+  ImageWrapperProps: {
+    position: 'relative',
+    mb: {
+      _: 60,
+      lg: 0,
+    },
+  },
   WrapperProps: {
     py: {
       _: 56,
@@ -198,6 +374,9 @@ Team.defaultProps = {
   },
   ContainerProps: {
     textAlign: 'center',
+  },
+  ImageProps: {
+    maxWidth: 300,
   },
   CaptionProps: {
     mb: {
@@ -211,14 +390,16 @@ Team.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 3,
+    mb: 1,
     textAlign: 'center',
   },
   TextProps: {
     color: 'gray.1',
     mb: 4,
-    p: 2,
-    m: 2,
+    mx: {
+      _: 0,
+      md: 50,
+    },
     textAlign: 'justify',
   },
   GridProps: {

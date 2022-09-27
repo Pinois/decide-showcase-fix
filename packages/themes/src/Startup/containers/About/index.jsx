@@ -35,11 +35,10 @@ const About = ({
         <Fade cascade duration={600}>
           <RoundedImage {...ImageProps} {...img} />
         </Fade>
-        <Squares />
       </Box>
       <Box {...CaptionProps}>
+        <Typography {...TitleProps}>{title}</Typography>
         <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
           <Typography {...TextProps}>{text}</Typography>
           {/* <Button {...CtaProps} {...cta}>
             {cta.label}
@@ -113,7 +112,7 @@ About.propTypes = {
   cta: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
-    }),
+    })
   ),
 };
 
@@ -149,7 +148,7 @@ About.defaultProps = {
   ImageProps: {
     maxWidth: '100%',
     pl: 3,
-    pr: 3
+    pr: 3,
   },
   CaptionProps: {
     textAlign: {
@@ -157,8 +156,12 @@ About.defaultProps = {
       lg: 'left',
     },
     maxWidth: 644,
+    ml: {
+      _: 0,
+      md: 20,
+    },
     pl: 3,
-    pr: 3
+    pr: 3,
   },
   TitleProps: {
     as: 'h2',
