@@ -5,13 +5,11 @@ import Box from '@pagerland/common/src/components/Box';
 import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
-import Button from '@pagerland/common/src/components/Button';
 
 import data from '../../data';
-import { RoundedImage } from './styled.components';
+import {RoundedImage} from './styled.components';
 
 import Background from './Background';
-import Squares from './Squares';
 
 const About = ({
   name,
@@ -27,6 +25,10 @@ const About = ({
   CtaProps,
   ImageWrapperProps,
   ImageProps,
+  ValuesProps,
+  SecondContainerProps,
+  SecondImageWrapperProps,
+  SecondCaptionProps,
 }) => (
   <Box name={name} {...WrapperProps}>
     <Background />
@@ -40,9 +42,40 @@ const About = ({
         <Typography {...TitleProps}>{title}</Typography>
         <Fade bottom cascade duration={600}>
           <Typography {...TextProps}>{text}</Typography>
-          {/* <Button {...CtaProps} {...cta}>
-            {cta.label}
-          </Button> */}
+        </Fade>
+      </Box>
+    </Container>
+    <Container {...SecondContainerProps}>
+      <Box {...SecondCaptionProps}>
+        <Typography {...TitleProps}>Nos valeurs</Typography>
+        <Fade bottom cascade duration={600}>
+          <Typography {...TextProps}>
+            <p>
+              ● Reliance : En partant d'une vision transversale, nous
+              visons à (re)créer du lien entre humains et avec leur
+              environnement.
+            </p>
+            <p>
+              ● Créativité : Nous valorisons la créativité dans notre
+              démarche pédagogique afin de développer l&#39;imaginaire
+              de nos publics et de faire émerger des futurs
+              souhaitables.
+            </p>
+            <p>
+              ● Sobriété : Nous cherchons le juste équilibre en
+              questionnant les besoins et en conscientisant les
+              limites.
+            </p>
+          </Typography>
+        </Fade>
+      </Box>
+      <Box {...SecondImageWrapperProps}>
+        <Fade cascade duration={600}>
+          <RoundedImage
+            {...ImageProps}
+            {...data.about.secondImage}
+            alt="DEC!DE"
+          />
         </Fade>
       </Box>
     </Container>
@@ -83,6 +116,7 @@ About.propTypes = {
    * Title text props
    * @See @pagerland/common/src/components/Typography
    */
+  ValuesProps: PropTypes.object,
   TitleProps: PropTypes.object,
   /**
    * Main text props
@@ -114,6 +148,9 @@ About.propTypes = {
       label: PropTypes.node,
     })
   ),
+  SecondContainerProps: PropTypes.object,
+  SecondImageWrapperProps: PropTypes.object,
+  SecondCaptionProps: PropTypes.object,
 };
 
 About.defaultProps = {
@@ -162,6 +199,17 @@ About.defaultProps = {
     },
     pl: 3,
     pr: 3,
+    order: {
+      _: 2,
+      lg: 1,
+    },
+  },
+  ValuesProps: {
+    textAlign: 'center',
+    maxWidth: '800px',
+    width: '100%',
+    mx: 'auto',
+    px: 3,
   },
   TitleProps: {
     as: 'h2',
@@ -179,6 +227,47 @@ About.defaultProps = {
     variant: 'primary',
   },
   ...data.about,
+  SecondContainerProps: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: {
+      _: 'column',
+      lg: 'row',
+    },
+    mt: {
+      _: 4,
+      lg: 6,
+    },
+  },
+  SecondImageWrapperProps: {
+    position: 'relative',
+    mb: {
+      _: 60,
+      lg: 0,
+    },
+    order: {
+      _: 1,
+      lg: 2,
+    },
+  },
+  SecondCaptionProps: {
+    textAlign: {
+      _: 'center',
+      lg: 'left',
+    },
+    maxWidth: 644,
+    ml: {
+      _: 0,
+      md: 20,
+    },
+    pl: 3,
+    pr: 3,
+    order: {
+      _: 2,
+      lg: 1,
+    },
+  },
 };
 
 export default About;
