@@ -12,9 +12,16 @@ const slide = keyframes`
 
 export const SliderContainer = styled(Box)`
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   position: relative;
-  
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+
   &::before,
   &::after {
     content: '';
@@ -25,12 +32,12 @@ export const SliderContainer = styled(Box)`
     width: 150px;
     pointer-events: none;
   }
-  
+
   &::before {
     left: 0;
     background: linear-gradient(to right, white 0%, transparent 100%);
   }
-  
+
   &::after {
     right: 0;
     background: linear-gradient(to left, white 0%, transparent 100%);
@@ -41,7 +48,12 @@ export const SliderTrack = styled(Box)`
   display: flex;
   align-items: center;
   animation: ${slide} 45s linear infinite;
+
   &:hover {
     animation-play-state: paused;
   }
-`; 
+
+  ${SliderContainer}:active & {
+    animation-play-state: paused;
+  }
+`;
