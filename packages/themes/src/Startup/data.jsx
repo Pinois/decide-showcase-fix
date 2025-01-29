@@ -1,5 +1,5 @@
-import { smoothLinkProps } from '@pagerland/common/src/utils';
-import { Link } from 'react-scroll';
+import {smoothLinkProps} from '@pagerland/common/src/utils';
+import {Link} from 'react-scroll';
 
 import textToMultiline from '@pagerland/common/src/utils/textToMultiline';
 
@@ -32,8 +32,10 @@ import Avatar3 from './assets/avatars/avatar_berhin.jpeg';
 import Avatar32x from './assets/avatars/avatar_berhin.jpeg';
 import Avatar4 from './assets/avatars/avatar_mars.jpeg';
 import Avatar42x from './assets/avatars/avatar_mars.jpeg';
-import Avatar5 from './assets/avatars/avatar_losson.jpeg';
-import Avatar52x from './assets/avatars/avatar_losson.jpeg';
+
+import Avatar5 from './assets/avatars/avatar_marie.jpg';
+import Avatar52x from './assets/avatars/avatar_marie.jpg';
+
 import Avatar6 from './assets/avatars/avatar_salva.jpeg';
 import Avatar62x from './assets/avatars/avatar_salva.jpeg';
 import Avatar7 from './assets/avatars/avatar_sarah.png';
@@ -63,9 +65,18 @@ import Article42x from './assets/articles/article-4@2x.jpg';
 import Article5 from './assets/articles/article-5.jpg';
 import Article52x from './assets/articles/article-5@2x.jpg';
 
+import Decide122 from './assets/decide-122.jpg';
+
+import MarionPhoto from './assets/Decide 68.jpg';
+import ManonPhoto from './assets/Decide 79.jpg';
+import MariePhoto from './assets/Decide 89.jpg';
+
 const encode = (data) => {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map(
+      (key) =>
+        encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+    )
     .join('&');
 };
 
@@ -117,10 +128,10 @@ export default {
     ],
   },
   welcome: {
-    title: 'DEC!DE: Le coup de pouce dont l’écologie a besoin',
+    title: "DEC!DE: Le coup de pouce dont l'écologie a besoin",
     text: {
       __html:
-        '<p>DEC!DE propose un parcours d’éducation à l’environnement qui a pour but de <strong>conscientiser</strong> aux enjeux liés à la crise climatique et de la biodiversité et d’<strong>encourager</strong> des changements de comportement.</p>',
+        "<p>Dans le contexte d'urgence environnementale où chaque décision compte, DEC!DE se donne le <i>devoir</i> de <b>vulgariser</b> et de <b>partager</b> les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité, car nous sommes convaincues que tout le monde a le <i>droit</i> de les <b>comprendre</b> afin de s'en emparer et de se <b>mettre en action</b>.</p>",
     },
     actions: [
       {
@@ -145,27 +156,28 @@ export default {
         srcSet: `${Avatar3} 1x, ${Avatar32x} 2x`,
       },
       {
-        src: Avatar4,
-        srcSet: `${Avatar4} 1x, ${Avatar42x} 2x`,
+        src: Avatar5,
+        srcSet: `${Avatar5} 1x, ${Avatar52x} 2x`,
       },
     ],
   },
   services: {
     title: 'Activités',
     // text:
-    //   'Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs “coup de pouce”.',
+    //   'Aujourd'hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c'est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs "coup de pouce".',
     text: {
       __html:
-        '<p style="text-align: center"><h3 style="text-align:center;color: #aebdb4"> <b>Aujourd’hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c’est que nous pouvons aussi DEC!DER de faire partie de la solution!</b></h3> <ul style="list-style: none;"> Comment? <li>1. En comprenant les enjeux environnementaux pour mieux agir.</li> <li>2. En créant de nouveaux récits</li> <li>3. En nous aidant de dispositifs “coup de pouce”.</li></ul></p>',
+        '<p style="text-align: center"><h3 style="text-align:center;color: #aebdb4"> <b>Dans le contexte d\'urgence environnementale où chaque décision compte, DEC!DE se donne le <i>devoir</i> de <b>vulgariser</b> et de <b>partager</b> les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité, car nous sommes convaincues que tout le monde a le <i>droit</i> de les <b>comprendre</b> afin de s\'en emparer et de se <b>mettre en action</b>.</b></h3></p><ul style="list-style: none;">À travers le prisme de la pensée systémique, nos missions sont : <li> - de sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li> <li>- d’accompagner le changement auprès des individus et des collectivités.</li></ul></p>',
     },
 
     services: [
       {
         icon: AnimationsImage,
-        title: 'Animations de sensibilisation et de solutions',
+        title:
+          'Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité',
         text: {
           __html:
-            '<p>DEC!DE propose plusieurs modules d’animation aux écoles et aux entreprises, chacun traitant d’une thématique spécifique. Chaque module peut être choisi seul ou inclu au sein d’un parcours composé de deux animations ou plus. <br/> Quelque soit la formule envisagée, nos animations ont toutes un double objectif : <ul><li>rendre compréhensible les enjeux liés à la crise climatique et de la biodiversité;</li><li>imaginer des solutions adaptées aux besoins de chacun.e.</li></ul></p>',
+            '<p>Dans le cadre de sa mission de sensibilisation, DEC!DE propose différentes formations thématiques à destination des écoles du secondaire supérieur, des hautes écoles et universités, des administrations et des entreprises.<br/><br/>Ces formations ont un triple objectif :<ul><li>rendre compréhensible les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité ;</li><li>identifier les obstacles au changement et les transformer en forces empouvoirantes ;</li><li>imaginer ensemble des solutions adaptées aux besoins et à la réalité de chacun.e.</li></ul></p>',
         },
         buttonText: 'En savoir plus',
         buttonLink:
@@ -173,10 +185,11 @@ export default {
       },
       {
         icon: NudgeImage,
-        title: 'Outils Nudge',
+        title:
+          'Accompagner le changement des individus et des collectivités',
         text: {
           __html:
-            '<p>Le nudge, coup de pouce en français, est une méthode communicationnelle utilisée afin d’orienter un comportement précis sans pour autant rendre ce comportement contraignant. Nous installons des nudges pour motiver les comportements respectueux de l’environnement dans les écoles, les entreprises et les espaces publics.</p>',
+            "<p>Dans le cadre de sa mission d'accompagnement du changement, DEC!DE offre une <b>expertise nudge</b> et des <b>accompagnements personnalisés</b> à destination des entreprises, des administrations et des écoles.</p>",
         },
         buttonText: 'En savoir plus',
         buttonLink:
@@ -194,9 +207,13 @@ export default {
       src: AboutUs,
       srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
     },
-    title: 'L’histoire de DEC!DE',
+    title: "L'histoire de DEC!DE",
     text:
-      'Le projet DEC!DE trouve ses racines dans l’envie de Marion d’associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. Entre septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l’incubateur “Boost Your Project”, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. En octobre 2020, Marion fait la rencontre de Manon qui partage le souhait similaire de conscientiser les élèves aux enjeux environnementaux et qui désire également développer un projet de sensibilisation. Autour d’un café, elles décident d’unir leurs forces et s’associent. Ensemble, elles redessinent les lignes directrices de DEC!DE et vous, nourries des expertises et des envies de Manon. En décembre 2020, l’union s’officialise ;  DEC!DE et vous est fondée.      Au fil de mois, l’équipe s’agrandit davantage avec l’arrivée de Guillaume Gustin qui mettra son expertise de développeur au profit de l’asbl jusqu’en décembre 2021 et de Marceline ensuite, passionnée par le design social à partir de mai 2021. Aujourd’hui, l’asbl est composée de trois membres : Marion, Manon et Marceline.',
+      "Le projet DEC!DE trouve ses racines dans l'envie de Marion d'associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. Entre septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l'incubateur Boost Your Project, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. De son côté, après s'être formée à l'éco-conseil, Manon entame un accompagnement chez Groupe One afin de concrétiser le projet qu'elle a en tête depuis plusieurs mois : sensibiliser aux enjeux climatiques. En octobre 2020, Marion et Manon se rencontrent autour d'un café et les planètes s'alignent, c'est le coup de foudre ! Ensemble, elles redessinent les lignes directrices de DEC!DE et fondent l'asbl en décembre 2020. En septembre 2023, Marie vient renforcer l'équipe. Aujourd'hui, DEC!DE compte deux employées à temps partiel et est parvenue à entretenir des partenariats forts et durables.",
+    secondImage: {
+      src: Decide122,
+      srcSet: `${Decide122} 1x, ${Decide122} 2x`,
+    },
     /*cta: {
       label: 'En savoir plus',
       href:
@@ -207,62 +224,69 @@ export default {
     title: "L'équipe",
     text: {
       __html:
-        "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
-      // __html:
-      //   "<h3 style='text-align:center;color: #aebdb4'> <b>L’équipe de DEC!DE est constituée de quatre membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3> </br> Avec un bachelier en sciences économiques et de gestion et un master en communication, <b style='color:#f2931d'> Marion </b> met son expertise au service du développement des outils nudges et de la communication de l’association. Après avoir travaillé cinq ans et demi aux éditions Dupuis, <b style='color:#f2931d'> Manon </b> entame une reconversion professionnelle et devient éco-conseillère. Forte de ces deux expériences, elle peut apporter son expertise lors du développement de la bande dessinée tout en se focalisant sur la création de contenu ainsi que sur le développement d'animations. <b style='color:#f2931d'> Guillaume </b> est l’ingénieur civil de l’équipe. Spécialisé en développement logiciel, il jongle avec les codes et l’univers transmédia. Sur le côté, il se forme également en tant qu’animateur des Fresque du Climat et du Numérique. <b style='color:#f2931d'> Marceline</b>, elle, est designeuse industrielle et sociale. Ce qui l'intéresse, c’est le processus global de fabrication des objets, de l’extraction de la matière jusqu’à sa fin de vie. Elle met ses compétences organisationnelles et créatrices au service du développement global de l’association.",
+        "<h3 style='text-align:center;color: #aebdb4'> <b>L'équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
     },
-    imgMarion: {
-      src: AboutUs,
-      srcSet: `${MarionPortait} 1x, ${MarionPortait} 2x`,
-    },
-    imgManon: {
-      src: AboutUs,
-      srcSet: `${ManonPortrait} 1x, ${ManonPortrait} 2x`,
-    },
-    imgMars: {
-      src: AboutUs,
-      srcSet: `${MarsPortrait} 1x, ${MarsPortrait} 2x`,
-    },
-    // cta: {
-    //   label: 'Contactez nous',
-    //   to: 'contact'
-    // },
-    people: [
+    members: [
       {
-        avatar: {
-          src: Avatar2,
-          srcSet: `${Avatar2} 1x, ${Avatar22x} 2x`,
-        },
         name: 'Marion De Backer',
         position: 'Co-fondatrice & Eco-conseillère',
-        desc: 'Conception Nudges',
-        social: {
-          linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
+        image: {
+          src: MarionPhoto,
+          srcSet: `${MarionPhoto} 1x, ${MarionPhoto} 2x`,
         },
+        linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
+        description:
+          "Un diplôme en gestion de la communication d'organisation et des relations publiques en poche, <b>Marion</b> s'engage dans différents projets liés à la lutte contre le changement climatique et décide de compléter ses connaissances en entamant une formation à l'Institut Eco-Conseil de Namur pour devenir éco-conseillère. En parallèle, elle développe le projet DEC!DE qui prendra son vrai envol grâce à la rencontre avec Manon, en octobre 2020. Passionnée par l'éducation et le concept du nudge, Marion met son expertise au service du développement des outils nudge, de l'animation ainsi que de la communication de l'association.",
       },
       {
-        avatar: {
-          src: Avatar3,
-          srcSet: `${Avatar3} 1x, ${Avatar32x} 2x`,
-        },
         name: 'Manon Berhin',
         position: 'Co-fondatrice & Eco-conseillère',
-        desc: 'Animations',
-        social: {
-          linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        image: {
+          src: MariePhoto,
+          srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
+        linkedin:
+          'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        description:
+          "C'est en 2016, alors qu'elle travaille encore comme coordinatrice de projet pour une entreprise privée, que <b>Manon</b> prend pleinement conscience de l'ampleur de la crise climatique. Elle s'engage alors dans une démarche zéro déchet et s'éduque aux enjeux environnementaux. Petit à petit, ces préoccupations deviennent centrales et elle ressent le besoin de s'engager davantage. C'est pourquoi, en 2019, elle décide de changer de voie professionnelle et entame une formation d'éco-conseillère à l'Institut d'Éco-Conseil de Namur. Forte des savoirs, des rencontres et des expériences acquises lors de cette formation, elle débute un coaching chez Groupe One afin de concrétiser son projet de sensibilisation aux dérèglements climatiques. Mais c'est bien sa rencontre avec <b>Marion</b> et son projet DEC!DE qui marquera le tournant de sa vie professionnelle. Séduite par le projet, <b>Manon</b> rejoint <b>Marion</b> et à deux, elles créent l'asbl DEC!DE.",
       },
       {
-        avatar: {
-          src: Avatar4,
-          srcSet: `${Avatar4} 1x, ${Avatar42x} 2x`,
+        name: 'Marie Debournoux',
+        position:
+          'Ingénieure agronome et accompagnatrice du changement',
+        image: {
+          src: ManonPhoto,
+          srcSet: `${ManonPhoto} 1x, ${ManonPhoto} 2x`,
         },
-        name: 'Marceline Prevost',
-        position: 'Designeuse industrielle et sociale',
-        desc: 'Conception Nudges',
-        social: {
-          linkedin: 'https://www.linkedin.com/in/marceline-prevost-770537b8/',
-        },
+        linkedin:
+          'https://www.linkedin.com/in/marie-debournoux-96a441155/',
+        description:
+          "<b>Marie</b> a toujours été fascinée par le vivant ! Portée par cet intérêt, elle fait un DUT en Industries Alimentaires et Biologiques puis poursuit son cursus avec un diplôme d'ingénieur Agronome à AgroParisTech, en alternance dans un cabinet de conseil en accompagnement du changement. Pendant 4 années, elle continue aussi de développer ses connaissances sur la crise environnementale et sociale en cours. Elle rejoint finalement DEC!DE en septembre 2023, lui permettant de s'épanouir à la croisée de ses savoir-faire et de ses valeurs.",
+      },
+    ],
+  },
+  administration: {
+    title: "Le Conseil d'Administration",
+    members: [
+      {
+        role: 'Présidente',
+        name: 'Maïté Mannie',
+      },
+      {
+        role: 'Vice-Président',
+        name: 'Bernard Walschaerts',
+      },
+      {
+        role: 'Secrétaire',
+        name: 'Véronique Schmitz',
+      },
+      {
+        role: 'Administratrice déléguée',
+        name: 'Marion De Backer',
+      },
+      {
+        role: 'Administrateur',
+        name: 'Philippe Drouillon',
       },
     ],
   },
@@ -376,7 +400,8 @@ export default {
         src: Article1,
         srcSet: `${Article1} 1x, ${Article12x} 2x`,
         date: 'Today',
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        title:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         text:
           'Nullam sed tellus nec arcu mollis iaculis. Aliquam eget velit a libero suscipit tempor eget at leo. Vestibulum commodo tempor gravida. Donec dictum nunc at lorem euismod, et faucibus ante consectetur. Nullam porttitor eros in ligula posuere dignissim.',
       },
@@ -385,14 +410,16 @@ export default {
         src: Article2,
         srcSet: `${Article2} 1x, ${Article22x} 2x`,
         date: 'Yesterday',
-        title: 'Ut ornare augue quis diam vehicula, vitae vulputate mauris',
+        title:
+          'Ut ornare augue quis diam vehicula, vitae vulputate mauris',
       },
       {
         url: '#',
         src: Article3,
         srcSet: `${Article3} 1x, ${Article32x} 2x`,
         date: 'Last week',
-        title: 'Pellentesque finibus porttitor mauris, nec tempor nulla',
+        title:
+          'Pellentesque finibus porttitor mauris, nec tempor nulla',
       },
       {
         url: '#',
@@ -419,7 +446,7 @@ export default {
     sections: [
       {
         icon: MapMarker,
-        text: textToMultiline`26, rue d’Edimbourg\n1050 Bruxelles\nBelgique`,
+        text: textToMultiline`Adresse d'exploitation\nVillage Partenaire\n15, rue Fernand Bernier\n1060 Bruxelles\nBelgique`,
       },
       {
         icon: MobilePhone,
@@ -461,15 +488,19 @@ export default {
           .required('Required'),
         // Message
         message: Yup.string().required('Required'),
-        email: Yup.string().email('Must be an email').required('Required'),
+        email: Yup.string()
+          .email('Must be an email')
+          .required('Required'),
         // date: Yup.string().required('Required'),
       }),
       // eslint-disable-next-line no-undef
       onSubmit: (values, actions) => {
         fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'contact', ...values }),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: encode({'form-name': 'contact', ...values}),
         })
           .then(() => {
             alert('DEC!DE vous remercie de ce message! A bientôt.');
@@ -520,4 +551,29 @@ export default {
     ],
   },
   copyright: '© DEC!DE ASBL',
+  partners: {
+    title: 'Nos partenaires',
+    partners: [
+      {
+        name: 'Partenaire 1',
+        logo: Article1,
+      },
+      {
+        name: 'Partenaire 2',
+        logo: Article1,
+      },
+      {
+        name: 'Partenaire 3',
+        logo: Article1,
+      },
+      {
+        name: 'Partenaire 4',
+        logo: Article1,
+      },
+      {
+        name: 'Partenaire 5',
+        logo: Article1,
+      },
+    ],
+  },
 };

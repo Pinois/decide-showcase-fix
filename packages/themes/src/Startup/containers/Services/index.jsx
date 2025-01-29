@@ -10,7 +10,7 @@ import Grid from '@pagerland/common/src/components/Grid';
 import Img from '@pagerland/common/src/components/Img';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
-import { RoundedImage } from '../About/styled.components';
+import {RoundedImage} from '../About/styled.components';
 
 const Services = ({
   name,
@@ -40,10 +40,21 @@ const Services = ({
       </Box>
       <Grid {...GridProps}>
         {services.map((service, key) => (
-          <Fade bottom cascade duration={600} delay={key * 100} key={key}>
+          <Fade
+            bottom
+            cascade
+            duration={600}
+            delay={key * 100}
+            key={key}
+          >
             <Box {...ServiceItemProps}>
-              <RoundedImage src={service.icon} {...ServiceIconProps} />
-              <Typography {...ServiceTitleProps}>{service.title}</Typography>
+              <RoundedImage
+                src={service.icon}
+                {...ServiceIconProps}
+              />
+              <Typography {...ServiceTitleProps}>
+                {service.title}
+              </Typography>
               <Typography
                 {...ServiceTextProps}
                 dangerouslySetInnerHTML={service.text}
