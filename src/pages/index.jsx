@@ -12,7 +12,6 @@ import {
   Services,
   About,
   Team,
-  Pricing,
   Blog,
   Contact,
 } from '@pagerland/themes/src/Startup/containers';
@@ -40,8 +39,7 @@ const Startup = ({url}) => (
     {/* <Partners name="partners" />  */}
     <Team name="team" />
     <Administration name="administration" />
-    {/* <Pricing name="pricing" />
-    <Blog name="blog" /> */}
+    {/* <Blog name="blog" /> */}
     <Contact name="contact" />
     <Copyright />
   </Theme>
