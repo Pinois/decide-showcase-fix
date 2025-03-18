@@ -48,6 +48,13 @@ import ComicImage from './assets/ComicImageAndTeam.png';
 import AppMockup from './assets/app_DECIDE-min.gif';
 import NudgeImage from './assets/nudge-decide.jpeg';
 
+import Codef from './assets/codef.png';
+import Engie from './assets/engie.png';
+import Gim from './assets/gim.png';
+import Hastiere from './assets/hastiere.png';
+import Icedd from './assets/icedd.png';
+import Uliege from './assets/uliege.png';
+
 // import Support from './assets/support.svg';
 
 import PricingBasic from './assets/pricing/basic.svg';
@@ -552,27 +559,31 @@ export default {
   },
   copyright: '© DEC!DE ASBL',
   partners: {
-    title: 'Nos partenaires',
+    title: 'Ils nous ont fait confiance',
     partners: [
       {
-        name: 'Partenaire 1',
-        logo: Article1,
+        name: 'Codef',
+        logo: Codef,
       },
       {
-        name: 'Partenaire 2',
-        logo: Article1,
+        name: 'Engie',
+        logo: Engie,
       },
       {
-        name: 'Partenaire 3',
-        logo: Article1,
+        name: 'Gim',
+        logo: Gim,
       },
       {
-        name: 'Partenaire 4',
-        logo: Article1,
+        name: 'Hastière',
+        logo: Hastiere,
       },
       {
-        name: 'Partenaire 5',
-        logo: Article1,
+        name: 'Icedd',
+        logo: Icedd,
+      },
+      {
+        name: 'Uliege',
+        logo: Uliege,
       },
     ],
   },

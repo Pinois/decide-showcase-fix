@@ -36,7 +36,7 @@ const Startup = ({url}) => (
     <Welcome name="" />
     <Services name="services" />
     <About name="about" />
-    {/* <Partners name="partners" />  */}
+    <Partners name="partners" />
     <Team name="team" />
     <Administration name="administration" />
     {/* <Blog name="blog" /> */}
