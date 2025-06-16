@@ -138,7 +138,7 @@ export default {
     title: "DEC!DE: Le coup de pouce dont l'écologie a besoin",
     text: {
       __html:
-        "DEC!DE sensibilise les organisations aux enjeux environnementaux et les accompagne dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
+        "DEC!DE <b>sensibilise</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
     },
     actions: [
       {
@@ -173,16 +173,20 @@ export default {
     // text:
     //   'Aujourd'hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c'est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs "coup de pouce".',
     text: {
-      __html: `<h3 style="text-align:center;color: #aebdb4">Nos activités s'adressent :</h3>
-        <ul style="text-align:left; max-width: 600px; margin: 0 auto;">
-          <li>Aux citoyen.nes de plus de 16 ans</li>
-          <li>Aux organisations : Entreprises, administrations et écoles</li>
-        </ul>
-        <h3 style="text-align:center;color: #aebdb4; margin-top: 2rem;">Nos missions :</h3>
-        <ul style="text-align:left; max-width: 600px; margin: 0 auto;">
-          <li>Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li>
-          <li>Accompagner le changement auprès des individus et des collectivités.</li>
-        </ul>`,
+      __html: `
+        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+          <h3 style="text-align:center;color: #aebdb4">Nos activités s'adressent :</h3>
+          <ul>
+            <li>Aux citoyen.nes de plus de 16 ans</li>
+            <li>Aux organisations : Entreprises, administrations et écoles</li>
+          </ul>
+          <h3 style="text-align:center;color: #aebdb4; margin-top: 2rem;">Nos missions :</h3>
+          <ul>
+            <li>Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li>
+            <li>Accompagner le changement auprès des individus et des collectivités.</li>
+          </ul>
+        </div>
+      `,
     },
 
     services: [
