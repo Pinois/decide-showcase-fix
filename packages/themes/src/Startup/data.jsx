@@ -120,10 +120,10 @@ export default {
     ],
     actions: [
       {
-        /*href:
-          'https://themeforest.net/item/pagerland-react-and-gatsby-landing-page-templates/26548567',*/
-        label: 'Faire un don',
-        href: 'https://fr.tipeee.com/decide-et-vous',
+        label: 'Réservez un appel découverte (30min)',
+        href: 'https://calendly.com/marion-decideetvous/30min',
+        target: '_blank',
+        rel: 'noopener noreferrer',
       },
     ],
   },
@@ -131,7 +131,7 @@ export default {
     title: "DEC!DE: Le coup de pouce dont l'écologie a besoin",
     text: {
       __html:
-        "<p>Dans le contexte d'urgence environnementale où chaque décision compte, DEC!DE se donne le <i>devoir</i> de <b>vulgariser</b> et de <b>partager</b> les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité, car nous sommes convaincues que tout le monde a le <i>droit</i> de les <b>comprendre</b> afin de s'en emparer et de se <b>mettre en action</b>.</p>",
+        "DEC!DE sensibilise les organisations aux enjeux environnementaux et les accompagne dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
     },
     actions: [
       {
@@ -166,8 +166,16 @@ export default {
     // text:
     //   'Aujourd'hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c'est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs "coup de pouce".',
     text: {
-      __html:
-        '<p style="text-align: center"><h3 style="text-align:center;color: #aebdb4"> <b>Dans le contexte d\'urgence environnementale où chaque décision compte, DEC!DE se donne le <i>devoir</i> de <b>vulgariser</b> et de <b>partager</b> les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité, car nous sommes convaincues que tout le monde a le <i>droit</i> de les <b>comprendre</b> afin de s\'en emparer et de se <b>mettre en action</b>.</b></h3></p><ul style="list-style: none;">À travers le prisme de la pensée systémique, nos missions sont : <li> - de sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li> <li>- d’accompagner le changement auprès des individus et des collectivités.</li></ul></p>',
+      __html: `<h3 style="text-align:center;color: #aebdb4">Nos activités s'adressent :</h3>
+        <ul style="text-align:left; max-width: 600px; margin: 0 auto;">
+          <li>Aux citoyen.nes de plus de 16 ans</li>
+          <li>Aux organisations : Entreprises, administrations et écoles</li>
+        </ul>
+        <h3 style="text-align:center;color: #aebdb4; margin-top: 2rem;">Nos missions :</h3>
+        <ul style="text-align:left; max-width: 600px; margin: 0 auto;">
+          <li>Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li>
+          <li>Accompagner le changement auprès des individus et des collectivités.</li>
+        </ul>`,
     },
 
     services: [
@@ -189,7 +197,7 @@ export default {
           'Accompagner le changement des individus et des collectivités',
         text: {
           __html:
-            "<p>Dans le cadre de sa mission d'accompagnement du changement, DEC!DE offre une <b>expertise nudge</b> et des <b>accompagnements personnalisés</b> à destination des entreprises, des administrations et des écoles.</p>",
+            "Dans le cadre de sa mission d'accompagnement du changement, DEC!DE offre une <b>expertise nudge</b> ainsi que des <b>accompagnements ESG</b> et mise en place de dynamiques collectives interne autour de la transition.<br/>Nous personnalisons nos accompagnements en fonction de vos besoins !",
         },
         buttonText: 'En savoir plus',
         buttonLink:
