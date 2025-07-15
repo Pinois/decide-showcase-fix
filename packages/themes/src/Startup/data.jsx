@@ -179,52 +179,63 @@ export default {
     ],
   },
   services: {
-    title: 'Activités',
-    // text:
-    //   'Aujourd'hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c'est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs "coup de pouce".',
+    title: 'Nos ateliers',
     text: {
-      __html: `
-        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-          <h3 style="text-align:center;color: #aebdb4">Nos activités s'adressent :</h3>
-          <ul>
-            <li>Aux citoyen.nes de plus de 16 ans</li>
-            <li>Aux organisations : Entreprises, administrations et écoles</li>
-          </ul>
-          <h3 style="text-align:center;color: #aebdb4; margin-top: 2rem;">Nos missions :</h3>
-          <ul>
-            <li>Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li>
-            <li>Accompagner le changement auprès des individus et des collectivités.</li>
-          </ul>
-        </div>
-      `,
+      __html: 'Des modules pratiques et immersifs pour comprendre/ressentir/agir, d\'une introduction à une exploration de la thématique approfondie, de 1h30 à 1 jour.',
     },
 
     services: [
       {
-        icon: AnimationsImage,
-        title:
-          'Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité',
+        icon: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop',
+        title: 'La Fresque du Climat',
+        duration: '3h',
         text: {
-          __html:
-            '<p>Dans le cadre de sa mission de sensibilisation, DEC!DE propose différentes formations thématiques à destination des écoles du secondaire supérieur, des hautes écoles et universités, des administrations et des entreprises.<br/><br/>Ces formations ont un triple objectif :<ul><li>rendre compréhensible les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité ;</li><li>identifier les obstacles au changement et les transformer en forces empouvoirantes ;</li><li>imaginer ensemble des solutions adaptées aux besoins et à la réalité de chacun.e.</li></ul></p>',
+          __html: 'Comprendre les enjeux climatiques et leurs interconnexions',
         },
-        buttonText: 'En savoir plus',
-        buttonLink:
-          'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54',
       },
       {
-        icon: NudgeImage,
-        title:
-          'Accompagner le changement des individus et des collectivités',
+        icon: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
+        title: 'Nudge',
+        duration: '2h',
         text: {
-          __html:
-            "Dans le cadre de sa mission d'accompagnement du changement, DEC!DE offre une <b>expertise nudge</b> ainsi que des <b>accompagnements ESG</b> et mise en place de dynamiques collectives interne autour de la transition.<br/>Nous personnalisons nos accompagnements en fonction de vos besoins !",
+          __html: 'Activer des leviers psychologiques pour changer les comportements',
         },
-        buttonText: 'En savoir plus',
-        buttonLink:
-          'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2',
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+        title: 'Mobiliser ses collègues',
+        duration: '4h',
+        text: {
+          __html: 'Fédérer une équipe autour d\'actions concrètes',
+        },
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
+        title: 'Numérique : un monde dématérialisé ?',
+        duration: '6h',
+        text: {
+          __html: 'Explorer l\'impact environnemental du numérique',
+        },
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop',
+        title: 'Réchauffe l\'ambiance, pas la planète',
+        duration: '3h',
+        text: {
+          __html: 'Rendre ses événements plus durables',
+        },
       },
     ],
+
+    bottomText: 'Découvrez l\'ensemble de nos ateliers',
+    cta: {
+      label: 'Télécharger notre brochure',
+      as: 'a',
+      href: 'https://github.com/Pinois/files/raw/main/Catalogue-DECIDE-2025.pdf',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      variant: 'primary',
+    },
     /* cta: {
        label: 'En savoir plus',
        href:
