@@ -7,13 +7,13 @@ import {Helmet} from 'react-helmet';
 import Theme, {theme} from '@pagerland/themes/src/Startup';
 import {
   Navbar,
-  Copyright,
+  Footer,
   Welcome,
   Services,
   About,
   Testimonials,
   Team,
-  Blog,
+  FAQ,
   Contact,
 } from '@pagerland/themes/src/Startup/containers';
 
@@ -21,7 +21,6 @@ import preview from '@pagerland/themes/src/Startup/assets/preview.png';
 
 import SEO from '../components/SEO';
 import Partners from '@pagerland/themes/src/Startup/containers/Partners';
-import Administration from '@pagerland/themes/src/Startup/containers/Administration';
 
 const Startup = ({url}) => (
   <Theme>
@@ -45,10 +44,10 @@ const Startup = ({url}) => (
     <Testimonials name="testimonials" />
     <Partners name="partners" />
     <Team name="team" />
-    <Administration name="administration" />
+    <FAQ name="faq" />
     {/* <Blog name="blog" /> */}
     <Contact name="contact" />
-    <Copyright />
+    <Footer />
   </Theme>
 );
 

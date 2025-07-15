@@ -5,7 +5,7 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Img from '@pagerland/common/src/components/Img';
 import data from '../../data';
-import {SliderContainer, SliderTrack} from './styled.components';
+import {SliderContainer, SliderTrack, LogoContainer} from './styled.components';
 
 const Partners = ({
   name,
@@ -23,13 +23,13 @@ const Partners = ({
         <SliderTrack>
           {[...partners, ...partners, ...partners].map(
             (partner, i) => (
-              <Box key={i} mx={4}>
+              <LogoContainer key={i} mx="50px">
                 <Img
                   {...ImageProps}
                   src={partner.logo}
                   alt={partner.name}
                 />
-              </Box>
+              </LogoContainer>
             )
           )}
         </SliderTrack>
@@ -56,8 +56,8 @@ Partners.propTypes = {
 Partners.defaultProps = {
   WrapperProps: {
     py: {
-      _: 30,
-      lg: 50,
+      _: 100,
+      lg: 100,
     },
   },
   ContainerProps: {
@@ -67,7 +67,7 @@ Partners.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 4,
+    mb: '100px',
   },
   ImageProps: {
     height: 60,

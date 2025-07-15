@@ -6,7 +6,8 @@
       "Bash(mkdir:*)",
       "Bash(npm run dev:*)",
       "WebFetch(domain:localhost)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(npm run:*)"
     ],
     "deny": []
   }

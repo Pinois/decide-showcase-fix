@@ -7,20 +7,8 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 import Button from '@pagerland/common/src/components/Button';
-import Icon from '@pagerland/common/src/components/Icon';
-
-import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
-import Twitter from '@pagerland/icons/src/monochrome/Twitter';
-import Skype from '@pagerland/icons/src/monochrome/Skype';
-
-import Link from '@pagerland/common/src/components/Link';
 import data from '../../data';
-import Avatar from '../../components/Avatar';
-import {RoundedImage} from '../About/styled.components';
 import Img from '@pagerland/common/src/components/Img';
-import Background from '../Contact/Background';
-import Squares from '../Welcome/Squares';
-import {default as SquaresAlternative} from '../Contact/Squares';
 
 const Team = ({
   name,
@@ -73,7 +61,7 @@ const Team = ({
               <Typography {...MemberPositionProps}>{member.position}</Typography>
               <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
               <Button {...LinkedinButtonProps} href={member.linkedin}>
-                🔗 Voir le profil LinkedIn
+                <span role="img" aria-label="link">🔗</span> Voir le profil LinkedIn
               </Button>
             </Box>
           </Fade>

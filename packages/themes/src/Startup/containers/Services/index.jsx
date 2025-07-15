@@ -8,7 +8,6 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 
-import Img from '@pagerland/common/src/components/Img';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
 

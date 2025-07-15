@@ -57,3 +57,12 @@ export const SliderTrack = styled(Box)`
     animation-play-state: paused;
   }
 `;
+
+export const LogoContainer = styled(Box)`
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  
+  &:hover {
+    filter: grayscale(0%);
+  }
+`;

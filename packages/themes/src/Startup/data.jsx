@@ -11,6 +11,7 @@ import FacebookF from '@pagerland/icons/src/monochrome/FacebookF';
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
 import Twitter from '@pagerland/icons/src/monochrome/Twitter';
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
+import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
 import * as Yup from 'yup';
 //import Welcome from './assets/welcome.jpg';
@@ -289,7 +290,7 @@ export default {
     expertise: {
       title: "Nos expertises",
       text: "Une approche systémique basée sur les sciences comportementales afin de créer des dynamiques collectives pour mobiliser vos collaborateurs, ainsi qu'une connaissance généralisée des enjeux de la durabilité",
-      highlight: "💡 Un accompagnement sur mesure ? C'est possible !",
+      highlight: "<span role=\"img\" aria-label=\"lightbulb\">💡</span> Un accompagnement sur mesure ? C'est possible !",
       image: {
         src: NudgeImage,
         srcSet: `${NudgeImage} 1x, ${NudgeImage} 2x`,
@@ -543,45 +544,21 @@ export default {
     },
   },
   contact: {
-    title: 'Contact',
-    sections: [
-      {
-        icon: MapMarker,
-        text: textToMultiline`Adresse d'exploitation\nVillage Partenaire\n15, rue Fernand Bernier\n1060 Bruxelles\nBelgique`,
-      },
-      {
-        icon: MobilePhone,
-        text: '(0) 478 48 53 02',
-      },
-      {
-        icon: PaperAirplane,
-        text: 'contact@decideetvous.com',
-      },
-    ],
-    socialLinks: [
-      {
-        icon: FacebookF,
-        href: 'https://www.facebook.com/decideetvous',
-        title: 'Facebook',
-      },
-      {
-        icon: Instagram,
-        href: 'https://www.instagram.com/decide_etvous/',
-        title: 'Instagram',
-      },
-      /*{
-        icon: Twitter,
-        href: 'https://mypags.app',
-        title: 'Twitter',
-      },*/
-      {
-        icon: Linkedin,
-        href: 'https://www.linkedin.com/company/dec-de/',
-        title: 'Linkedin',
-      },
-    ],
+    cta: {
+      title: 'Passez à l\'action maintenant',
+      text: 'Transformez votre entreprise avec nos formations sur mesure en développement durable.',
+      features: [
+        'Expertise reconnue',
+        'Accompagnement personnalisé',
+        'Résultats mesurables'
+      ],
+      button: {
+        label: 'Réserver un appel',
+        href: 'https://calendly.com/marion-decideetvous/30min'
+      }
+    },
     mailer: {
-      title: 'Envie de nous contacter ?',
+      title: 'Contactez-nous',
       cta: 'Envoyer',
       validationSchema: Yup.object({
         name: Yup.string()
@@ -652,6 +629,133 @@ export default {
     ],
   },
   copyright: '© DEC!DE ASBL',
+  newFooter: {
+    logo: 'DEC!DE',
+    baseline: 'Formations durables pour des entreprises responsables',
+    socialLinks: [
+      {
+        icon: LinkedinAlt,
+        href: 'https://www.linkedin.com/company/dec-de/',
+        title: 'LinkedIn',
+      },
+      {
+        icon: Instagram,
+        href: 'https://www.instagram.com/decide_etvous/',
+        title: 'Instagram',
+      },
+      {
+        icon: Twitter,
+        href: '#',
+        title: 'Twitter',
+      },
+    ],
+    workshops: [
+      {
+        label: 'Fresques du climat',
+        href: '#',
+      },
+      {
+        label: 'Nudge',
+        href: '#',
+      },
+      {
+        label: 'Éco-gestes pro',
+        href: '#',
+      },
+      {
+        label: 'Stratégie RSE',
+        href: '#',
+      },
+    ],
+    company: [
+      {
+        label: 'À propos',
+        href: '#about',
+      },
+      {
+        label: 'Notre équipe',
+        href: '#team',
+      },
+      {
+        label: 'Témoignages',
+        href: '#testimonials',
+      },
+      {
+        label: 'FAQ',
+        href: '#faq',
+      },
+    ],
+    contact: {
+      email: 'contact@decideetvous.com',
+      phone: '+32 (0) 478 48 53 02',
+      address: 'Bruxelles, Belgique',
+    },
+    administration: {
+      title: 'Conseil d\'Admin.',
+      members: [
+        {
+          name: 'M. Mannie',
+          role: 'Présidente',
+        },
+        {
+          name: 'B. Walschaerts',
+          role: 'Vice-Président',
+        },
+        {
+          name: 'V. Schmitz',
+          role: 'Secrétaire',
+        },
+        {
+          name: 'M. De Backer',
+          role: 'Admin. déléguée',
+        },
+        {
+          name: 'P. Drouillon',
+          role: 'Administrateur',
+        },
+      ],
+    },
+    copyright: '© 2025 DEC!DE. Tous droits réservés.',
+    legalLinks: [
+      {
+        label: '<span role="img" aria-label="rocket">🚀</span> by G. Gustin | L. Lepinois',
+        href: 'https://guillaumegustin.com/',
+      },
+      {
+        label: '<span role="img" aria-label="art">🎨</span> by Coffeecream',
+        href: '#',
+      },
+    ],
+  },
+  faq: {
+    title: 'Vos questions, nos réponses',
+    faqs: [
+      {
+        question: 'Peut-on personnaliser les formations ?',
+        answer: 'Oui, toutes nos formations sont adaptables à vos besoins spécifiques, votre secteur d\'activité et la taille de vos équipes. Nous établissons ensemble un programme sur mesure.'
+      },
+      {
+        question: 'Est-ce que c\'est adapté à tout type d\'entreprise ?',
+        answer: 'Nos formations et accompagnements conviennent aux TPE, PME, grandes entreprises et organisations publiques. Nous adaptons notre approche à votre contexte.'
+      },
+      {
+        question: 'Quel est le coût des interventions ?',
+        answer: 'Les tarifs varient selon le format, la durée et le nombre de participants. Contactez-nous pour un devis personnalisé. Des solutions de financement sont possibles.'
+      },
+      {
+        question: 'Quels sont vos délais ?',
+        answer: 'Nous pouvons généralement intervenir sous 2 à 4 semaines pour les formations, et sous 1 à 2 mois pour les accompagnements plus complets.'
+      },
+      {
+        question: 'Quelle est la différence entre formation et accompagnement ?',
+        answer: 'Les formations sont des interventions ponctuelles pour sensibiliser et former vos équipes. L\'accompagnement est un suivi sur plusieurs mois pour transformer durablement vos pratiques.'
+      },
+      {
+        question: 'Est-ce que vous intervenez partout en Belgique ?',
+        answer: 'Oui, nous intervenons dans toute la Belgique. Nos formations peuvent aussi se faire en distanciel selon vos besoins.'
+      }
+    ]
+  },
   partners: {
     title: 'Des entreprises et structures qui passent à l\'action',
     partners: [
