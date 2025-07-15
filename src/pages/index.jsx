@@ -28,6 +28,11 @@ const Startup = ({url}) => (
       <link href={theme.typography.googleFont} rel="stylesheet" />
       <meta name="theme-color" content={theme.colors.primary} />
       <meta property="og:image" content={`${url}${preview}`} />
+      <script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="43c51cd6-2c1c-48d6-b5a9-2f8bc536a939"
+      ></script>
     </Helmet>
     <SEO title="DEC!DE" />
     <Sticky style={{zIndex: 999, position: 'relative'}}>
@@ -36,7 +41,7 @@ const Startup = ({url}) => (
     <Welcome name="" />
     <Services name="services" />
     <About name="about" />
-    {/* <Partners name="partners" />  */}
+    <Partners name="partners" />
     <Team name="team" />
     <Administration name="administration" />
     {/* <Blog name="blog" /> */}
