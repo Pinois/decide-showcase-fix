@@ -172,7 +172,10 @@ Welcome.defaultProps = {
     color: 'gray.1',
   },
   ActionButtonsProps: {
-    mt: 4,
+    mt: 5,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 4,
   },
   ImageWrapperProps: {
     zIndex: 4,

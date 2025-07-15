@@ -128,18 +128,28 @@ export default {
     ],
   },
   welcome: {
-    title: "DEC!DE: Le coup de pouce dont l'écologie a besoin",
+    title: "Le coup de pouce dont l'écologie a besoin",
     text: {
       __html:
         "<p>Dans le contexte d'urgence environnementale où chaque décision compte, DEC!DE se donne le <i>devoir</i> de <b>vulgariser</b> et de <b>partager</b> les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité, car nous sommes convaincues que tout le monde a le <i>droit</i> de les <b>comprendre</b> afin de s'en emparer et de se <b>mettre en action</b>.</p>",
     },
     actions: [
       {
-        label: 'Voir nos activités',
-        to: 'services',
-        as: Link,
-        ...smoothLinkProps,
-        variant: 'secondary',
+        label: 'Télécharger notre brochure',
+        as: 'a',
+        href: 'https://github.com/Pinois/files/raw/main/Catalogue-DECIDE-2025.pdf',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        download: true,
+        variant: 'primary',
+      },
+      {
+        label: 'Réserver un appel découverte (30 min)',
+        as: 'a',
+        href: 'https://calendly.com/marion-decideetvous/30min',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        variant: 'default',
       },
     ],
     img: {
