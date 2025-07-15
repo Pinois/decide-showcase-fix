@@ -243,65 +243,126 @@ export default {
      }, */
   },
   about: {
-    img: {
-      src: AboutUs,
-      srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
+    title: "Accompagner le changement dans votre structure",
+    text: {
+      __html: "Notre équipe vous guide dans vos démarches RSE, ESG en mettant au centre l'humain et avec des outils concrets.",
     },
-    title: "L'histoire de DEC!DE",
-    text:
-      "Le projet DEC!DE trouve ses racines dans l'envie de Marion d'associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. Entre septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l'incubateur Boost Your Project, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. De son côté, après s'être formée à l'éco-conseil, Manon entame un accompagnement chez Groupe One afin de concrétiser le projet qu'elle a en tête depuis plusieurs mois : sensibiliser aux enjeux climatiques. En octobre 2020, Marion et Manon se rencontrent autour d'un café et les planètes s'alignent, c'est le coup de foudre ! Ensemble, elles redessinent les lignes directrices de DEC!DE et fondent l'asbl en décembre 2020. En septembre 2023, Marie vient renforcer l'équipe. Aujourd'hui, DEC!DE compte deux employées à temps partiel et est parvenue à entretenir des partenariats forts et durables.",
-    secondImage: {
-      src: Decide122,
-      srcSet: `${Decide122} 1x, ${Decide122} 2x`,
+    
+    services: [
+      {
+        icon: "🏢",
+        title: "Accompagnement RSE / ESG",
+        description: "Diagnostic, stratégie et mise en œuvre de votre démarche RSE adaptée aux enjeux de votre entreprise.",
+        features: [
+          "Audit",
+          "Bilan Carbone",
+          "Analyse Comportementale",
+          "Plan d'action",
+          "Suivi",
+          "Rapport"
+        ]
+      },
+      {
+        icon: "🧠",
+        title: "Nudge",
+        description: "Une approche douce pour inciter un changement de comportement",
+        features: [
+          "Audit",
+          "Formation",
+          "Développement",
+          "Mise en place"
+        ]
+      },
+      {
+        icon: "🎓",
+        title: "Green Team",
+        description: "Formation et accompagnement à la création de dynamique collective",
+        features: [
+          "Mobilisation",
+          "Formation",
+          "Projets pratiques",
+          "Suivi"
+        ]
+      }
+    ],
+    
+    expertise: {
+      title: "Nos expertises",
+      text: "Une approche systémique basée sur les sciences comportementales afin de créer des dynamiques collectives pour mobiliser vos collaborateurs, ainsi qu'une connaissance généralisée des enjeux de la durabilité",
+      highlight: "💡 Un accompagnement sur mesure ? C'est possible !",
+      image: {
+        src: NudgeImage,
+        srcSet: `${NudgeImage} 1x, ${NudgeImage} 2x`,
+      }
     },
-    /*cta: {
-      label: 'En savoir plus',
-      href:
-        'To Do',
-    }, */
+    
+    cta: {
+      label: 'Réserver un appel découverte (30 min)',
+      as: 'a',
+      href: 'https://calendly.com/marion-decideetvous/30min',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      variant: 'primary',
+    },
+  },
+  testimonials: {
+    title: "Ils nous ont fait confiance",
+    text: {
+      __html: "Entreprises, administrations, écoles… nous agissons ensemble pour la transition.",
+    },
+    testimonials: [
+      {
+        quote: "Les ateliers DEC!DE ont créé un vrai déclic au sein de notre équipe. C'est concret, bienveillant, et ça donne envie d'agir.",
+        author: "Sophie Laurent",
+        function: "Responsable RSE – Engie"
+      },
+      {
+        quote: "Une approche pédagogique innovante qui a permis de mobiliser l'ensemble du personnel autour des enjeux environnementaux.",
+        author: "Marc Dubois",
+        function: "Directeur – ICEDD"
+      },
+      {
+        quote: "DEC!DE nous a accompagnés avec professionnalisme dans notre démarche de transition écologique. Une vraie réussite !",
+        author: "Anne Lemaire",
+        function: "DRH – Codef"
+      }
+    ]
   },
   team: {
-    title: "L'équipe",
+    title: "Une équipe engagée",
     text: {
-      __html:
-        "<h3 style='text-align:center;color: #aebdb4'> <b>L'équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
+      __html: "Trois profils complémentaires pour vous accompagner avec bienveillance et expertise.",
     },
     members: [
       {
         name: 'Marion De Backer',
-        position: 'Co-fondatrice & Eco-conseillère',
+        position: 'Co-fondatrice, éco-conseillère',
         image: {
           src: MarionPhoto,
           srcSet: `${MarionPhoto} 1x, ${MarionPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
-        description:
-          "Un diplôme en gestion de la communication d'organisation et des relations publiques en poche, <b>Marion</b> s'engage dans différents projets liés à la lutte contre le changement climatique et décide de compléter ses connaissances en entamant une formation à l'Institut Eco-Conseil de Namur pour devenir éco-conseillère. En parallèle, elle développe le projet DEC!DE qui prendra son vrai envol grâce à la rencontre avec Manon, en octobre 2020. Passionnée par l'éducation et le concept du nudge, Marion met son expertise au service du développement des outils nudge, de l'animation ainsi que de la communication de l'association.",
+        description: "Experte en nudge marketing et changements comportementaux, Marion accompagne les organisations dans leur transformation écologique avec des approches innovantes et participatives.",
       },
       {
         name: 'Manon Berhin',
-        position: 'Co-fondatrice & Eco-conseillère',
+        position: 'Co-fondatrice, éco-conseillère',
         image: {
           src: MariePhoto,
           srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
-        linkedin:
-          'https://www.linkedin.com/in/manon-berhin-0aa82154/',
-        description:
-          "C'est en 2016, alors qu'elle travaille encore comme coordinatrice de projet pour une entreprise privée, que <b>Manon</b> prend pleinement conscience de l'ampleur de la crise climatique. Elle s'engage alors dans une démarche zéro déchet et s'éduque aux enjeux environnementaux. Petit à petit, ces préoccupations deviennent centrales et elle ressent le besoin de s'engager davantage. C'est pourquoi, en 2019, elle décide de changer de voie professionnelle et entame une formation d'éco-conseillère à l'Institut d'Éco-Conseil de Namur. Forte des savoirs, des rencontres et des expériences acquises lors de cette formation, elle débute un coaching chez Groupe One afin de concrétiser son projet de sensibilisation aux dérèglements climatiques. Mais c'est bien sa rencontre avec <b>Marion</b> et son projet DEC!DE qui marquera le tournant de sa vie professionnelle. Séduite par le projet, <b>Manon</b> rejoint <b>Marion</b> et à deux, elles créent l'asbl DEC!DE.",
+        linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        description: "Après une carrière dans le secteur privé, Manon s'est réorientée vers l'accompagnement environnemental. Elle apporte son expertise business et sa vision pragmatique des enjeux RSE.",
       },
       {
         name: 'Marie Debournoux',
-        position:
-          'Ingénieure agronome et accompagnatrice du changement',
+        position: 'Ingénieure agronome',
         image: {
           src: ManonPhoto,
           srcSet: `${ManonPhoto} 1x, ${ManonPhoto} 2x`,
         },
-        linkedin:
-          'https://www.linkedin.com/in/marie-debournoux-96a441155/',
-        description:
-          "<b>Marie</b> a toujours été fascinée par le vivant ! Portée par cet intérêt, elle fait un DUT en Industries Alimentaires et Biologiques puis poursuit son cursus avec un diplôme d'ingénieur Agronome à AgroParisTech, en alternance dans un cabinet de conseil en accompagnement du changement. Pendant 4 années, elle continue aussi de développer ses connaissances sur la crise environnementale et sociale en cours. Elle rejoint finalement DEC!DE en septembre 2023, lui permettant de s'épanouir à la croisée de ses savoir-faire et de ses valeurs.",
+        linkedin: 'https://www.linkedin.com/in/marie-debournoux-96a441155/',
+        description: "Spécialiste de l'accompagnement du changement, Marie combine expertise technique et approche pédagogique pour faciliter la transition écologique des organisations.",
       },
     ],
   },
@@ -592,7 +653,7 @@ export default {
   },
   copyright: '© DEC!DE ASBL',
   partners: {
-    title: 'Ils nous ont fait confiance',
+    title: 'Des entreprises et structures qui passent à l\'action',
     partners: [
       {
         name: 'Codef',

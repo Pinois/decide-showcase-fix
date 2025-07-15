@@ -17,6 +17,7 @@ import Link from '@pagerland/common/src/components/Link';
 import data from '../../data';
 import Avatar from '../../components/Avatar';
 import {RoundedImage} from '../About/styled.components';
+import Img from '@pagerland/common/src/components/Img';
 import Background from '../Contact/Background';
 import Squares from '../Welcome/Squares';
 import {default as SquaresAlternative} from '../Contact/Squares';
@@ -31,60 +32,53 @@ const Team = ({
   CaptionProps,
   TitleProps,
   TextProps,
-  PositionProps,
-  ProfileContainerProps,
-  ProfileImageWrapperProps,
-  ImageProps,
-  LinkedinIconProps,
+  TeamGridProps,
+  MemberCardProps,
+  MemberImageProps,
+  MemberNameProps,
+  MemberPositionProps,
+  MemberDescriptionProps,
+  LinkedinButtonProps,
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
       <Box {...CaptionProps}>
         <Fade bottom cascade duration={600}>
           <Typography {...TitleProps}>{title}</Typography>
-          <Typography
-            {...TextProps}
-            dangerouslySetInnerHTML={text}
-          ></Typography>
+          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Fade>
       </Box>
 
-      {members.map((member, index) => (
-        <Container key={member.name} {...ProfileContainerProps}>
-          <Box
-            {...ProfileImageWrapperProps}
-            order={{
-              _: 1,
-              lg: index % 2 === 0 ? 1 : 2,
-            }}
-          >
-            <Fade cascade duration={600}>
-              <RoundedImage {...ImageProps} {...member.image} />
-            </Fade>
-          </Box>
-          <Box
-            {...CaptionProps}
-            order={{
-              _: 2,
-              lg: index % 2 === 0 ? 2 : 1,
-            }}
-          >
-            <Fade bottom cascade duration={600}>
-              <Typography {...TitleProps}>{member.name}</Typography>
-              <Typography {...PositionProps}>
-                {member.position}
-              </Typography>
-              <Typography
-                {...TextProps}
-                dangerouslySetInnerHTML={{__html: member.description}}
-              ></Typography>
-              <Link href={member.linkedin}>
-                <Icon icon={LinkedinAlt} {...LinkedinIconProps} />
-              </Link>
-            </Fade>
-          </Box>
-        </Container>
-      ))}
+      <Grid {...TeamGridProps}>
+        {members.map((member, index) => (
+          <Fade bottom cascade duration={600} delay={index * 100} key={index}>
+            <Box {...MemberCardProps}>
+              <Box
+                width={200}
+                mb={3}
+                mx="auto"
+                borderRadius="12px"
+                overflow="hidden"
+                backgroundColor="gray.5"
+              >
+                <Img
+                  src={member.image.src}
+                  alt={member.name}
+                  width="100%"
+                  height="auto"
+                  borderRadius="12px"
+                />
+              </Box>
+              <Typography {...MemberNameProps}>{member.name}</Typography>
+              <Typography {...MemberPositionProps}>{member.position}</Typography>
+              <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
+              <Button {...LinkedinButtonProps} href={member.linkedin}>
+                🔗 Voir le profil LinkedIn
+              </Button>
+            </Box>
+          </Fade>
+        ))}
+      </Grid>
     </Container>
   </Box>
 );
@@ -199,124 +193,80 @@ Team.propTypes = {
 };
 
 Team.defaultProps = {
-  ProfileContainerProps: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    mb: 50,
-    flexDirection: {
-      _: 'column',
-      lg: 'row',
-    },
-  },
-  ProfileImageWrapperProps: {
-    position: 'relative',
-    mb: {
-      _: 60,
-      lg: 0,
-    },
-  },
-  ImageWrapperProps: {
-    position: 'relative',
-    mb: {
-      _: 60,
-      lg: 0,
-    },
-  },
   WrapperProps: {
     py: {
-      _: 30,
-      md: 40,
-      lg: 50,
+      _: 56,
+      md: 64,
+      lg: 96,
     },
   },
   ContainerProps: {
     textAlign: 'center',
   },
-  ImageProps: {
-    maxWidth: {
-      _: 300,
-      md: 350,
-      lg: 400,
-    },
-  },
   CaptionProps: {
-    mb: {
-      _: 4,
-      md: 5,
-    },
-    mx: 'auto',
-    maxWidth: 1188,
+    mb: 5,
   },
   TitleProps: {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 1,
-    textAlign: 'center',
+    mb: 3,
   },
   TextProps: {
+    variant: 'body1',
     color: 'gray.1',
     mb: 4,
-    mx: {
-      _: 0,
-      md: 50,
-    },
-    textAlign: 'justify',
   },
-  GridProps: {
-    mb: {
-      _: 4,
-      md: 5,
-    },
+  TeamGridProps: {
     gridTemplateColumns: {
-      _: 'repeat(2, 1fr)',
-      md: 'repeat(3, 1fr)',
-      lg: 'repeat(4, 1fr)',
+      _: '1fr',
+      md: 'repeat(2, 1fr)',
+      lg: 'repeat(3, 1fr)',
     },
-    gridColumnGap: '32px',
-    gridRowGap: {
-      _: '32px',
-      md: '64px',
-    },
+    gridGap: '40px',
+    maxWidth: 1200,
+    mx: 'auto',
   },
-  AvatarProps: {
-    width: 92,
-    mb: 2,
+  MemberCardProps: {
+    textAlign: 'center',
+    p: 4,
+    borderRadius: '12px',
+    backgroundColor: 'white',
+    boxShadow: '0 4px 12px rgba(0, 48, 61, 0.1)',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
   },
-  NameProps: {
-    variant: 'h5',
+  MemberImageProps: {
+    width: 200,
+    height: 200,
+    mb: 3,
+    mx: 'auto',
+    borderRadius: '50%',
+  },
+  MemberNameProps: {
+    variant: 'h4',
     color: 'black',
-  },
-  PositionProps: {
-    color: 'secondary',
     mb: 2,
+  },
+  MemberPositionProps: {
+    variant: 'body2',
+    color: 'secondary',
+    mb: 3,
     fontStyle: 'italic',
   },
-  DescProps: {
-    color: 'primary',
-    mb: 2,
+  MemberDescriptionProps: {
+    variant: 'body2',
+    color: 'gray.1',
+    mb: 4,
+    textAlign: 'left',
   },
-  CtaProps: {
-    textAlign: 'center',
-    mx: 'auto',
-    variant: 'secondary',
+  LinkedinButtonProps: {
     as: 'a',
-  },
-  LinkedinIconProps: {
-    mx: 2,
-    color: 'accent',
-    fontSize: 24,
-  },
-  TwitterIconProps: {
-    mx: 2,
-    color: 'secondary',
-    fontSize: 24,
-  },
-  SkypeIconProps: {
-    mx: 2,
-    color: 'accent',
-    fontSize: 24,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    variant: 'default',
+    fontSize: 'body2',
   },
   ...data.team,
 };

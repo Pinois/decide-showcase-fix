@@ -50,83 +50,118 @@ const Services = ({
           <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Fade>
       </Box>
-      <Grid {...GridProps}>
-        {services.slice(0, 3).map((service, key) => (
-          <Fade
-            bottom
-            cascade
-            duration={600}
-            delay={key * 100}
-            key={key}
-          >
-            <Box {...ServiceItemProps}>
-              <ServiceImage
-                {...ServiceIconProps}
-                backgroundImage={`url(${service.icon})`}
-                backgroundSize="cover"
-                backgroundPosition="center"
-                backgroundRepeat="no-repeat"
-              />
-              <Typography {...ServiceTitleProps}>
-                {service.title}
-              </Typography>
-              {service.duration && (
-                <Typography {...ServiceDurationProps}>
-                  {service.duration}
+      <Box display={{ _: 'block', lg: 'none' }}>
+        <Grid {...GridProps}>
+          {services.map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={key * 100}
+              key={key}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
                 </Typography>
-              )}
-              <Typography
-                {...ServiceTextProps}
-                dangerouslySetInnerHTML={service.text}
-              />
-            </Box>
-          </Fade>
-        ))}
-      </Grid>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+      </Box>
       
-      <Grid 
-        gridTemplateColumns={{
-          _: '1fr',
-          md: 'repeat(2, 1fr)',
-        }}
-        gridGap="40px"
-        maxWidth={800}
-        mx="auto"
-        mb={4}
-        justifyItems="center"
-      >
-        {services.slice(3).map((service, key) => (
-          <Fade
-            bottom
-            cascade
-            duration={600}
-            delay={(key + 3) * 100}
-            key={key + 3}
-          >
-            <Box {...ServiceItemProps}>
-              <ServiceImage
-                {...ServiceIconProps}
-                backgroundImage={`url(${service.icon})`}
-                backgroundSize="cover"
-                backgroundPosition="center"
-                backgroundRepeat="no-repeat"
-              />
-              <Typography {...ServiceTitleProps}>
-                {service.title}
-              </Typography>
-              {service.duration && (
-                <Typography {...ServiceDurationProps}>
-                  {service.duration}
+      <Box display={{ _: 'none', lg: 'block' }}>
+        <Grid {...GridProps}>
+          {services.slice(0, 3).map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={key * 100}
+              key={key}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
                 </Typography>
-              )}
-              <Typography
-                {...ServiceTextProps}
-                dangerouslySetInnerHTML={service.text}
-              />
-            </Box>
-          </Fade>
-        ))}
-      </Grid>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+        
+        <Grid 
+          gridTemplateColumns="repeat(2, 1fr)"
+          gridGap="40px"
+          maxWidth={800}
+          mx="auto"
+          mb={4}
+          justifyItems="center"
+        >
+          {services.slice(3).map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={(key + 3) * 100}
+              key={key + 3}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
+                </Typography>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+      </Box>
       {bottomText && (
         <Box {...BottomTextProps}>
           <Typography variant="body1" color="gray.1">
@@ -277,6 +312,7 @@ Services.defaultProps = {
     width: '100%',
     height: 200,
     borderRadius: '12px',
+    maxWidth: 350,
   },
   ServiceTitleProps: {
     textAlign: 'center',

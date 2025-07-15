@@ -5,6 +5,8 @@ import Box from '@pagerland/common/src/components/Box';
 import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
+import Grid from '@pagerland/common/src/components/Grid';
+import Button from '@pagerland/common/src/components/Button';
 
 import data from '../../data';
 import {RoundedImage} from './styled.components';
@@ -15,68 +17,73 @@ const About = ({
   name,
   title,
   text,
+  services,
+  expertise,
   cta,
-  img,
   WrapperProps,
   ContainerProps,
   CaptionProps,
   TitleProps,
   TextProps,
+  ServicesGridProps,
+  ServiceCardProps,
+  ServiceIconProps,
+  ServiceTitleProps,
+  ServiceDescriptionProps,
+  ServiceFeatureProps,
+  ExpertiseContainerProps,
+  ExpertiseCaptionProps,
+  ExpertiseImageProps,
   CtaProps,
-  ImageWrapperProps,
-  ImageProps,
-  ValuesProps,
-  SecondContainerProps,
-  SecondImageWrapperProps,
-  SecondCaptionProps,
 }) => (
   <Box name={name} {...WrapperProps}>
     <Background />
     <Container {...ContainerProps}>
-      <Box {...ImageWrapperProps}>
-        <Fade cascade duration={600}>
-          <RoundedImage {...ImageProps} {...img} />
-        </Fade>
-      </Box>
       <Box {...CaptionProps}>
-        <Typography {...TitleProps}>{title}</Typography>
         <Fade bottom cascade duration={600}>
-          <Typography {...TextProps}>{text}</Typography>
+          <Typography {...TitleProps}>{title}</Typography>
+          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Fade>
       </Box>
-    </Container>
-    <Container {...SecondContainerProps}>
-      <Box {...SecondCaptionProps}>
-        <Typography {...TitleProps}>Nos valeurs</Typography>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TextProps}>
-            <p>
-              ● Reliance : En partant d'une vision transversale, nous
-              visons à (re)créer du lien entre humains et avec leur
-              environnement.
-            </p>
-            <p>
-              ● Créativité : Nous valorisons la créativité dans notre
-              démarche pédagogique afin de développer l&#39;imaginaire
-              de nos publics et de faire émerger des futurs
-              souhaitables.
-            </p>
-            <p>
-              ● Sobriété : Nous cherchons le juste équilibre en
-              questionnant les besoins et en conscientisant les
-              limites.
-            </p>
+      
+      <Grid {...ServicesGridProps}>
+        {services.map((service, key) => (
+          <Fade bottom cascade duration={600} delay={key * 100} key={key}>
+            <Box {...ServiceCardProps}>
+              <Typography {...ServiceIconProps}>{service.icon}</Typography>
+              <Typography {...ServiceTitleProps}>{service.title}</Typography>
+              <Typography {...ServiceDescriptionProps}>{service.description}</Typography>
+              <Box>
+                {service.features.map((feature, index) => (
+                  <Typography {...ServiceFeatureProps} key={index}>
+                    ✔️ {feature}
+                  </Typography>
+                ))}
+              </Box>
+            </Box>
+          </Fade>
+        ))}
+      </Grid>
+      
+      <Container {...ExpertiseContainerProps}>
+        <Box {...ExpertiseCaptionProps}>
+          <Typography {...TitleProps}>{expertise.title}</Typography>
+          <Typography {...TextProps}>{expertise.text}</Typography>
+          <Typography {...ServiceFeatureProps} mt={3}>
+            {expertise.highlight}
           </Typography>
-        </Fade>
-      </Box>
-      <Box {...SecondImageWrapperProps}>
-        <Fade cascade duration={600}>
-          <RoundedImage
-            {...ImageProps}
-            {...data.about.secondImage}
-            alt="DEC!DE"
-          />
-        </Fade>
+        </Box>
+        <Box>
+          <Fade cascade duration={600}>
+            <RoundedImage {...ExpertiseImageProps} {...expertise.image} />
+          </Fade>
+        </Box>
+      </Container>
+      
+      <Box textAlign="center" mt={5}>
+        <Button {...CtaProps} {...cta}>
+          {cta.label}
+        </Button>
       </Box>
     </Container>
   </Box>
@@ -167,107 +174,91 @@ About.defaultProps = {
     },
   },
   ContainerProps: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: {
-      _: 'column',
-      lg: 'row',
-    },
-  },
-  ImageWrapperProps: {
-    position: 'relative',
-    mb: {
-      _: 60,
-      lg: 0,
-    },
-  },
-  ImageProps: {
-    maxWidth: '100%',
-    pl: 3,
-    pr: 3,
+    textAlign: 'center',
   },
   CaptionProps: {
-    textAlign: {
-      _: 'center',
-      lg: 'left',
-    },
-    maxWidth: 644,
-    ml: {
-      _: 0,
-      md: 20,
-    },
-    pl: 3,
-    pr: 3,
-    order: {
-      _: 2,
-      lg: 1,
-    },
-  },
-  ValuesProps: {
-    textAlign: 'center',
-    maxWidth: '800px',
-    width: '100%',
-    mx: 'auto',
-    px: 3,
+    mb: 5,
   },
   TitleProps: {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 4,
+    mb: 3,
   },
   TextProps: {
-    textAlign: 'justify',
+    variant: 'body1',
     color: 'gray.1',
-    mb: 48,
+    mb: 4,
+  },
+  ServicesGridProps: {
+    gridTemplateColumns: {
+      _: '1fr',
+      md: 'repeat(2, 1fr)',
+      lg: 'repeat(3, 1fr)',
+    },
+    gridGap: '40px',
+    maxWidth: 1200,
+    mx: 'auto',
+    mb: 5,
+  },
+  ServiceCardProps: {
+    textAlign: 'center',
+    p: 4,
+    borderRadius: '12px',
+    backgroundColor: 'gray.6',
+    boxShadow: '0 4px 12px rgba(0, 48, 61, 0.1)',
+  },
+  ServiceIconProps: {
+    fontSize: 48,
+    mb: 3,
+  },
+  ServiceTitleProps: {
+    variant: 'h4',
+    color: 'black',
+    mb: 3,
+  },
+  ServiceDescriptionProps: {
+    variant: 'body2',
+    color: 'gray.1',
+    mb: 3,
+  },
+  ServiceFeatureProps: {
+    variant: 'body2',
+    color: 'gray.1',
+    mb: 1,
+    textAlign: 'left',
+  },
+  ExpertiseContainerProps: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: {
+      _: 'column',
+      lg: 'row',
+    },
+    mt: 5,
+    mb: 4,
+  },
+  ExpertiseCaptionProps: {
+    maxWidth: 600,
+    textAlign: {
+      _: 'center',
+      lg: 'left',
+    },
+    mb: {
+      _: 4,
+      lg: 0,
+    },
+  },
+  ExpertiseImageProps: {
+    maxWidth: 400,
+    width: '100%',
   },
   CtaProps: {
     as: 'a',
     variant: 'primary',
   },
   ...data.about,
-  SecondContainerProps: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: {
-      _: 'column',
-      lg: 'row',
-    },
-    mt: {
-      _: 4,
-      lg: 6,
-    },
-  },
-  SecondImageWrapperProps: {
-    position: 'relative',
-    mb: {
-      _: 60,
-      lg: 0,
-    },
-    order: {
-      _: 1,
-      lg: 2,
-    },
-  },
-  SecondCaptionProps: {
-    textAlign: {
-      _: 'center',
-      lg: 'left',
-    },
-    maxWidth: 644,
-    ml: {
-      _: 0,
-      md: 20,
-    },
-    pl: 3,
-    pr: 3,
-    order: {
-      _: 2,
-      lg: 1,
-    },
-  },
 };
 
 export default About;
