@@ -55,6 +55,13 @@ import Hastiere from './assets/hastiere.png';
 import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
 
+// Workshop images (téléchargées via scripts/download-workshop-images.sh)
+import WorkshopFresque from './assets/workshop-fresque.jpg';
+import WorkshopNudge from './assets/workshop-nudge.jpg';
+import WorkshopMobiliser from './assets/workshop-mobiliser.jpg';
+import WorkshopNumerique from './assets/workshop-numerique.jpg';
+import WorkshopEvenements from './assets/workshop-evenements.jpg';
+
 // import Support from './assets/support.svg';
 
 import PricingBasic from './assets/pricing/basic.svg';
@@ -184,7 +191,7 @@ export default {
 
     services: [
       {
-        icon: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop',
+        icon: WorkshopFresque,
         title: 'La Fresque du Climat',
         duration: '3h',
         text: {
@@ -192,7 +199,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
+        icon: WorkshopNudge,
         title: 'Nudge',
         duration: '2h',
         text: {
@@ -200,7 +207,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+        icon: WorkshopMobiliser,
         title: 'Mobiliser ses collègues',
         duration: '4h',
         text: {
@@ -208,7 +215,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
+        icon: WorkshopNumerique,
         title: 'Numérique : un monde dématérialisé ?',
         duration: '6h',
         text: {
@@ -216,7 +223,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop',
+        icon: WorkshopEvenements,
         title: 'Réchauffe l\'ambiance, pas la planète',
         duration: '3h',
         text: {

@@ -28,7 +28,6 @@ const Startup = ({url}) => (
       {/* Preconnect pour améliorer la performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://images.unsplash.com" />
       <link rel="dns-prefetch" href="https://cloud.umami.is" />
       <link rel="dns-prefetch" href="https://calendly.com" />
 
