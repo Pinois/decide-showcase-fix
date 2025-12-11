@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import data from '../../data';
+
+const FAQHeader = styled(Box)`
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 48, 61, 0.03);
+  }
+`;
 
 const FAQ = ({
   name,
@@ -34,15 +48,7 @@ const FAQ = ({
         <Box maxWidth={800} mx="auto">
           {faqs.map((faq, index) => (
             <Box {...FAQItemProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
-              <Box
-                onClick={() => toggleItem(index)}
-                cursor="pointer"
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                py={3}
-                px={4}
-              >
+              <FAQHeader onClick={() => toggleItem(index)}>
                 <Typography {...QuestionProps}>{faq.question}</Typography>
                 <Typography
                   {...ToggleIconProps}
@@ -50,7 +56,7 @@ const FAQ = ({
                 >
                   +
                 </Typography>
-              </Box>
+              </FAQHeader>
 
               <Box
                 overflow="hidden"

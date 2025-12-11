@@ -8,7 +8,7 @@ import Grid from '@pagerland/common/src/components/Grid';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
 import Img from '@pagerland/common/src/components/Img';
-import { MemberCard } from './styled.components';
+import { MemberCard, MemberImageWrapper } from './styled.components';
 
 const Team = ({
   name,
@@ -38,7 +38,7 @@ const Team = ({
       <Grid {...TeamGridProps}>
         {members.map((member, index) => (
           <MemberCard {...MemberCardProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
-            <Box
+            <MemberImageWrapper
               width={200}
               height={200}
               mb={3}
@@ -55,7 +55,7 @@ const Team = ({
                 style={{ objectFit: 'cover', objectPosition: 'top' }}
                 borderRadius="12px"
               />
-            </Box>
+            </MemberImageWrapper>
             <Typography {...MemberNameProps}>{member.name}</Typography>
             <Typography {...MemberPositionProps}>{member.position}</Typography>
             <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
