@@ -46,10 +46,12 @@ const About = ({
       <Grid {...ServicesGridProps}>
         {services.map((service, key) => (
           <Box {...ServiceCardProps} key={key} className={`animate-fade-in-up animate-delay-${key + 1}`}>
-            <Typography {...ServiceIconProps}>{service.icon}</Typography>
-            <Typography {...ServiceTitleProps}>{service.title}</Typography>
-            <Typography {...ServiceDescriptionProps}>{service.description}</Typography>
             <Box>
+              <Typography {...ServiceIconProps}>{service.icon}</Typography>
+              <Typography {...ServiceTitleProps}>{service.title}</Typography>
+              <Typography {...ServiceDescriptionProps}>{service.description}</Typography>
+            </Box>
+            <Box mt="auto">
               {service.features.map((feature, index) => (
                 <Typography {...ServiceFeatureProps} key={index}>
                   ✔️ {feature}
@@ -191,6 +193,7 @@ About.defaultProps = {
     maxWidth: 1200,
     mx: 'auto',
     mb: 5,
+    alignItems: 'stretch',
   },
   ServiceCardProps: {
     textAlign: 'center',
@@ -198,6 +201,9 @@ About.defaultProps = {
     borderRadius: '12px',
     backgroundColor: 'secondary',
     boxShadow: 'secondary',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
   },
   ServiceIconProps: {
     fontSize: 48,
