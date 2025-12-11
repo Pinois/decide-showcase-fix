@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Box from '@pagerland/common/src/components/Box';
 import Container from '@pagerland/common/src/components/Container';
 import Typography from '@pagerland/common/src/components/Typography';
@@ -12,6 +13,19 @@ import MobilePhone from '@pagerland/icons/src/monochrome/MobilePhone';
 import MapMarker from '@pagerland/icons/src/monochrome/MapMarker';
 
 import data from '../../data';
+
+const StyledScrollLink = styled(ScrollLink)`
+  display: block;
+  color: ${props => props.theme.colors.gray[5]};
+  margin-bottom: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    color: white;
+  }
+`;
 
 const Footer = ({
   logo,
@@ -68,24 +82,16 @@ const Footer = ({
           <Box {...ColumnProps}>
             <Typography {...ColumnTitleProps}>Entreprise</Typography>
             {company.map((item, key) => (
-              <ScrollLink
+              <StyledScrollLink
                 key={key}
                 to={item.href ? item.href.replace('#', '') : ''}
                 spy
                 smooth
                 duration={500}
                 offset={-60}
-                style={{
-                  display: 'block',
-                  color: '#94a3b8',
-                  marginBottom: '8px',
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                }}
               >
                 {item.label}
-              </ScrollLink>
+              </StyledScrollLink>
             ))}
           </Box>
         )}
@@ -297,9 +303,9 @@ Footer.defaultProps = {
   },
   AdminMemberProps: {
     variant: 'body2',
-    color: 'gray.6',
+    color: 'gray.5',
     mb: 2,
-    fontSize: 'small',
+    fontSize: 14,
   },
   BottomBarProps: {
     display: 'flex',

@@ -15,6 +15,7 @@ const FAQ = ({
   FAQItemProps,
   QuestionProps,
   AnswerProps,
+  ToggleIconProps,
 }) => {
   const [openItems, setOpenItems] = useState({});
 
@@ -44,10 +45,8 @@ const FAQ = ({
               >
                 <Typography {...QuestionProps}>{faq.question}</Typography>
                 <Typography
-                  fontSize="24px"
-                  color="primary"
+                  {...ToggleIconProps}
                   transform={openItems[index] ? 'rotate(45deg)' : 'rotate(0deg)'}
-                  transition="transform 0.3s ease"
                 >
                   +
                 </Typography>
@@ -79,6 +78,7 @@ FAQ.propTypes = {
   FAQItemProps: PropTypes.object,
   QuestionProps: PropTypes.object,
   AnswerProps: PropTypes.object,
+  ToggleIconProps: PropTypes.object,
   title: PropTypes.node,
   faqs: PropTypes.arrayOf(
     PropTypes.shape({
@@ -104,7 +104,7 @@ FAQ.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 5,
+    mb: 4,
   },
   FAQItemProps: {
     mb: 3,
@@ -128,6 +128,11 @@ FAQ.defaultProps = {
     pb: 4,
     textAlign: 'left',
     lineHeight: 1.6,
+  },
+  ToggleIconProps: {
+    fontSize: 24,
+    color: 'primary',
+    transition: 'transform 0.3s ease',
   },
   ...data.faq,
 };

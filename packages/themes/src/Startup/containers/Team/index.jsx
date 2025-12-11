@@ -196,7 +196,7 @@ Team.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 3,
+    mb: 4,
   },
   TextProps: {
     variant: 'body1',

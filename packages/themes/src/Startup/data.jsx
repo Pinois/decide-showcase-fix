@@ -132,7 +132,7 @@ export default {
     ],
     actions: [
       {
-        label: 'Réservez un appel découverte (30min)',
+        label: 'Réservez un appel découverte (30 min)',
         href: 'https://calendly.com/marion-decideetvous/30min',
         target: '_blank',
         rel: 'noopener noreferrer',
@@ -566,14 +566,14 @@ export default {
       cta: 'Envoyer',
       validationSchema: Yup.object({
         name: Yup.string()
-          .max(25, 'Must be 25 characters or less')
-          .required('Required'),
+          .max(25, 'Maximum 25 caractères')
+          .required('Requis'),
         // Message
-        message: Yup.string().required('Required'),
+        message: Yup.string().required('Requis'),
         email: Yup.string()
-          .email('Must be an email')
-          .required('Required'),
-        // date: Yup.string().required('Required'),
+          .email('Email invalide')
+          .required('Requis'),
+        // date: Yup.string().required('Requis'),
       }),
       // eslint-disable-next-line no-undef
       onSubmit: (values, actions) => {
@@ -585,11 +585,11 @@ export default {
           body: encode({'form-name': 'contact', ...values}),
         })
           .then(() => {
-            alert('DEC!DE vous remercie de ce message! A bientôt.');
+            alert('DEC!DE vous remercie de ce message ! À bientôt.');
             actions.resetForm();
           })
           .catch(() => {
-            alert('Error');
+            alert('Une erreur est survenue. Veuillez réessayer.');
           })
           .finally(() => actions.setSubmitting(false));
 
