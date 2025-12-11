@@ -122,7 +122,7 @@ FAQ.defaultProps = {
     fontWeight: 'bold',
   },
   AnswerProps: {
-    variant: 'body1',
+    variant: 'body2',
     color: 'gray.1',
     px: 4,
     pb: 4,
