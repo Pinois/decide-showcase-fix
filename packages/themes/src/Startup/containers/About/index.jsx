@@ -203,8 +203,8 @@ About.defaultProps = {
     textAlign: 'center',
     p: 4,
     borderRadius: '12px',
-    backgroundColor: 'gray.6',
-    boxShadow: '0 4px 12px rgba(0, 48, 61, 0.1)',
+    backgroundColor: 'secondary',
+    boxShadow: 'secondary',
   },
   ServiceIconProps: {
     fontSize: 48,
@@ -212,17 +212,17 @@ About.defaultProps = {
   },
   ServiceTitleProps: {
     variant: 'h4',
-    color: 'black',
+    color: 'white',
     mb: 3,
   },
   ServiceDescriptionProps: {
     variant: 'body2',
-    color: 'gray.1',
+    color: 'gray.6',
     mb: 3,
   },
   ServiceFeatureProps: {
     variant: 'body2',
-    color: 'gray.1',
+    color: 'white',
     mb: 1,
     textAlign: 'left',
   },

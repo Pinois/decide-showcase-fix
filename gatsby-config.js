@@ -4,8 +4,9 @@ module.exports = {
   siteMetadata: {
     title: 'DEC!DE',
     description:
-      'DEC!DE propose un programme d’éducation à l’environnement qui a pour objectif d’induire des changements de comportement au travers d’une démarche transmédia.',
+      'DEC!DE ASBL accompagne les entreprises belges dans leur transition écologique. Formations RSE, Fresque du Climat, Nudge et accompagnement ESG à Bruxelles et en Belgique.',
     author: 'DEC!DE ASBL',
+    siteUrl: 'https://decideetvous.com',
   },
   pathPrefix: process.env.GATSBY_APP_DIR || '',
   plugins: [
@@ -62,5 +63,20 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    // SEO plugins
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        excludes: [],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://decideetvous.com',
+        sitemap: 'https://decideetvous.com/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 }
