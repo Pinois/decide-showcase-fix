@@ -43,7 +43,7 @@ const Team = ({
             <Box {...MemberCardProps}>
               <Box
                 width={200}
-                height={250}
+                height={200}
                 mb={3}
                 mx="auto"
                 borderRadius="12px"
