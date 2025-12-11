@@ -9,7 +9,6 @@ import PaperAirplane from '@pagerland/icons/src/monochrome/PaperAirplane';
 
 import FacebookF from '@pagerland/icons/src/monochrome/FacebookF';
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
-import Twitter from '@pagerland/icons/src/monochrome/Twitter';
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
 import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
@@ -643,28 +642,23 @@ export default {
         href: 'https://www.instagram.com/decide_etvous/',
         title: 'Instagram',
       },
-      {
-        icon: Twitter,
-        href: '#',
-        title: 'Twitter',
-      },
     ],
     workshops: [
       {
         label: 'Fresques du climat',
-        href: '#',
+        href: '#services',
       },
       {
         label: 'Nudge',
-        href: '#',
+        href: '#services',
       },
       {
-        label: 'Éco-gestes pro',
-        href: '#',
+        label: 'Accompagnement RSE',
+        href: '#about',
       },
       {
-        label: 'Stratégie RSE',
-        href: '#',
+        label: 'Green Team',
+        href: '#about',
       },
     ],
     company: [
@@ -677,12 +671,12 @@ export default {
         href: '#team',
       },
       {
-        label: 'Témoignages',
-        href: '#testimonials',
-      },
-      {
         label: 'FAQ',
         href: '#faq',
+      },
+      {
+        label: 'Contact',
+        href: '#contact',
       },
     ],
     contact: {
