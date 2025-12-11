@@ -43,6 +43,7 @@ const Team = ({
             <Box {...MemberCardProps}>
               <Box
                 width={200}
+                height={250}
                 mb={3}
                 mx="auto"
                 borderRadius="12px"
@@ -53,7 +54,8 @@ const Team = ({
                   src={member.image.src}
                   alt={member.name}
                   width="100%"
-                  height="auto"
+                  height="100%"
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
                   borderRadius="12px"
                 />
               </Box>
