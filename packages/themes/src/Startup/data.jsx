@@ -97,7 +97,7 @@ export default {
       },
       {
         to: 'services',
-        label: 'Activités',
+        label: 'Ateliers',
       },
       {
         to: 'about',

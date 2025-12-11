@@ -69,9 +69,7 @@ const About = ({
         <Box {...ExpertiseCaptionProps}>
           <Typography {...TitleProps}>{expertise.title}</Typography>
           <Typography {...TextProps}>{expertise.text}</Typography>
-          <Typography {...ServiceFeatureProps} mt={3}>
-            {expertise.highlight}
-          </Typography>
+          <Typography {...ServiceFeatureProps} mt={3} dangerouslySetInnerHTML={{__html: expertise.highlight}} />
         </Box>
         <Box>
           <Fade cascade duration={600}>
