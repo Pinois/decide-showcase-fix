@@ -11,7 +11,7 @@ import {
   Welcome,
   Services,
   About,
-  Testimonials,
+  // Testimonials, // TODO: En attente des vrais témoignages
   Team,
   FAQ,
   Contact,
@@ -41,7 +41,7 @@ const Startup = ({url}) => (
     <Welcome name="" />
     <Services name="services" />
     <About name="about" />
-    <Testimonials name="testimonials" />
+    {/* <Testimonials name="testimonials" /> // TODO: En attente des vrais témoignages */}
     <Partners name="partners" />
     <Team name="team" />
     <FAQ name="faq" />
