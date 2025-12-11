@@ -60,7 +60,7 @@ const FAQ = ({
                 <Box
                   overflow="hidden"
                   transition="all 0.3s ease"
-                  maxHeight={openItems[index] ? '200px' : '0'}
+                  maxHeight={openItems[index] ? '1000px' : '0'}
                   opacity={openItems[index] ? 1 : 0}
                 >
                   <Typography {...AnswerProps}>
