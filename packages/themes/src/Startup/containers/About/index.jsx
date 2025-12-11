@@ -51,7 +51,7 @@ const About = ({
               <Typography {...ServiceTitleProps}>{service.title}</Typography>
               <Typography {...ServiceDescriptionProps}>{service.description}</Typography>
             </Box>
-            <Box mt="auto">
+            <Box mt={3}>
               {service.features.map((feature, index) => (
                 <Typography {...ServiceFeatureProps} key={index}>
                   ✔️ {feature}
