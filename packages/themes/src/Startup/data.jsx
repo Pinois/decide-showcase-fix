@@ -55,6 +55,13 @@ import Hastiere from './assets/hastiere.png';
 import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
 
+// Workshop images (téléchargées via scripts/download-workshop-images.sh)
+import WorkshopFresque from './assets/workshop-fresque.jpg';
+import WorkshopNudge from './assets/workshop-nudge.jpg';
+import WorkshopMobiliser from './assets/workshop-mobiliser.jpg';
+import WorkshopNumerique from './assets/workshop-numerique.jpg';
+import WorkshopEvenements from './assets/workshop-evenements.jpg';
+
 // import Support from './assets/support.svg';
 
 import PricingBasic from './assets/pricing/basic.svg';
@@ -71,8 +78,6 @@ import Article4 from './assets/articles/article-4.jpg';
 import Article42x from './assets/articles/article-4@2x.jpg';
 import Article5 from './assets/articles/article-5.jpg';
 import Article52x from './assets/articles/article-5@2x.jpg';
-
-import Decide122 from './assets/decide-122.jpg';
 
 import MarionPhoto from './assets/Decide 68.jpg';
 import ManonPhoto from './assets/Decide 79.jpg';
@@ -127,7 +132,7 @@ export default {
     ],
     actions: [
       {
-        label: 'Réservez un appel découverte (30min)',
+        label: 'Réservez un appel découverte (30 min)',
         href: 'https://calendly.com/marion-decideetvous/30min',
         target: '_blank',
         rel: 'noopener noreferrer',
@@ -186,7 +191,7 @@ export default {
 
     services: [
       {
-        icon: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop',
+        icon: WorkshopFresque,
         title: 'La Fresque du Climat',
         duration: '3h',
         text: {
@@ -194,7 +199,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
+        icon: WorkshopNudge,
         title: 'Nudge',
         duration: '2h',
         text: {
@@ -202,7 +207,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+        icon: WorkshopMobiliser,
         title: 'Mobiliser ses collègues',
         duration: '4h',
         text: {
@@ -210,7 +215,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
+        icon: WorkshopNumerique,
         title: 'Numérique : un monde dématérialisé ?',
         duration: '6h',
         text: {
@@ -218,7 +223,7 @@ export default {
         },
       },
       {
-        icon: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop',
+        icon: WorkshopEvenements,
         title: 'Réchauffe l\'ambiance, pas la planète',
         duration: '3h',
         text: {
@@ -561,14 +566,14 @@ export default {
       cta: 'Envoyer',
       validationSchema: Yup.object({
         name: Yup.string()
-          .max(25, 'Must be 25 characters or less')
-          .required('Required'),
+          .max(25, 'Maximum 25 caractères')
+          .required('Requis'),
         // Message
-        message: Yup.string().required('Required'),
+        message: Yup.string().required('Requis'),
         email: Yup.string()
-          .email('Must be an email')
-          .required('Required'),
-        // date: Yup.string().required('Required'),
+          .email('Email invalide')
+          .required('Requis'),
+        // date: Yup.string().required('Requis'),
       }),
       // eslint-disable-next-line no-undef
       onSubmit: (values, actions) => {
@@ -580,11 +585,11 @@ export default {
           body: encode({'form-name': 'contact', ...values}),
         })
           .then(() => {
-            alert('DEC!DE vous remercie de ce message! A bientôt.');
+            alert('DEC!DE vous remercie de ce message ! À bientôt.');
             actions.resetForm();
           })
           .catch(() => {
-            alert('Error');
+            alert('Une erreur est survenue. Veuillez réessayer.');
           })
           .finally(() => actions.setSubmitting(false));
 

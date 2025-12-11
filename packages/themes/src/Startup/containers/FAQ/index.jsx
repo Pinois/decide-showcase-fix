@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
-import Fade from 'react-reveal/Fade';
 import data from '../../data';
+
+const FAQHeader = styled(Box)`
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 48, 61, 0.03);
+  }
+`;
 
 const FAQ = ({
   name,
@@ -16,6 +29,7 @@ const FAQ = ({
   FAQItemProps,
   QuestionProps,
   AnswerProps,
+  ToggleIconProps,
 }) => {
   const [openItems, setOpenItems] = useState({});
 
@@ -29,46 +43,32 @@ const FAQ = ({
   return (
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-        </Fade>
-        
+        <Typography {...TitleProps} className="animate-fade-in-up">{title}</Typography>
+
         <Box maxWidth={800} mx="auto">
           {faqs.map((faq, index) => (
-            <Fade bottom cascade duration={600} delay={index * 100} key={index}>
-              <Box {...FAQItemProps}>
-                <Box
-                  onClick={() => toggleItem(index)}
-                  cursor="pointer"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  py={3}
-                  px={4}
+            <Box {...FAQItemProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
+              <FAQHeader onClick={() => toggleItem(index)}>
+                <Typography {...QuestionProps}>{faq.question}</Typography>
+                <Typography
+                  {...ToggleIconProps}
+                  transform={openItems[index] ? 'rotate(45deg)' : 'rotate(0deg)'}
                 >
-                  <Typography {...QuestionProps}>{faq.question}</Typography>
-                  <Typography
-                    fontSize="24px"
-                    color="primary"
-                    transform={openItems[index] ? 'rotate(45deg)' : 'rotate(0deg)'}
-                    transition="transform 0.3s ease"
-                  >
-                    +
-                  </Typography>
-                </Box>
-                
-                <Box
-                  overflow="hidden"
-                  transition="all 0.3s ease"
-                  maxHeight={openItems[index] ? '1000px' : '0'}
-                  opacity={openItems[index] ? 1 : 0}
-                >
-                  <Typography {...AnswerProps}>
-                    {faq.answer}
-                  </Typography>
-                </Box>
+                  +
+                </Typography>
+              </FAQHeader>
+
+              <Box
+                overflow="hidden"
+                transition="all 0.3s ease"
+                maxHeight={openItems[index] ? '1000px' : '0'}
+                opacity={openItems[index] ? 1 : 0}
+              >
+                <Typography {...AnswerProps}>
+                  {faq.answer}
+                </Typography>
               </Box>
-            </Fade>
+            </Box>
           ))}
         </Box>
       </Container>
@@ -84,6 +84,7 @@ FAQ.propTypes = {
   FAQItemProps: PropTypes.object,
   QuestionProps: PropTypes.object,
   AnswerProps: PropTypes.object,
+  ToggleIconProps: PropTypes.object,
   title: PropTypes.node,
   faqs: PropTypes.arrayOf(
     PropTypes.shape({
@@ -109,7 +110,7 @@ FAQ.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 5,
+    mb: 4,
   },
   FAQItemProps: {
     mb: 3,
@@ -127,12 +128,17 @@ FAQ.defaultProps = {
     fontWeight: 'bold',
   },
   AnswerProps: {
-    variant: 'body1',
+    variant: 'body2',
     color: 'gray.1',
     px: 4,
     pb: 4,
     textAlign: 'left',
     lineHeight: 1.6,
+  },
+  ToggleIconProps: {
+    fontSize: 24,
+    color: 'primary',
+    transition: 'transform 0.3s ease',
   },
   ...data.faq,
 };

@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Fade from 'react-reveal/Fade';
-import Reveal from 'react-reveal/Reveal';
-
 import Box from '@pagerland/common/src/components/Box';
 import Container from '@pagerland/common/src/components/Container';
 import Typography from '@pagerland/common/src/components/Typography';
@@ -49,18 +46,15 @@ const Pricing = ({
   <Box {...WrapperProps} name={name}>
     <Background />
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps}>{text}</Typography>
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps}>{text}</Typography>
       </Box>
 
       <Box position="relative">
         <Squares />
 
-        <Reveal effect="cards" duration={600}>
-          <CardWrapper {...CardWrapperProps}>
+        <CardWrapper {...CardWrapperProps}>
             {prices?.sections?.map((section, i) => (
               <Card key={i} {...CardProps} {...sections[i]?.CardProps}>
                 <Typography {...CardTitleProps} {...sections[i]?.CardTitleProps}>
@@ -112,7 +106,6 @@ const Pricing = ({
               </Card>
             ))}
           </CardWrapper>
-        </Reveal>
       </Box>
     </Container>
   </Box>

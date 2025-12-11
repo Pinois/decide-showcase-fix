@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Box from '@pagerland/common/src/components/Box';
 import Container from '@pagerland/common/src/components/Container';
 import Typography from '@pagerland/common/src/components/Typography';
@@ -10,40 +11,87 @@ import Grid from '@pagerland/common/src/components/Grid';
 import PaperAirplane from '@pagerland/icons/src/monochrome/PaperAirplane';
 import MobilePhone from '@pagerland/icons/src/monochrome/MobilePhone';
 import MapMarker from '@pagerland/icons/src/monochrome/MapMarker';
+import Check from '@pagerland/icons/src/monochrome/Check';
 
 import data from '../../data';
 
-const Footer = ({
-  logo,
-  baseline,
-  socialLinks,
-  workshops,
-  company,
-  contact,
-  administration,
-  copyright,
-  legalLinks,
-  WrapperProps,
-  ContainerProps,
-  MainGridProps,
-  ColumnProps,
-  LogoProps,
-  BaselineProps,
-  SocialLinksProps,
-  SocialLinkProps,
-  ColumnTitleProps,
-  ColumnLinkProps,
-  ContactItemProps,
-  ContactIconProps,
-  ContactTextProps,
-  AdministrationProps,
-  AdminTitleProps,
-  AdminMemberProps,
-  BottomBarProps,
-  CopyrightProps,
-  LegalLinksProps,
-  LegalLinkProps,
-}) => (
+const StyledScrollLink = styled(ScrollLink)`
+  display: block;
+  color: ${props => props.theme.colors.gray[5]};
+  margin-bottom: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    color: white;
+  }
+`;
+
+const CopyButton = styled.button`
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  color: ${props => props.theme.colors.gray[5]};
+  opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+
+  &:hover {
+    opacity: 1;
+    color: white;
+  }
+`;
+
+const Footer = (props) => {
+  const {
+    logo,
+    baseline,
+    socialLinks,
+    workshops,
+    company,
+    contact,
+    administration,
+    copyright,
+    legalLinks,
+    WrapperProps,
+    ContainerProps,
+    MainGridProps,
+    ColumnProps,
+    LogoProps,
+    BaselineProps,
+    SocialLinksProps,
+    SocialLinkProps,
+    ColumnTitleProps,
+    ColumnLinkProps,
+    ContactItemProps,
+    ContactIconProps,
+    ContactTextProps,
+    AdministrationProps,
+    AdminTitleProps,
+    AdminMemberProps,
+    BottomBarProps,
+    CopyrightProps,
+    LegalLinksProps,
+    LegalLinkProps,
+  } = props;
+  const [copiedField, setCopiedField] = useState(null);
+
+  const handleCopy = async (text, field) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
+  return (
   <Box {...WrapperProps}>
     <Container {...ContainerProps}>
       {/* Grille principale */}
@@ -68,24 +116,16 @@ const Footer = ({
           <Box {...ColumnProps}>
             <Typography {...ColumnTitleProps}>Entreprise</Typography>
             {company.map((item, key) => (
-              <ScrollLink
+              <StyledScrollLink
                 key={key}
                 to={item.href ? item.href.replace('#', '') : ''}
                 spy
                 smooth
                 duration={500}
                 offset={-60}
-                style={{
-                  display: 'block',
-                  color: '#94a3b8',
-                  marginBottom: '8px',
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                }}
               >
                 {item.label}
-              </ScrollLink>
+              </StyledScrollLink>
             ))}
           </Box>
         )}
@@ -93,13 +133,23 @@ const Footer = ({
         {/* Colonne Contact */}
         <Box {...ColumnProps}>
           <Typography {...ColumnTitleProps}>Contact</Typography>
-          
+
           {contact.email && (
             <Box {...ContactItemProps}>
               <Icon icon={PaperAirplane} {...ContactIconProps} />
               <Link as="a" href={`mailto:${contact.email}`} {...ContactTextProps}>
                 {contact.email}
               </Link>
+              <CopyButton
+                onClick={() => handleCopy(contact.email, 'email')}
+                title="Copier l'email"
+              >
+                {copiedField === 'email' ? (
+                  <Icon icon={Check} fontSize={12} color="secondary" />
+                ) : (
+                  <span style={{ fontSize: '12px' }}>📋</span>
+                )}
+              </CopyButton>
             </Box>
           )}
 
@@ -109,6 +159,16 @@ const Footer = ({
               <Link as="a" href={`tel:${contact.phone}`} {...ContactTextProps}>
                 {contact.phone}
               </Link>
+              <CopyButton
+                onClick={() => handleCopy(contact.phone, 'phone')}
+                title="Copier le numéro"
+              >
+                {copiedField === 'phone' ? (
+                  <Icon icon={Check} fontSize={12} color="secondary" />
+                ) : (
+                  <span style={{ fontSize: '12px' }}>📋</span>
+                )}
+              </CopyButton>
             </Box>
           )}
 
@@ -160,7 +220,8 @@ const Footer = ({
       </Box>
     </Container>
   </Box>
-);
+  );
+};
 
 Footer.propTypes = {
   logo: PropTypes.string,
@@ -243,12 +304,12 @@ Footer.defaultProps = {
   },
   SocialLinksProps: {
     display: 'flex',
-    gap: '20px',
+    alignItems: 'center',
+    gap: '16px',
   },
   SocialLinkProps: {
     color: 'gray.5',
     fontSize: 24,
-    mr: '20px',
     '&:hover': {
       color: 'white',
     },
@@ -297,9 +358,9 @@ Footer.defaultProps = {
   },
   AdminMemberProps: {
     variant: 'body2',
-    color: 'gray.6',
+    color: 'gray.5',
     mb: 2,
-    fontSize: 'small',
+    fontSize: 14,
   },
   BottomBarProps: {
     display: 'flex',

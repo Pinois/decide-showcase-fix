@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Fade from 'react-reveal/Fade';
-
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
@@ -38,7 +36,7 @@ const Contact = ({
       {/* Grille avec CTA et formulaire */}
       <Box {...MainGridProps}>
         {/* Bloc CTA */}
-        <Card {...CTACardProps}>
+        <Card {...CTACardProps} className="animate-fade-in-up animate-delay-1">
           <Box>
             <Typography {...CTATitleProps}>{cta.title}</Typography>
             <Typography {...CTATextProps}>{cta.text}</Typography>
@@ -56,7 +54,7 @@ const Contact = ({
         </Card>
 
         {/* Bloc formulaire */}
-        <Card {...MailerCardProps}>
+        <Card {...MailerCardProps} className="animate-fade-in-up animate-delay-2">
           <Squares />
           <Typography {...MailerTitleProps}>{mailer.title}</Typography>
           <Formik
@@ -71,17 +69,15 @@ const Contact = ({
             )}
           >
             <Form name="contact" method="POST" data-netlify={true}>
-              <Fade cascade bottom duration={600}>
-                <div>
-                  {mailer.fields.map(field => (
-                    <Input key={field.name} name={field.name} {...field} />
-                  ))}
-                </div>
-                <Input multiline name="message" key="message" label="Message" placeholder="Votre message" />
-                <Button type="submit" {...MailerButtonProps}>
-                  {mailer.cta}
-                </Button>
-              </Fade>
+              <div>
+                {mailer.fields.map(field => (
+                  <Input key={field.name} name={field.name} {...field} />
+                ))}
+              </div>
+              <Input multiline name="message" key="message" label="Message" placeholder="Votre message" />
+              <Button type="submit" {...MailerButtonProps}>
+                {mailer.cta}
+              </Button>
             </Form>
           </Formik>
         </Card>

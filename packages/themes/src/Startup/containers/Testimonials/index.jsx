@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
@@ -29,25 +28,21 @@ const Testimonials = ({
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
-      
+
       <Grid {...TestimonialsGridProps}>
         {testimonials.map((testimonial, key) => (
-          <Fade bottom cascade duration={600} delay={key * 100} key={key}>
-            <Box {...TestimonialCardProps}>
-              <Typography {...QuoteIconProps}>"</Typography>
-              <Typography {...QuoteTextProps}>{testimonial.quote}</Typography>
-              <Box {...AuthorProps}>
-                <Typography {...AuthorNameProps}>{testimonial.author}</Typography>
-                <Typography {...AuthorFunctionProps}>{testimonial.function}</Typography>
-              </Box>
+          <Box {...TestimonialCardProps} key={key} className={`animate-fade-in-up animate-delay-${Math.min(key + 1, 5)}`}>
+            <Typography {...QuoteIconProps}>"</Typography>
+            <Typography {...QuoteTextProps}>{testimonial.quote}</Typography>
+            <Box {...AuthorProps}>
+              <Typography {...AuthorNameProps}>{testimonial.author}</Typography>
+              <Typography {...AuthorFunctionProps}>{testimonial.function}</Typography>
             </Box>
-          </Fade>
+          </Box>
         ))}
       </Grid>
     </Container>

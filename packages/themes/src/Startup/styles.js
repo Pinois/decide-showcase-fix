@@ -79,6 +79,43 @@ export const shadows = {
 }
 
 export const global = css`
+  /* Animation fadeInUp pour remplacer react-reveal */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Délais pour les animations en cascade */
+  .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+  .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+  .animate-delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+  /* Respecter les préférences utilisateur pour réduire les animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-delay-1,
+    .animate-delay-2,
+    .animate-delay-3,
+    .animate-delay-4,
+    .animate-delay-5 {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   blockquote {
     footer {
       display: flex;

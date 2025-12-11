@@ -67,7 +67,7 @@ Partners.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: '100px',
+    mb: 5,
   },
   ImageProps: {
     height: 60,

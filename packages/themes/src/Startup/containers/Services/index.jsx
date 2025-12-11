@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
@@ -43,84 +42,66 @@ const Services = ({
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
       <Box display={{ _: 'block', lg: 'none' }}>
         <Grid {...GridProps}>
           {services.map((service, key) => (
-            <Fade
-              bottom
-              cascade
-              duration={600}
-              delay={key * 100}
-              key={key}
-            >
-              <Box {...ServiceItemProps}>
-                <ServiceImage
-                  {...ServiceIconProps}
-                  backgroundImage={`url(${service.icon})`}
-                  backgroundSize="cover"
-                  backgroundPosition="center"
-                  backgroundRepeat="no-repeat"
-                />
-                <Typography {...ServiceTitleProps}>
-                  {service.title}
+            <Box {...ServiceItemProps} key={key} className={`animate-fade-in-up animate-delay-${Math.min(key + 1, 5)}`}>
+              <ServiceImage
+                {...ServiceIconProps}
+                backgroundImage={`url(${service.icon})`}
+                backgroundSize="cover"
+                backgroundPosition="center"
+                backgroundRepeat="no-repeat"
+              />
+              <Typography {...ServiceTitleProps}>
+                {service.title}
+              </Typography>
+              {service.duration && (
+                <Typography {...ServiceDurationProps}>
+                  {service.duration}
                 </Typography>
-                {service.duration && (
-                  <Typography {...ServiceDurationProps}>
-                    {service.duration}
-                  </Typography>
-                )}
-                <Typography
-                  {...ServiceTextProps}
-                  dangerouslySetInnerHTML={service.text}
-                />
-              </Box>
-            </Fade>
+              )}
+              <Typography
+                {...ServiceTextProps}
+                dangerouslySetInnerHTML={service.text}
+              />
+            </Box>
           ))}
         </Grid>
       </Box>
-      
+
       <Box display={{ _: 'none', lg: 'block' }}>
         <Grid {...GridProps}>
           {services.slice(0, 3).map((service, key) => (
-            <Fade
-              bottom
-              cascade
-              duration={600}
-              delay={key * 100}
-              key={key}
-            >
-              <Box {...ServiceItemProps}>
-                <ServiceImage
-                  {...ServiceIconProps}
-                  backgroundImage={`url(${service.icon})`}
-                  backgroundSize="cover"
-                  backgroundPosition="center"
-                  backgroundRepeat="no-repeat"
-                />
-                <Typography {...ServiceTitleProps}>
-                  {service.title}
+            <Box {...ServiceItemProps} key={key} className={`animate-fade-in-up animate-delay-${key + 1}`}>
+              <ServiceImage
+                {...ServiceIconProps}
+                backgroundImage={`url(${service.icon})`}
+                backgroundSize="cover"
+                backgroundPosition="center"
+                backgroundRepeat="no-repeat"
+              />
+              <Typography {...ServiceTitleProps}>
+                {service.title}
+              </Typography>
+              {service.duration && (
+                <Typography {...ServiceDurationProps}>
+                  {service.duration}
                 </Typography>
-                {service.duration && (
-                  <Typography {...ServiceDurationProps}>
-                    {service.duration}
-                  </Typography>
-                )}
-                <Typography
-                  {...ServiceTextProps}
-                  dangerouslySetInnerHTML={service.text}
-                />
-              </Box>
-            </Fade>
+              )}
+              <Typography
+                {...ServiceTextProps}
+                dangerouslySetInnerHTML={service.text}
+              />
+            </Box>
           ))}
         </Grid>
-        
-        <Grid 
+
+        <Grid
           gridTemplateColumns="repeat(2, 1fr)"
           gridGap="40px"
           maxWidth={800}
@@ -129,35 +110,27 @@ const Services = ({
           justifyItems="center"
         >
           {services.slice(3).map((service, key) => (
-            <Fade
-              bottom
-              cascade
-              duration={600}
-              delay={(key + 3) * 100}
-              key={key + 3}
-            >
-              <Box {...ServiceItemProps}>
-                <ServiceImage
-                  {...ServiceIconProps}
-                  backgroundImage={`url(${service.icon})`}
-                  backgroundSize="cover"
-                  backgroundPosition="center"
-                  backgroundRepeat="no-repeat"
-                />
-                <Typography {...ServiceTitleProps}>
-                  {service.title}
+            <Box {...ServiceItemProps} key={key + 3} className={`animate-fade-in-up animate-delay-${Math.min(key + 4, 5)}`}>
+              <ServiceImage
+                {...ServiceIconProps}
+                backgroundImage={`url(${service.icon})`}
+                backgroundSize="cover"
+                backgroundPosition="center"
+                backgroundRepeat="no-repeat"
+              />
+              <Typography {...ServiceTitleProps}>
+                {service.title}
+              </Typography>
+              {service.duration && (
+                <Typography {...ServiceDurationProps}>
+                  {service.duration}
                 </Typography>
-                {service.duration && (
-                  <Typography {...ServiceDurationProps}>
-                    {service.duration}
-                  </Typography>
-                )}
-                <Typography
-                  {...ServiceTextProps}
-                  dangerouslySetInnerHTML={service.text}
-                />
-              </Box>
-            </Fade>
+              )}
+              <Typography
+                {...ServiceTextProps}
+                dangerouslySetInnerHTML={service.text}
+              />
+            </Box>
           ))}
         </Grid>
       </Box>
@@ -169,11 +142,9 @@ const Services = ({
         </Box>
       )}
       {cta && (
-        <Fade top cascade duration={600}>
-          <Button {...CtaProps} {...cta}>
-            {cta.label}
-          </Button>
-        </Fade>
+        <Button {...CtaProps} {...cta} className="animate-fade-in-up">
+          {cta.label}
+        </Button>
       )}
     </Container>
   </Box>
@@ -285,7 +256,7 @@ Services.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 3,
+    mb: 4,
     textAlign: 'center',
   },
   TextProps: {

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
 import Img from '@pagerland/common/src/components/Img';
+import { MemberCard, MemberImageWrapper } from './styled.components';
 
 const Team = ({
   name,
@@ -30,41 +30,39 @@ const Team = ({
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
 
       <Grid {...TeamGridProps}>
         {members.map((member, index) => (
-          <Fade bottom cascade duration={600} delay={index * 100} key={index}>
-            <Box {...MemberCardProps}>
-              <Box
-                width={200}
-                mb={3}
-                mx="auto"
+          <MemberCard {...MemberCardProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
+            <MemberImageWrapper
+              width={200}
+              height={200}
+              mb={3}
+              mx="auto"
+              borderRadius="12px"
+              overflow="hidden"
+              backgroundColor="gray.5"
+            >
+              <Img
+                src={member.image.src}
+                alt={member.name}
+                width="100%"
+                height="100%"
+                style={{ objectFit: 'cover', objectPosition: 'top' }}
                 borderRadius="12px"
-                overflow="hidden"
-                backgroundColor="gray.5"
-              >
-                <Img
-                  src={member.image.src}
-                  alt={member.name}
-                  width="100%"
-                  height="auto"
-                  borderRadius="12px"
-                />
-              </Box>
-              <Typography {...MemberNameProps}>{member.name}</Typography>
-              <Typography {...MemberPositionProps}>{member.position}</Typography>
-              <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
-              <Button {...LinkedinButtonProps} href={member.linkedin}>
-                <span role="img" aria-label="link">🔗</span> Voir le profil LinkedIn
-              </Button>
-            </Box>
-          </Fade>
+              />
+            </MemberImageWrapper>
+            <Typography {...MemberNameProps}>{member.name}</Typography>
+            <Typography {...MemberPositionProps}>{member.position}</Typography>
+            <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
+            <Button {...LinkedinButtonProps} href={member.linkedin}>
+              <span role="img" aria-label="link">🔗</span> Voir le profil LinkedIn
+            </Button>
+          </MemberCard>
         ))}
       </Grid>
     </Container>
@@ -198,7 +196,7 @@ Team.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 3,
+    mb: 4,
   },
   TextProps: {
     variant: 'body1',

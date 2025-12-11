@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
@@ -39,42 +38,38 @@ const About = ({
   <Box name={name} {...WrapperProps}>
     <Background />
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
-      
+
       <Grid {...ServicesGridProps}>
         {services.map((service, key) => (
-          <Fade bottom cascade duration={600} delay={key * 100} key={key}>
-            <Box {...ServiceCardProps}>
+          <Box {...ServiceCardProps} key={key} className={`animate-fade-in-up animate-delay-${key + 1}`}>
+            <Box>
               <Typography {...ServiceIconProps}>{service.icon}</Typography>
               <Typography {...ServiceTitleProps}>{service.title}</Typography>
               <Typography {...ServiceDescriptionProps}>{service.description}</Typography>
-              <Box>
-                {service.features.map((feature, index) => (
-                  <Typography {...ServiceFeatureProps} key={index}>
-                    ✔️ {feature}
-                  </Typography>
-                ))}
-              </Box>
             </Box>
-          </Fade>
+            <Box mt={3}>
+              {service.features.map((feature, index) => (
+                <Typography {...ServiceFeatureProps} key={index}>
+                  ✔️ {feature}
+                </Typography>
+              ))}
+            </Box>
+          </Box>
         ))}
       </Grid>
-      
-      <Container {...ExpertiseContainerProps}>
+
+      <Container {...ExpertiseContainerProps} className="animate-fade-in-up">
         <Box {...ExpertiseCaptionProps}>
           <Typography {...TitleProps}>{expertise.title}</Typography>
           <Typography {...TextProps}>{expertise.text}</Typography>
           <Typography {...ServiceFeatureProps} mt={3} dangerouslySetInnerHTML={{__html: expertise.highlight}} />
         </Box>
         <Box>
-          <Fade cascade duration={600}>
-            <RoundedImage {...ExpertiseImageProps} {...expertise.image} />
-          </Fade>
+          <RoundedImage {...ExpertiseImageProps} {...expertise.image} />
         </Box>
       </Container>
       
@@ -181,7 +176,7 @@ About.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 3,
+    mb: 4,
   },
   TextProps: {
     variant: 'body1',
@@ -198,6 +193,7 @@ About.defaultProps = {
     maxWidth: 1200,
     mx: 'auto',
     mb: 5,
+    alignItems: 'stretch',
   },
   ServiceCardProps: {
     textAlign: 'center',
@@ -205,6 +201,9 @@ About.defaultProps = {
     borderRadius: '12px',
     backgroundColor: 'secondary',
     boxShadow: 'secondary',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
   },
   ServiceIconProps: {
     fontSize: 48,
