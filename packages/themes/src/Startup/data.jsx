@@ -72,8 +72,6 @@ import Article42x from './assets/articles/article-4@2x.jpg';
 import Article5 from './assets/articles/article-5.jpg';
 import Article52x from './assets/articles/article-5@2x.jpg';
 
-import Decide122 from './assets/decide-122.jpg';
-
 import MarionPhoto from './assets/Decide 68.jpg';
 import ManonPhoto from './assets/Decide 79.jpg';
 import MariePhoto from './assets/Decide 89.jpg';

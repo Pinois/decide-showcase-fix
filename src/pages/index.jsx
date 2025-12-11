@@ -25,6 +25,13 @@ import Partners from '@pagerland/themes/src/Startup/containers/Partners';
 const Startup = ({url}) => (
   <Theme>
     <Helmet>
+      {/* Preconnect pour améliorer la performance */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://images.unsplash.com" />
+      <link rel="dns-prefetch" href="https://cloud.umami.is" />
+      <link rel="dns-prefetch" href="https://calendly.com" />
+
       <link href={theme.typography.googleFont} rel="stylesheet" />
       <meta name="theme-color" content={theme.colors.primary} />
       <meta property="og:image" content={`${url}${preview}`} />
