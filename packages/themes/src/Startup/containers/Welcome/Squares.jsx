@@ -1,11 +1,10 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
 
 import Square from '../../components/Squares/Square';
 import SquareBlur from '../../components/Squares/SquareBlur';
 
 const Squares = () => (
-  <Fade bottom cascade duration={300}>
+  <>
     <Square
       color="accent"
       zIndex={2}
@@ -60,7 +59,7 @@ const Squares = () => (
       height={130}
       position="absolute"
     />
-  </Fade>
+  </>
 );
 
 export default Squares;

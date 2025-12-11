@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
@@ -29,31 +28,25 @@ const Blog = ({
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps}>{text}</Typography>
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps}>{text}</Typography>
       </Box>
-      <Fade bottom cascade duration={600}>
-        <Grid {...GridProps}>
-          {articles.map((article, key) => (
-            <Article
-              key={key}
-              delay={key * 100}
-              isSmall={key > 0}
-              {...article}
-              gridArea={`article${key + 1}`}
-            />
-          ))}
-        </Grid>
-      </Fade>
+      <Grid {...GridProps} className="animate-fade-in-up">
+        {articles.map((article, key) => (
+          <Article
+            key={key}
+            delay={key * 100}
+            isSmall={key > 0}
+            {...article}
+            gridArea={`article${key + 1}`}
+          />
+        ))}
+      </Grid>
       <Box {...CtaWrapperProps}>
-        <Fade top cascade duration={600}>
-          <Button {...CtaProps} {...cta}>
-            {cta.label}
-          </Button>
-        </Fade>
+        <Button {...CtaProps} {...cta} className="animate-fade-in-up">
+          {cta.label}
+        </Button>
       </Box>
     </Container>
   </Box>

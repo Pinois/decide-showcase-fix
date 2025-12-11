@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
-import Fade from 'react-reveal/Fade';
 import data from '../../data';
 
 const FAQ = ({
@@ -29,46 +28,42 @@ const FAQ = ({
   return (
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-        </Fade>
-        
+        <Typography {...TitleProps} className="animate-fade-in-up">{title}</Typography>
+
         <Box maxWidth={800} mx="auto">
           {faqs.map((faq, index) => (
-            <Fade bottom cascade duration={600} delay={index * 100} key={index}>
-              <Box {...FAQItemProps}>
-                <Box
-                  onClick={() => toggleItem(index)}
-                  cursor="pointer"
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  py={3}
-                  px={4}
+            <Box {...FAQItemProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
+              <Box
+                onClick={() => toggleItem(index)}
+                cursor="pointer"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                py={3}
+                px={4}
+              >
+                <Typography {...QuestionProps}>{faq.question}</Typography>
+                <Typography
+                  fontSize="24px"
+                  color="primary"
+                  transform={openItems[index] ? 'rotate(45deg)' : 'rotate(0deg)'}
+                  transition="transform 0.3s ease"
                 >
-                  <Typography {...QuestionProps}>{faq.question}</Typography>
-                  <Typography
-                    fontSize="24px"
-                    color="primary"
-                    transform={openItems[index] ? 'rotate(45deg)' : 'rotate(0deg)'}
-                    transition="transform 0.3s ease"
-                  >
-                    +
-                  </Typography>
-                </Box>
-                
-                <Box
-                  overflow="hidden"
-                  transition="all 0.3s ease"
-                  maxHeight={openItems[index] ? '1000px' : '0'}
-                  opacity={openItems[index] ? 1 : 0}
-                >
-                  <Typography {...AnswerProps}>
-                    {faq.answer}
-                  </Typography>
-                </Box>
+                  +
+                </Typography>
               </Box>
-            </Fade>
+
+              <Box
+                overflow="hidden"
+                transition="all 0.3s ease"
+                maxHeight={openItems[index] ? '1000px' : '0'}
+                opacity={openItems[index] ? 1 : 0}
+              >
+                <Typography {...AnswerProps}>
+                  {faq.answer}
+                </Typography>
+              </Box>
+            </Box>
           ))}
         </Box>
       </Container>

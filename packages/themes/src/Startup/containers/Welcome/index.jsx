@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
-import Fade from 'react-reveal/Fade';
 import Typography from '@pagerland/common/src/components/Typography';
 import Button from '@pagerland/common/src/components/Button';
 
@@ -31,29 +30,23 @@ const Welcome = ({
 }) => (
   <Box name={name} {...WrapperProps}>
     <ContainerWithBackground {...ContainerProps}>
-      <Box {...CaptionProps}>
-        <Fade bottom cascade duration={600}>
-          <Typography {...TitleProps}>{title}</Typography>
-          <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-          <Box {...ActionButtonsProps}>
-            {actions.map(({ label, ...props }, key) => (
-              <Button {...props} key={key}>
-                {label}
-              </Button>
-            ))}
-          </Box>
-        </Fade>
+      <Box {...CaptionProps} className="animate-fade-in-up">
+        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
+        <Box {...ActionButtonsProps}>
+          {actions.map(({ label, ...props }, key) => (
+            <Button {...props} key={key}>
+              {label}
+            </Button>
+          ))}
+        </Box>
       </Box>
-      <Box {...ImageWrapperProps}>
+      <Box {...ImageWrapperProps} className="animate-fade-in-up">
         {avatars.map((avatar, key) => (
-          <Fade top cascade duration={600} key={key} delay={key * 50}>
-            <Avatar {...avatar} {...AvatarsProps[key]} />
-          </Fade>
+          <Avatar {...avatar} {...AvatarsProps[key]} key={key} />
         ))}
         <Squares />
-        <Fade cascade duration={600}>
-          <RoundedImage {...ImageProps} {...img} />
-        </Fade>
+        <RoundedImage {...ImageProps} {...img} />
       </Box>
     </ContainerWithBackground>
   </Box>
