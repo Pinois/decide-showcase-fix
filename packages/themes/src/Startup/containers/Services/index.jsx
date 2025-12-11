@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Box from '@pagerland/common/src/components/Box';
 import Fade from 'react-reveal/Fade';
@@ -7,10 +8,17 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 
-import Img from '@pagerland/common/src/components/Img';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
-import {RoundedImage} from '../About/styled.components';
+
+const ServiceImage = styled(Box)`
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
 
 const Services = ({
   name,
@@ -18,6 +26,7 @@ const Services = ({
   text,
   cta,
   services,
+  bottomText,
   WrapperProps,
   ContainerProps,
   CaptionProps,
@@ -28,6 +37,8 @@ const Services = ({
   ServiceIconProps,
   ServiceTitleProps,
   ServiceTextProps,
+  ServiceDurationProps,
+  BottomTextProps,
   CtaProps,
 }) => (
   <Box name={name} {...WrapperProps}>
@@ -38,45 +49,132 @@ const Services = ({
           <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Fade>
       </Box>
-      <Grid {...GridProps}>
-        {services.map((service, key) => (
-          <Fade
-            bottom
-            cascade
-            duration={600}
-            delay={key * 100}
-            key={key}
-          >
-            <Box {...ServiceItemProps}>
-              <RoundedImage
-                src={service.icon}
-                {...ServiceIconProps}
-              />
-              <Typography {...ServiceTitleProps}>
-                {service.title}
-              </Typography>
-              <Typography
-                {...ServiceTextProps}
-                dangerouslySetInnerHTML={service.text}
-              />
-              <Button
-                {...CtaProps}
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open(service.buttonLink, '_blank');
-                }}
-              >
-                {service.buttonText} →
-              </Button>
-            </Box>
-          </Fade>
-        ))}
-      </Grid>
-      {/*  <Fade top cascade duration={600}>
-      <Button {...CtaProps} {...cta}>
-          {cta.label}
-        </Button> 
-        </Fade> */}
+      <Box display={{ _: 'block', lg: 'none' }}>
+        <Grid {...GridProps}>
+          {services.map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={key * 100}
+              key={key}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
+                </Typography>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+      </Box>
+      
+      <Box display={{ _: 'none', lg: 'block' }}>
+        <Grid {...GridProps}>
+          {services.slice(0, 3).map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={key * 100}
+              key={key}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
+                </Typography>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+        
+        <Grid 
+          gridTemplateColumns="repeat(2, 1fr)"
+          gridGap="40px"
+          maxWidth={800}
+          mx="auto"
+          mb={4}
+          justifyItems="center"
+        >
+          {services.slice(3).map((service, key) => (
+            <Fade
+              bottom
+              cascade
+              duration={600}
+              delay={(key + 3) * 100}
+              key={key + 3}
+            >
+              <Box {...ServiceItemProps}>
+                <ServiceImage
+                  {...ServiceIconProps}
+                  backgroundImage={`url(${service.icon})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  backgroundRepeat="no-repeat"
+                />
+                <Typography {...ServiceTitleProps}>
+                  {service.title}
+                </Typography>
+                {service.duration && (
+                  <Typography {...ServiceDurationProps}>
+                    {service.duration}
+                  </Typography>
+                )}
+                <Typography
+                  {...ServiceTextProps}
+                  dangerouslySetInnerHTML={service.text}
+                />
+              </Box>
+            </Fade>
+          ))}
+        </Grid>
+      </Box>
+      {bottomText && (
+        <Box {...BottomTextProps}>
+          <Typography variant="body1" color="gray.1">
+            {bottomText}
+          </Typography>
+        </Box>
+      )}
+      {cta && (
+        <Fade top cascade duration={600}>
+          <Button {...CtaProps} {...cta}>
+            {cta.label}
+          </Button>
+        </Fade>
+      )}
     </Container>
   </Box>
 );
@@ -191,45 +289,64 @@ Services.defaultProps = {
     textAlign: 'center',
   },
   TextProps: {
+    variant: 'body1',
     color: 'gray.1',
     mb: 4,
   },
   GridProps: {
     gridTemplateColumns: {
-      _: '2fr',
-      lg: 'repeat(2, 2fr)',
+      _: '1fr',
+      md: 'repeat(2, 1fr)',
+      lg: 'repeat(3, 1fr)',
     },
     gridGap: '40px',
-    maxWidth: 1188,
+    maxWidth: 1200,
     mx: 'auto',
-    // mb: 4,
+    mb: 4,
+    justifyItems: 'center',
   },
   ServiceIconProps: {
     mx: 'auto',
-    mb: 4,
+    mb: 3,
     width: '100%',
+    height: 200,
+    borderRadius: '12px',
+    maxWidth: 350,
   },
   ServiceTitleProps: {
     textAlign: 'center',
     as: 'h3',
-    variant: 'h3',
-    mb: 4,
-    pl: 20,
-    // p: 20,
-    m: 2,
+    variant: 'h4',
+    mb: 2,
+    color: 'black',
+  },
+  ServiceDurationProps: {
+    textAlign: 'center',
+    variant: 'body2',
+    color: 'gray.1',
+    backgroundColor: 'gray.5',
+    borderRadius: '16px',
+    px: 3,
+    py: 1,
+    mb: 3,
+    display: 'inline-block',
+    mx: 'auto',
+    fontWeight: 'normal',
   },
   ServiceTextProps: {
-    // maxWidth: 644,
     color: 'gray.1',
-    // mb: 4,
-    textAlign: 'justify',
-    // p: 2,
+    textAlign: 'center',
+    variant: 'body2',
+  },
+  BottomTextProps: {
+    textAlign: 'center',
+    mt: 4,
+    mb: 3,
   },
   CtaProps: {
     textAlign: 'center',
-    mx: '2',
-    p: '2',
-    variant: 'default',
+    mx: 'auto',
+    variant: 'primary',
     as: 'a',
   },
   ...data.services,

@@ -9,8 +9,8 @@ import PaperAirplane from '@pagerland/icons/src/monochrome/PaperAirplane';
 
 import FacebookF from '@pagerland/icons/src/monochrome/FacebookF';
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
-import Twitter from '@pagerland/icons/src/monochrome/Twitter';
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
+import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
 import * as Yup from 'yup';
 //import Welcome from './assets/welcome.jpg';
@@ -97,7 +97,7 @@ export default {
       },
       {
         to: 'services',
-        label: 'Activités',
+        label: 'Ateliers',
       },
       {
         to: 'about',
@@ -135,18 +135,28 @@ export default {
     ],
   },
   welcome: {
-    title: "DEC!DE: Le coup de pouce dont l'écologie a besoin",
+    title: "Le coup de pouce dont l'écologie a besoin",
     text: {
       __html:
         "DEC!DE <b>sensibilise</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
     },
     actions: [
       {
-        label: 'Voir nos activités',
-        to: 'services',
-        as: Link,
-        ...smoothLinkProps,
-        variant: 'secondary',
+        label: 'Télécharger notre brochure',
+        as: 'a',
+        href: 'https://github.com/Pinois/files/raw/main/Catalogue-DECIDE-2025.pdf',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        download: true,
+        variant: 'primary',
+      },
+      {
+        label: 'Réserver un appel découverte (30 min)',
+        as: 'a',
+        href: 'https://calendly.com/marion-decideetvous/30min',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        variant: 'default',
       },
     ],
     img: {
@@ -169,52 +179,63 @@ export default {
     ],
   },
   services: {
-    title: 'Activités',
-    // text:
-    //   'Aujourd'hui, les scientifiques sont unanimes : nous sommes responsables du dérèglement climatique et de la disparition massive de la biodiversité. La bonne nouvelle, c'est que nous pouvons aussi DEC!DER de faire partie de la solution! Comment? En comprenant les enjeux environnementaux pour mieux agir. En créant de nouveaux récits En nous aidant de dispositifs "coup de pouce".',
+    title: 'Nos ateliers',
     text: {
-      __html: `
-        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-          <h3 style="text-align:center;color: #aebdb4">Nos activités s'adressent :</h3>
-          <ul>
-            <li>Aux citoyen.nes de plus de 16 ans</li>
-            <li>Aux organisations : Entreprises, administrations et écoles</li>
-          </ul>
-          <h3 style="text-align:center;color: #aebdb4; margin-top: 2rem;">Nos missions :</h3>
-          <ul>
-            <li>Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité.</li>
-            <li>Accompagner le changement auprès des individus et des collectivités.</li>
-          </ul>
-        </div>
-      `,
+      __html: 'Des modules pratiques et immersifs pour comprendre/ressentir/agir, d\'une introduction à une exploration de la thématique approfondie, de 1h30 à 1 jour.',
     },
 
     services: [
       {
-        icon: AnimationsImage,
-        title:
-          'Sensibiliser aux enjeux liés aux dérèglements climatiques et à la perte de la biodiversité',
+        icon: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=300&fit=crop',
+        title: 'La Fresque du Climat',
+        duration: '3h',
         text: {
-          __html:
-            '<p>Dans le cadre de sa mission de sensibilisation, DEC!DE propose différentes formations thématiques à destination des écoles du secondaire supérieur, des hautes écoles et universités, des administrations et des entreprises.<br/><br/>Ces formations ont un triple objectif :<ul><li>rendre compréhensible les enjeux liés aux dérèglements climatiques et à la perte de la biodiversité ;</li><li>identifier les obstacles au changement et les transformer en forces empouvoirantes ;</li><li>imaginer ensemble des solutions adaptées aux besoins et à la réalité de chacun.e.</li></ul></p>',
+          __html: 'Comprendre les enjeux climatiques et leurs interconnexions',
         },
-        buttonText: 'En savoir plus',
-        buttonLink:
-          'https://decideetvous.medium.com/dec-de-nos-animations-de-sensibilisation-et-de-solutions-d68acb57ab54',
       },
       {
-        icon: NudgeImage,
-        title:
-          'Accompagner le changement des individus et des collectivités',
+        icon: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
+        title: 'Nudge',
+        duration: '2h',
         text: {
-          __html:
-            "Dans le cadre de sa mission d'accompagnement du changement, DEC!DE offre une <b>expertise nudge</b> ainsi que des <b>accompagnements ESG</b> et mise en place de dynamiques collectives interne autour de la transition.<br/>Nous personnalisons nos accompagnements en fonction de vos besoins !",
+          __html: 'Activer des leviers psychologiques pour changer les comportements',
         },
-        buttonText: 'En savoir plus',
-        buttonLink:
-          'https://decideetvous.medium.com/cet-article-est-en-cours-de-r%C3%A9daction-abonnez-vous-et-revenez-tr%C3%A8s-bient%C3%B4t-780463b2e3b2',
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+        title: 'Mobiliser ses collègues',
+        duration: '4h',
+        text: {
+          __html: 'Fédérer une équipe autour d\'actions concrètes',
+        },
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
+        title: 'Numérique : un monde dématérialisé ?',
+        duration: '6h',
+        text: {
+          __html: 'Explorer l\'impact environnemental du numérique',
+        },
+      },
+      {
+        icon: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop',
+        title: 'Réchauffe l\'ambiance, pas la planète',
+        duration: '3h',
+        text: {
+          __html: 'Rendre ses événements plus durables',
+        },
       },
     ],
+
+    bottomText: 'Découvrez l\'ensemble de nos ateliers',
+    cta: {
+      label: 'Télécharger notre brochure',
+      as: 'a',
+      href: 'https://github.com/Pinois/files/raw/main/Catalogue-DECIDE-2025.pdf',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      variant: 'primary',
+    },
     /* cta: {
        label: 'En savoir plus',
        href:
@@ -222,65 +243,126 @@ export default {
      }, */
   },
   about: {
-    img: {
-      src: AboutUs,
-      srcSet: `${AboutUs} 1x, ${AboutUs2x} 2x`,
+    title: "Accompagner le changement dans votre structure",
+    text: {
+      __html: "Notre équipe vous guide dans vos démarches RSE, ESG en mettant au centre l'humain et avec des outils concrets.",
     },
-    title: "L'histoire de DEC!DE",
-    text:
-      "Le projet DEC!DE trouve ses racines dans l'envie de Marion d'associer le concept du nudge marketing et la sensibilisation pour faire face aux enjeux environnementaux. Entre septembre 2018 et octobre 2020, Marion élabore les premières lignes, participe à l'incubateur Boost Your Project, confronte le projet aux besoins des établissements scolaires et développe les premiers nudges. De son côté, après s'être formée à l'éco-conseil, Manon entame un accompagnement chez Groupe One afin de concrétiser le projet qu'elle a en tête depuis plusieurs mois : sensibiliser aux enjeux climatiques. En octobre 2020, Marion et Manon se rencontrent autour d'un café et les planètes s'alignent, c'est le coup de foudre ! Ensemble, elles redessinent les lignes directrices de DEC!DE et fondent l'asbl en décembre 2020. En septembre 2023, Marie vient renforcer l'équipe. Aujourd'hui, DEC!DE compte deux employées à temps partiel et est parvenue à entretenir des partenariats forts et durables.",
-    secondImage: {
-      src: Decide122,
-      srcSet: `${Decide122} 1x, ${Decide122} 2x`,
+    
+    services: [
+      {
+        icon: "🏢",
+        title: "Accompagnement RSE / ESG",
+        description: "Diagnostic, stratégie et mise en œuvre de votre démarche RSE adaptée aux enjeux de votre entreprise.",
+        features: [
+          "Audit",
+          "Bilan Carbone",
+          "Analyse Comportementale",
+          "Plan d'action",
+          "Suivi",
+          "Rapport"
+        ]
+      },
+      {
+        icon: "🧠",
+        title: "Nudge",
+        description: "Une approche douce pour inciter un changement de comportement",
+        features: [
+          "Audit",
+          "Formation",
+          "Développement",
+          "Mise en place"
+        ]
+      },
+      {
+        icon: "🎓",
+        title: "Green Team",
+        description: "Formation et accompagnement à la création de dynamique collective",
+        features: [
+          "Mobilisation",
+          "Formation",
+          "Projets pratiques",
+          "Suivi"
+        ]
+      }
+    ],
+    
+    expertise: {
+      title: "Nos expertises",
+      text: "Une approche systémique basée sur les sciences comportementales afin de créer des dynamiques collectives pour mobiliser vos collaborateurs, ainsi qu'une connaissance généralisée des enjeux de la durabilité",
+      highlight: "<span role=\"img\" aria-label=\"lightbulb\">💡</span> Un accompagnement sur mesure ? C'est possible !",
+      image: {
+        src: NudgeImage,
+        srcSet: `${NudgeImage} 1x, ${NudgeImage} 2x`,
+      }
     },
-    /*cta: {
-      label: 'En savoir plus',
-      href:
-        'To Do',
-    }, */
+    
+    cta: {
+      label: 'Réserver un appel découverte (30 min)',
+      as: 'a',
+      href: 'https://calendly.com/marion-decideetvous/30min',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      variant: 'primary',
+    },
+  },
+  testimonials: {
+    title: "Ils nous ont fait confiance",
+    text: {
+      __html: "Entreprises, administrations, écoles… nous agissons ensemble pour la transition.",
+    },
+    testimonials: [
+      {
+        quote: "Les ateliers DEC!DE ont créé un vrai déclic au sein de notre équipe. C'est concret, bienveillant, et ça donne envie d'agir.",
+        author: "Sophie Laurent",
+        function: "Responsable RSE – Engie"
+      },
+      {
+        quote: "Une approche pédagogique innovante qui a permis de mobiliser l'ensemble du personnel autour des enjeux environnementaux.",
+        author: "Marc Dubois",
+        function: "Directeur – ICEDD"
+      },
+      {
+        quote: "DEC!DE nous a accompagnés avec professionnalisme dans notre démarche de transition écologique. Une vraie réussite !",
+        author: "Anne Lemaire",
+        function: "DRH – Codef"
+      }
+    ]
   },
   team: {
-    title: "L'équipe",
+    title: "Une équipe engagée",
     text: {
-      __html:
-        "<h3 style='text-align:center;color: #aebdb4'> <b>L'équipe de DEC!DE est constituée de trois membres aux profils divers et complémentaires. Fort de leurs compétences diversifiées, chaque membre met ses savoir-faire et ses expériences au service du projet. </b></h3>",
+      __html: "Trois profils complémentaires pour vous accompagner avec bienveillance et expertise.",
     },
     members: [
       {
         name: 'Marion De Backer',
-        position: 'Co-fondatrice & Eco-conseillère',
+        position: 'Co-fondatrice, éco-conseillère',
         image: {
           src: MarionPhoto,
           srcSet: `${MarionPhoto} 1x, ${MarionPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
-        description:
-          "Un diplôme en gestion de la communication d'organisation et des relations publiques en poche, <b>Marion</b> s'engage dans différents projets liés à la lutte contre le changement climatique et décide de compléter ses connaissances en entamant une formation à l'Institut Eco-Conseil de Namur pour devenir éco-conseillère. En parallèle, elle développe le projet DEC!DE qui prendra son vrai envol grâce à la rencontre avec Manon, en octobre 2020. Passionnée par l'éducation et le concept du nudge, Marion met son expertise au service du développement des outils nudge, de l'animation ainsi que de la communication de l'association.",
+        description: "Experte en nudge marketing et changements comportementaux, Marion accompagne les organisations dans leur transformation écologique avec des approches innovantes et participatives.",
       },
       {
         name: 'Manon Berhin',
-        position: 'Co-fondatrice & Eco-conseillère',
+        position: 'Co-fondatrice, éco-conseillère',
         image: {
           src: MariePhoto,
           srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
-        linkedin:
-          'https://www.linkedin.com/in/manon-berhin-0aa82154/',
-        description:
-          "C'est en 2016, alors qu'elle travaille encore comme coordinatrice de projet pour une entreprise privée, que <b>Manon</b> prend pleinement conscience de l'ampleur de la crise climatique. Elle s'engage alors dans une démarche zéro déchet et s'éduque aux enjeux environnementaux. Petit à petit, ces préoccupations deviennent centrales et elle ressent le besoin de s'engager davantage. C'est pourquoi, en 2019, elle décide de changer de voie professionnelle et entame une formation d'éco-conseillère à l'Institut d'Éco-Conseil de Namur. Forte des savoirs, des rencontres et des expériences acquises lors de cette formation, elle débute un coaching chez Groupe One afin de concrétiser son projet de sensibilisation aux dérèglements climatiques. Mais c'est bien sa rencontre avec <b>Marion</b> et son projet DEC!DE qui marquera le tournant de sa vie professionnelle. Séduite par le projet, <b>Manon</b> rejoint <b>Marion</b> et à deux, elles créent l'asbl DEC!DE.",
+        linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        description: "Après une carrière dans le secteur privé, Manon s'est réorientée vers l'accompagnement environnemental. Elle apporte son expertise business et sa vision pragmatique des enjeux RSE.",
       },
       {
         name: 'Marie Debournoux',
-        position:
-          'Ingénieure agronome et accompagnatrice du changement',
+        position: 'Ingénieure agronome',
         image: {
           src: ManonPhoto,
           srcSet: `${ManonPhoto} 1x, ${ManonPhoto} 2x`,
         },
-        linkedin:
-          'https://www.linkedin.com/in/marie-debournoux-96a441155/',
-        description:
-          "<b>Marie</b> a toujours été fascinée par le vivant ! Portée par cet intérêt, elle fait un DUT en Industries Alimentaires et Biologiques puis poursuit son cursus avec un diplôme d'ingénieur Agronome à AgroParisTech, en alternance dans un cabinet de conseil en accompagnement du changement. Pendant 4 années, elle continue aussi de développer ses connaissances sur la crise environnementale et sociale en cours. Elle rejoint finalement DEC!DE en septembre 2023, lui permettant de s'épanouir à la croisée de ses savoir-faire et de ses valeurs.",
+        linkedin: 'https://www.linkedin.com/in/marie-debournoux-96a441155/',
+        description: "Spécialiste de l'accompagnement du changement, Marie combine expertise technique et approche pédagogique pour faciliter la transition écologique des organisations.",
       },
     ],
   },
@@ -461,45 +543,21 @@ export default {
     },
   },
   contact: {
-    title: 'Contact',
-    sections: [
-      {
-        icon: MapMarker,
-        text: textToMultiline`Adresse d'exploitation\nVillage Partenaire\n15, rue Fernand Bernier\n1060 Bruxelles\nBelgique`,
-      },
-      {
-        icon: MobilePhone,
-        text: '(0) 478 48 53 02',
-      },
-      {
-        icon: PaperAirplane,
-        text: 'contact@decideetvous.com',
-      },
-    ],
-    socialLinks: [
-      {
-        icon: FacebookF,
-        href: 'https://www.facebook.com/decideetvous',
-        title: 'Facebook',
-      },
-      {
-        icon: Instagram,
-        href: 'https://www.instagram.com/decide_etvous/',
-        title: 'Instagram',
-      },
-      /*{
-        icon: Twitter,
-        href: 'https://mypags.app',
-        title: 'Twitter',
-      },*/
-      {
-        icon: Linkedin,
-        href: 'https://www.linkedin.com/company/dec-de/',
-        title: 'Linkedin',
-      },
-    ],
+    cta: {
+      title: 'Passez à l\'action maintenant',
+      text: 'Transformez votre entreprise avec nos formations sur mesure en développement durable.',
+      features: [
+        'Expertise reconnue',
+        'Accompagnement personnalisé',
+        'Résultats mesurables'
+      ],
+      button: {
+        label: 'Réserver un appel',
+        href: 'https://calendly.com/marion-decideetvous/30min'
+      }
+    },
     mailer: {
-      title: 'Envie de nous contacter ?',
+      title: 'Contactez-nous',
       cta: 'Envoyer',
       validationSchema: Yup.object({
         name: Yup.string()
@@ -570,8 +628,130 @@ export default {
     ],
   },
   copyright: '© DEC!DE ASBL',
+  newFooter: {
+    logo: 'DEC!DE',
+    baseline: 'Formations durables pour des entreprises responsables',
+    socialLinks: [
+      {
+        icon: LinkedinAlt,
+        href: 'https://www.linkedin.com/company/dec-de/',
+        title: 'LinkedIn',
+      },
+      {
+        icon: Instagram,
+        href: 'https://www.instagram.com/decide_etvous/',
+        title: 'Instagram',
+      },
+    ],
+    workshops: [
+      {
+        label: 'Fresques du climat',
+        href: '#services',
+      },
+      {
+        label: 'Nudge',
+        href: '#services',
+      },
+      {
+        label: 'Accompagnement RSE',
+        href: '#about',
+      },
+      {
+        label: 'Green Team',
+        href: '#about',
+      },
+    ],
+    company: [
+      {
+        label: 'À propos',
+        href: '#about',
+      },
+      {
+        label: 'Notre équipe',
+        href: '#team',
+      },
+      {
+        label: 'FAQ',
+        href: '#faq',
+      },
+      {
+        label: 'Contact',
+        href: '#contact',
+      },
+    ],
+    contact: {
+      email: 'contact@decideetvous.com',
+      phone: '+32 (0) 478 48 53 02',
+      address: 'Bruxelles, Belgique',
+    },
+    administration: {
+      title: 'Conseil d\'Admin.',
+      members: [
+        {
+          name: 'M. Mannie',
+          role: 'Présidente',
+        },
+        {
+          name: 'B. Walschaerts',
+          role: 'Vice-Président',
+        },
+        {
+          name: 'V. Schmitz',
+          role: 'Secrétaire',
+        },
+        {
+          name: 'M. De Backer',
+          role: 'Admin. déléguée',
+        },
+        {
+          name: 'P. Drouillon',
+          role: 'Administrateur',
+        },
+      ],
+    },
+    copyright: '© 2025 DEC!DE. Tous droits réservés.',
+    legalLinks: [
+      {
+        label: '<span role="img" aria-label="rocket">🚀</span> by G. Gustin | L. Lepinois',
+        href: 'https://guillaumegustin.com/',
+      },
+      {
+        label: '<span role="img" aria-label="art">🎨</span> by Coffeecream',
+        href: '#',
+      },
+    ],
+  },
+  faq: {
+    title: 'Vos questions, nos réponses',
+    faqs: [
+      {
+        question: 'Peut-on personnaliser les formations ?',
+        answer: 'Oui, toutes nos formations sont adaptables à vos besoins spécifiques, votre secteur d\'activité et la taille de vos équipes. Nous établissons ensemble un programme sur mesure.'
+      },
+      {
+        question: 'Est-ce que c\'est adapté à tout type d\'entreprise ?',
+        answer: 'Nos formations et accompagnements conviennent aux TPE, PME, grandes entreprises et organisations publiques. Nous adaptons notre approche à votre contexte.'
+      },
+      {
+        question: 'Quel est le coût des interventions ?',
+        answer: 'Les tarifs varient selon le format, la durée et le nombre de participants. Contactez-nous pour un devis personnalisé. Des solutions de financement sont possibles.'
+      },
+      {
+        question: 'Quels sont vos délais ?',
+        answer: 'Nous pouvons généralement intervenir sous 2 à 4 semaines pour les formations, et sous 1 à 2 mois pour les accompagnements plus complets.'
+      },
+      {
+        question: 'Quelle est la différence entre formation et accompagnement ?',
+        answer: 'Les formations sont des interventions ponctuelles pour sensibiliser et former vos équipes. L\'accompagnement est un suivi sur plusieurs mois pour transformer durablement vos pratiques.'
+      },
+      {
+        question: 'Est-ce que vous intervenez partout en Belgique ?',
+        answer: 'Oui, nous intervenons dans toute la Belgique. Nos formations peuvent aussi se faire en distanciel selon vos besoins.'
+      }
+    ]
+  },
   partners: {
-    title: 'Ils nous ont fait confiance',
+    title: 'Des entreprises et structures qui passent à l\'action',
     partners: [
       {
         name: 'Codef',

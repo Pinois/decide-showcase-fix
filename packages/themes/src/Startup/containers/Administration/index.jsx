@@ -44,20 +44,23 @@ Administration.propTypes = {
 Administration.defaultProps = {
   WrapperProps: {
     py: {
-      _: 30,
-      lg: 50,
+      _: 40,
+      lg: 60,
     },
+    backgroundColor: 'gray.6',
   },
   ContainerProps: {
     textAlign: 'center',
   },
   TitleProps: {
     variant: 'h3',
-    mb: 20,
+    color: 'black',
+    mb: 30,
   },
   MemberProps: {
     variant: 'body1',
-    mb: 2,
+    color: 'gray.1',
+    mb: 3,
   },
   ...data.administration,
 };

@@ -11,8 +11,13 @@ export default {
     ${Typography.variants.button2};
 
     padding: 11px 48px 12px;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
     border-radius: ${borderRadius.large}px;
+
+    @media (max-width: 480px) {
+      padding: 11px 24px 12px;
+    }
     transition: ${transition.all};
 
     ${variant({
