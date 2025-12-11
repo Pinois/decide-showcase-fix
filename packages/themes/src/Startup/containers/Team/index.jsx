@@ -8,6 +8,7 @@ import Grid from '@pagerland/common/src/components/Grid';
 import Button from '@pagerland/common/src/components/Button';
 import data from '../../data';
 import Img from '@pagerland/common/src/components/Img';
+import { MemberCard } from './styled.components';
 
 const Team = ({
   name,
@@ -36,7 +37,7 @@ const Team = ({
 
       <Grid {...TeamGridProps}>
         {members.map((member, index) => (
-          <Box {...MemberCardProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
+          <MemberCard {...MemberCardProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
             <Box
               width={200}
               height={200}
@@ -61,7 +62,7 @@ const Team = ({
             <Button {...LinkedinButtonProps} href={member.linkedin}>
               <span role="img" aria-label="link">🔗</span> Voir le profil LinkedIn
             </Button>
-          </Box>
+          </MemberCard>
         ))}
       </Grid>
     </Container>
