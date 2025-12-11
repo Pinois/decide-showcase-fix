@@ -4,6 +4,7 @@ import Box from '@pagerland/common/src/components/Box';
 import Container from '@pagerland/common/src/components/Container';
 import Typography from '@pagerland/common/src/components/Typography';
 import Link from '@pagerland/common/src/components/Link';
+import { Link as ScrollLink } from 'react-scroll';
 import Icon from '@pagerland/common/src/components/Icon';
 import Grid from '@pagerland/common/src/components/Grid';
 import PaperAirplane from '@pagerland/icons/src/monochrome/PaperAirplane';
@@ -67,9 +68,24 @@ const Footer = ({
           <Box {...ColumnProps}>
             <Typography {...ColumnTitleProps}>Entreprise</Typography>
             {company.map((item, key) => (
-              <Link key={key} {...ColumnLinkProps} href={item.href || '#'}>
+              <ScrollLink
+                key={key}
+                to={item.href ? item.href.replace('#', '') : ''}
+                spy
+                smooth
+                duration={500}
+                offset={-60}
+                style={{
+                  display: 'block',
+                  color: '#94a3b8',
+                  marginBottom: '8px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                }}
+              >
                 {item.label}
-              </Link>
+              </ScrollLink>
             ))}
           </Box>
         )}
