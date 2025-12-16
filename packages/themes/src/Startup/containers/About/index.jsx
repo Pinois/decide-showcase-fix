@@ -197,8 +197,14 @@ About.defaultProps = {
   },
   ServiceCardProps: {
     textAlign: 'center',
-    p: 4,
-    borderRadius: '12px',
+    p: {
+      _: 24,
+      md: 5,
+    },
+    borderRadius: {
+      _: 'large',
+      md: 'xxxLarge',
+    },
     backgroundColor: 'secondary',
     boxShadow: 'secondary',
     display: 'flex',
@@ -210,19 +216,21 @@ About.defaultProps = {
     mb: 3,
   },
   ServiceTitleProps: {
-    variant: 'h4',
+    as: 'h3',
+    variant: 'h2',
     color: 'white',
     mb: 3,
   },
   ServiceDescriptionProps: {
-    variant: 'body2',
+    variant: 'body1',
     color: 'gray.6',
-    mb: 3,
+    mb: 4,
+    lineHeight: 1.6,
   },
   ServiceFeatureProps: {
-    variant: 'body2',
+    variant: 'body1',
     color: 'white',
-    mb: 1,
+    mb: 2,
     textAlign: 'left',
   },
   ExpertiseContainerProps: {
