@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+  <defs>
+    <style>
+      .clover { fill: #333333; }
+      .text { fill: #333333; font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  <!-- Four-leaf clover symbol -->
+  <g transform="translate(10, 10)">
+    <!-- Top leaf -->
+    <ellipse class="clover" cx="40" cy="25" rx="18" ry="20" transform="rotate(-45, 40, 40)"/>
+    <!-- Right leaf -->
+    <ellipse class="clover" cx="55" cy="40" rx="18" ry="20" transform="rotate(45, 40, 40)"/>
+    <!-- Bottom leaf -->
+    <ellipse class="clover" cx="40" cy="55" rx="18" ry="20" transform="rotate(-45, 40, 40)"/>
+    <!-- Left leaf -->
+    <ellipse class="clover" cx="25" cy="40" rx="18" ry="20" transform="rotate(45, 40, 40)"/>
+    <!-- Center circle -->
+    <circle class="clover" cx="40" cy="40" r="10"/>
+    <!-- Stem -->
+    <rect class="clover" x="37" y="60" width="6" height="18" rx="2"/>
+  </g>
+  <!-- Text: LOTERIE NATIONALE -->
+  <text class="text" x="95" y="45" font-size="16">LOTERIE</text>
+  <text class="text" x="95" y="65" font-size="16">NATIONALE</text>
+</svg>

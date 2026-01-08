@@ -54,6 +54,7 @@ import Gim from './assets/gim.png';
 import Hastiere from './assets/hastiere.png';
 import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
+import LoterieNationale from './assets/loterie-nationale.svg';
 
 // Workshop images (téléchargées via scripts/download-workshop-images.sh)
 import WorkshopFresque from './assets/workshop-fresque.jpg';
@@ -781,6 +782,10 @@ export default {
       {
         name: 'Uliege',
         logo: Uliege,
+      },
+      {
+        name: 'Loterie Nationale',
+        logo: LoterieNationale,
       },
     ],
   },
