@@ -54,6 +54,7 @@ import Gim from './assets/gim.png';
 import Hastiere from './assets/hastiere.png';
 import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
+import LoterieNationale from './assets/loterie-nationale.png';
 
 // Workshop images (téléchargées via scripts/download-workshop-images.sh)
 import WorkshopFresque from './assets/workshop-fresque.jpg';
@@ -761,26 +762,37 @@ export default {
       {
         name: 'Codef',
         logo: Codef,
+        url: 'https://www.codef.be/',
+      },
+      {
+        name: 'Loterie Nationale',
+        logo: LoterieNationale,
+        url: 'https://www.loterie-nationale.be/',
       },
       {
         name: 'Engie',
         logo: Engie,
+        url: 'https://www.engie.be/',
       },
       {
         name: 'Gim',
         logo: Gim,
+        url: 'https://www.gim.be/',
       },
       {
         name: 'Hastière',
         logo: Hastiere,
+        url: 'https://www.hastiere.be/',
       },
       {
         name: 'Icedd',
         logo: Icedd,
+        url: 'https://www.icedd.be/',
       },
       {
         name: 'Uliege',
         logo: Uliege,
+        url: 'https://www.uliege.be/',
       },
     ],
   },
