@@ -16,6 +16,7 @@ export const SliderContainer = styled(Box)`
   position: relative;
   -webkit-overflow-scrolling: touch;
   cursor: grab;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
@@ -61,8 +62,67 @@ export const SliderTrack = styled(Box)`
 export const LogoContainer = styled(Box)`
   filter: grayscale(100%);
   transition: filter 0.3s ease;
-  
+
   &:hover {
     filter: grayscale(0%);
+  }
+`;
+
+export const PartnerLink = styled.a`
+  display: block;
+  text-decoration: none;
+`;
+
+export const SliderWrapper = styled(Box)`
+  position: relative;
+`;
+
+export const ArrowButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  opacity: 0.5;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ${props => props.direction === 'left' && `
+    left: -50px;
+  `}
+
+  ${props => props.direction === 'right' && `
+    right: -50px;
+  `}
+
+  @media (max-width: 1200px) {
+    ${props => props.direction === 'left' && `
+      left: 5px;
+    `}
+    ${props => props.direction === 'right' && `
+      right: 5px;
+    `}
+    background: rgba(255, 255, 255, 0.9);
   }
 `;

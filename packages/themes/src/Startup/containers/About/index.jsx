@@ -54,7 +54,7 @@ const About = ({
             <Box mt={3}>
               {service.features.map((feature, index) => (
                 <Typography {...ServiceFeatureProps} key={index}>
-                  ✔️ {feature}
+                  <span role="img" aria-label="check">✔️</span> {feature}
                 </Typography>
               ))}
             </Box>

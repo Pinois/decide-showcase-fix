@@ -1,51 +1,18 @@
-import {smoothLinkProps} from '@pagerland/common/src/utils';
-import {Link} from 'react-scroll';
-
-import textToMultiline from '@pagerland/common/src/utils/textToMultiline';
-
-import MapMarker from '@pagerland/icons/src/monochrome/MapMarker';
-import MobilePhone from '@pagerland/icons/src/monochrome/MobilePhone';
-import PaperAirplane from '@pagerland/icons/src/monochrome/PaperAirplane';
-
-import FacebookF from '@pagerland/icons/src/monochrome/FacebookF';
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
-import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
 import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
 import * as Yup from 'yup';
-//import Welcome from './assets/welcome.jpg';
-//import Welcome2x from './assets/welcome@2x.jpg';
-import AboutUs from './assets/about.jpeg';
-import AboutUs2x from './assets/about.jpeg';
-
-import MarionPortait from './assets/marion-decide.jpeg';
-import ManonPortrait from './assets/manon-decide.jpeg';
-import MarsPortrait from './assets/mars-decide.jpeg';
 
 import LandingImage from './assets/landing_image.jpeg';
 
-import Avatar1 from './assets/avatars/avatar_gustin.jpeg';
-import Avatar12x from './assets/avatars/avatar_gustin.jpeg';
 import Avatar2 from './assets/avatars/avatar_backer.jpeg';
 import Avatar22x from './assets/avatars/avatar_backer.jpeg';
 import Avatar3 from './assets/avatars/avatar_berhin.jpeg';
 import Avatar32x from './assets/avatars/avatar_berhin.jpeg';
-import Avatar4 from './assets/avatars/avatar_mars.jpeg';
-import Avatar42x from './assets/avatars/avatar_mars.jpeg';
 
 import Avatar5 from './assets/avatars/avatar_marie.jpg';
 import Avatar52x from './assets/avatars/avatar_marie.jpg';
 
-import Avatar6 from './assets/avatars/avatar_salva.jpeg';
-import Avatar62x from './assets/avatars/avatar_salva.jpeg';
-import Avatar7 from './assets/avatars/avatar_sarah.png';
-import Avatar72x from './assets/avatars/avatar_sarah.png';
-
-// import Estimations from './assets/estimation.svg';
-// mport Ecommerce from './assets/ecommerce.svg';
-import AnimationsImage from './assets/animations-decide.jpeg';
-import ComicImage from './assets/ComicImageAndTeam.png';
-import AppMockup from './assets/app_DECIDE-min.gif';
 import NudgeImage from './assets/nudge-decide.jpeg';
 
 import Codef from './assets/codef.png';
@@ -54,6 +21,7 @@ import Gim from './assets/gim.png';
 import Hastiere from './assets/hastiere.png';
 import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
+import LoterieNationale from './assets/loterie-nationale.png';
 
 // Workshop images (téléchargées via scripts/download-workshop-images.sh)
 import WorkshopFresque from './assets/workshop-fresque.jpg';
@@ -761,26 +729,37 @@ export default {
       {
         name: 'Codef',
         logo: Codef,
+        url: 'https://www.codef.be/',
+      },
+      {
+        name: 'Loterie Nationale',
+        logo: LoterieNationale,
+        url: 'https://www.loterie-nationale.be/',
       },
       {
         name: 'Engie',
         logo: Engie,
+        url: 'https://www.engie.be/',
       },
       {
         name: 'Gim',
         logo: Gim,
+        url: 'https://www.gim.be/',
       },
       {
         name: 'Hastière',
         logo: Hastiere,
+        url: 'https://www.hastiere.be/',
       },
       {
         name: 'Icedd',
         logo: Icedd,
+        url: 'https://www.icedd.be/',
       },
       {
         name: 'Uliege',
         logo: Uliege,
+        url: 'https://www.uliege.be/',
       },
     ],
   },
