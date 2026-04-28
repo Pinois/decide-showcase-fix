@@ -33,7 +33,7 @@ const Team = ({
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
       <Box {...CaptionProps} className="animate-fade-in-up">
-        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
         <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
 

@@ -111,9 +111,11 @@ const FAQ = ({
   return (
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
-        <Typography {...TitleProps} className="animate-fade-in-up">
-          {title}
-        </Typography>
+        <Typography
+          {...TitleProps}
+          className="animate-fade-in-up"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
 
         <Grid {...GridProps}>
           {faqs.map((faq, index) => {

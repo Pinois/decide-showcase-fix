@@ -15,9 +15,7 @@ import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 import data from '../../data';
 import { colors } from '../../styles';
 
-const ServiceImage = styled(Box)`
-  transition: transform 0.4s ease;
-`;
+const ServiceImage = styled(Box)``;
 
 const ServiceCard = styled(Box)`
   background-color: white;
@@ -30,12 +28,8 @@ const ServiceCard = styled(Box)`
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px ${transparentize(0.78, colors.primary)};
-
-    ${ServiceImage} {
-      transform: scale(1.02);
-    }
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px ${transparentize(0.88, colors.primary)};
   }
 `;
 
@@ -313,7 +307,7 @@ const Services = ({
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
         <Box {...CaptionProps} className="animate-fade-in-up">
-          <Typography {...TitleProps}>{title}</Typography>
+          <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
           <Typography {...TextProps} dangerouslySetInnerHTML={text} />
         </Box>
@@ -605,7 +599,7 @@ Services.defaultProps = {
   },
   ServiceIconProps: {
     width: '100%',
-    height: 260,
+    height: 320,
   },
   ServiceTitleProps: {
     textAlign: 'center',

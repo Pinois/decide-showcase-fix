@@ -112,7 +112,7 @@ const Contact = ({
             <CTAIconCircle>
               <Bolt width={28} height={28} />
             </CTAIconCircle>
-            <Typography {...CTATitleProps}>{cta.title}</Typography>
+            <Typography {...CTATitleProps} dangerouslySetInnerHTML={{ __html: cta.title }} />
             <Typography {...CTATextProps}>{cta.text}</Typography>
             <Box {...CTAListProps}>
               {cta.features.map((feature, key) => (

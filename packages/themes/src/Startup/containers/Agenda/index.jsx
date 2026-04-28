@@ -169,7 +169,7 @@ const Agenda = ({
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
       <Box {...CaptionProps} className="animate-fade-in-up">
-        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
         <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
