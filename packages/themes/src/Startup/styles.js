@@ -133,6 +133,17 @@ export const global = css`
       }
     }
   }
+
+  .hl {
+    background: linear-gradient(
+      to top,
+      ${transparentize(0.55, colors.accent)} 38%,
+      transparent 38%
+    );
+    padding: 0 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
 `
 
 export const breakpoints = ['450px', '768px', '1170px', '1440px']

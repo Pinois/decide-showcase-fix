@@ -80,7 +80,7 @@ const Partners = ({
   return (
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
-        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
         <SliderWrapper>
           <ArrowButton
             direction="left"
@@ -165,7 +165,7 @@ Partners.defaultProps = {
     mb: 5,
   },
   ImageProps: {
-    height: 60,
+    height: 100,
     width: 'auto',
   },
   ...data.partners,

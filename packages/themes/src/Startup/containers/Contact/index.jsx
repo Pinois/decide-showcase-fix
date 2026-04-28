@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { transparentize, darken } from 'polished';
 
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
@@ -9,9 +11,78 @@ import Card from '@pagerland/common/src/components/Card';
 import { Form, Formik } from 'formik';
 import Input from '@pagerland/common/src/components/Formik/Input';
 import Button from '@pagerland/common/src/components/Button';
+import Check from '@pagerland/icons/src/line/Check';
+import Bolt from '@pagerland/icons/src/line/Bolt';
+import Envelope from '@pagerland/icons/src/line/Envelope';
+
+import { colors } from '../../styles';
 import data from '../../data';
 import Background from './Background';
 import Squares from './Squares';
+
+const CTAFeatureRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+`;
+
+const CTACheckCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.82, '#ffffff')};
+
+  svg {
+    fill: ${colors.primary};
+  }
+`;
+
+const CTAIconCircle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.82, '#ffffff')};
+  margin: 0 auto 24px;
+
+  svg {
+    fill: ${darken(0.28, colors.secondary)};
+  }
+`;
+
+const MailerIconCircle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.85, '#ffffff')};
+  margin: 0 auto 24px;
+
+  svg {
+    fill: white;
+  }
+`;
+
+const HoverCard = styled(Card)`
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px ${transparentize(0.78, colors.primary)};
+  }
+`;
 
 const Contact = ({
   name,
@@ -36,26 +107,35 @@ const Contact = ({
       {/* Grille avec CTA et formulaire */}
       <Box {...MainGridProps}>
         {/* Bloc CTA */}
-        <Card {...CTACardProps} className="animate-fade-in-up animate-delay-1">
+        <HoverCard {...CTACardProps} className="animate-fade-in-up animate-delay-1">
           <Box>
-            <Typography {...CTATitleProps}>{cta.title}</Typography>
+            <CTAIconCircle>
+              <Bolt width={28} height={28} />
+            </CTAIconCircle>
+            <Typography {...CTATitleProps} dangerouslySetInnerHTML={{ __html: cta.title }} />
             <Typography {...CTATextProps}>{cta.text}</Typography>
             <Box {...CTAListProps}>
               {cta.features.map((feature, key) => (
-                <Typography key={key} {...CTAListItemProps}>
-                  <span role="img" aria-label="checkmark">✔️</span> {feature}
-                </Typography>
+                <CTAFeatureRow key={key}>
+                  <CTACheckCircle>
+                    <Check width={14} height={14} />
+                  </CTACheckCircle>
+                  <span>{feature}</span>
+                </CTAFeatureRow>
               ))}
             </Box>
           </Box>
           <Button {...CTAButtonProps} href={cta.button.href} as="a" target="_blank" rel="noopener noreferrer">
             {cta.button.label}
           </Button>
-        </Card>
+        </HoverCard>
 
         {/* Bloc formulaire */}
-        <Card {...MailerCardProps} className="animate-fade-in-up animate-delay-2">
+        <HoverCard {...MailerCardProps} className="animate-fade-in-up animate-delay-2">
           <Squares />
+          <MailerIconCircle>
+            <Envelope width={28} height={28} />
+          </MailerIconCircle>
           <Typography {...MailerTitleProps}>{mailer.title}</Typography>
           <Formik
             validationSchema={mailer.validationSchema}
@@ -80,7 +160,7 @@ const Contact = ({
               </Button>
             </Form>
           </Formik>
-        </Card>
+        </HoverCard>
       </Box>
     </Container>
   </Box>
@@ -338,6 +418,7 @@ Contact.defaultProps = {
   MailerButtonProps: {
     mt: 4,
     variant: 'secondary',
+    width: '100%',
   },
   ...data.contact,
 };

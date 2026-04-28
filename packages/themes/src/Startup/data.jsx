@@ -121,7 +121,7 @@ export default {
     },
     text: {
       __html:
-        "DEC!DE <b>sensibilise et forme</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
+        "DEC!DE <b><span class=\"hl\">sensibilise et forme</span></b> les organisations aux enjeux environnementaux et les <b><span class=\"hl\">accompagne</span></b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
     },
     actions: [
       {
@@ -291,7 +291,7 @@ export default {
     },
   },
   about: {
-    title: "Accompagner le changement dans votre structure",
+    title: 'Accompagner le changement dans votre structure',
     text: {
       __html: "Notre équipe vous guide dans vos démarches RSE, ESG en mettant au centre l'humain et avec des outils concrets.",
     },
@@ -380,7 +380,7 @@ export default {
     ]
   },
   team: {
-    title: "Une équipe engagée",
+    title: 'Une équipe <span class="hl">engagée</span>',
     text: {
       __html: "Trois profils complémentaires pour vous accompagner avec bienveillance et expertise.",
     },
@@ -595,7 +595,7 @@ export default {
   },
   contact: {
     cta: {
-      title: 'Passez à l\'action maintenant',
+      title: 'Passez à l\'action <span class="hl">maintenant</span>',
       text: 'Transformez votre entreprise avec nos formations sur mesure en développement durable.',
       features: [
         'Expertise reconnue',
@@ -714,11 +714,23 @@ export default {
     ],
     company: [
       {
-        label: 'À propos',
+        label: 'Accueil',
+        href: '#',
+      },
+      {
+        label: 'Nos formations',
+        href: '#services',
+      },
+      {
+        label: 'Prochaines dates',
+        href: '#agenda',
+      },
+      {
+        label: 'Accompagnements',
         href: '#about',
       },
       {
-        label: 'Notre équipe',
+        label: "L'équipe",
         href: '#team',
       },
       {
@@ -736,44 +748,44 @@ export default {
       address: 'Bruxelles, Belgique',
     },
     administration: {
-      title: 'Conseil d\'Admin.',
+      title: "Conseil d'administration",
       members: [
         {
-          name: 'M. Mannie',
+          name: 'Maïté Mannie',
           role: 'Présidente',
         },
         {
-          name: 'B. Walschaerts',
+          name: 'Bernard Walschaerts',
           role: 'Vice-Président',
         },
         {
-          name: 'V. Schmitz',
+          name: 'Véronique Schmitz',
           role: 'Secrétaire',
         },
         {
-          name: 'M. De Backer',
-          role: 'Admin. déléguée',
+          name: 'Marion De Backer',
+          role: 'Administratrice déléguée',
         },
         {
-          name: 'P. Drouillon',
+          name: 'Philippe Drouillon',
           role: 'Administrateur',
         },
       ],
     },
-    copyright: '© 2025 DEC!DE. Tous droits réservés.',
+    copyright: '© 2026 DEC!DE ASBL · Tous droits réservés.',
     legalLinks: [
       {
-        label: '<span role="img" aria-label="rocket">🚀</span> by G. Gustin | L. Lepinois',
+        label: 'by Guillaume Gustin',
         href: 'https://guillaumegustin.com/',
       },
       {
-        label: '<span role="img" aria-label="art">🎨</span> by Coffeecream',
-        href: '#',
+        label: '& Loïc Lepinois',
+        href: 'https://lepinois.dev',
       },
     ],
   },
   faq: {
-    title: 'Vos questions, nos réponses',
+    title: 'Vos questions, <span class="hl">nos réponses</span>',
     faqs: [
       {
         question: 'Peut-on personnaliser les formations ?',
@@ -802,7 +814,7 @@ export default {
     ]
   },
   partners: {
-    title: 'Des entreprises et structures qui passent à l\'action',
+    title: 'Des entreprises et structures qui <span class="hl">passent à l\'action</span>',
     partners: [
       {
         name: 'Codef',

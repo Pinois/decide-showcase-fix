@@ -13,7 +13,55 @@ import MobilePhone from '@pagerland/icons/src/monochrome/MobilePhone';
 import MapMarker from '@pagerland/icons/src/monochrome/MapMarker';
 import Check from '@pagerland/icons/src/monochrome/Check';
 
+import Logo from '../../components/Logo';
+
 import data from '../../data';
+
+const FOOTER_HEADING = '#E8EEF0';
+const FOOTER_BODY = '#A8B7BD';
+
+const WhiteLogo = styled(Logo)`
+  width: 130px;
+  height: auto;
+  margin-left: -5px;
+  opacity: 0.9;
+  filter: brightness(0) invert(1);
+`;
+
+const InlineCredit = styled.a`
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: ${FOOTER_HEADING};
+  }
+`;
+
+const SocialIcon = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 238, 240, 0.25);
+  color: ${FOOTER_HEADING};
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: currentColor;
+  }
+
+  &:hover {
+    border-color: ${FOOTER_HEADING};
+    background-color: rgba(232, 238, 240, 0.08);
+  }
+`;
 
 // Simple clipboard icon SVG component
 const CopyIcon = ({ size = 12, ...props }) => (
@@ -36,14 +84,14 @@ const CopyIcon = ({ size = 12, ...props }) => (
 
 const StyledScrollLink = styled(ScrollLink)`
   display: block;
-  color: ${props => props.theme.colors.gray[5]};
+  color: ${FOOTER_BODY};
   margin-bottom: 8px;
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
 
   &:hover {
-    color: white;
+    color: ${FOOTER_HEADING};
   }
 `;
 
@@ -53,7 +101,7 @@ const CopyButton = styled.button`
   padding: 4px;
   margin-left: 8px;
   cursor: pointer;
-  color: ${props => props.theme.colors.gray[5]};
+  color: ${FOOTER_BODY};
   opacity: 0.6;
   transition: opacity 0.2s ease, color 0.2s ease;
   display: inline-flex;
@@ -62,7 +110,7 @@ const CopyButton = styled.button`
 
   &:hover {
     opacity: 1;
-    color: white;
+    color: ${FOOTER_HEADING};
   }
 `;
 
@@ -89,6 +137,9 @@ const Footer = (props) => {
     ContactIconProps,
     ContactTextProps,
     AdminMemberProps,
+    AdminBannerProps,
+    AdminBannerTitleProps,
+    AdminMembersListProps,
     BottomBarProps,
     CopyrightProps,
     LegalLinksProps,
@@ -109,27 +160,20 @@ const Footer = (props) => {
   return (
   <Box {...WrapperProps}>
     <Container {...ContainerProps}>
-      {/* Grille principale */}
+      {/* Grille principale 4 colonnes */}
       <Grid {...MainGridProps}>
         {/* Colonne Logo / Baseline */}
         <Box {...ColumnProps}>
-          <Typography {...LogoProps}>{logo}</Typography>
+          <Box mb={3} mt={{ _: 0, lg: '50px' }}>
+            <WhiteLogo />
+          </Box>
           <Typography {...BaselineProps}>{baseline}</Typography>
-          {socialLinks && socialLinks.length > 0 && (
-            <Box {...SocialLinksProps}>
-              {socialLinks.map((social, key) => (
-                <Link key={key} {...SocialLinkProps} href={social.href} title={social.title}>
-                  <Icon icon={social.icon} />
-                </Link>
-              ))}
-            </Box>
-          )}
         </Box>
 
-        {/* Colonne Entreprise */}
+        {/* Colonne Naviguer */}
         {company && company.length > 0 && (
           <Box {...ColumnProps}>
-            <Typography {...ColumnTitleProps}>Entreprise</Typography>
+            <Typography {...ColumnTitleProps}>Naviguer</Typography>
             {company.map((item, key) => (
               <StyledScrollLink
                 key={key}
@@ -197,34 +241,59 @@ const Footer = (props) => {
           )}
         </Box>
 
-        {/* Colonne Conseil d'Administration - Partie 1 */}
-        {administration && administration.members && administration.members.length > 0 && (
-          <Box {...ColumnProps}>
-            <Typography {...ColumnTitleProps}>{administration.title}</Typography>
-            {administration.members.slice(0, 3).map((member, key) => (
-              <Typography key={key} {...AdminMemberProps}>
-                {member.name} — {member.role}
-              </Typography>
-            ))}
-          </Box>
-        )}
-
-        {/* Colonne Conseil d'Administration - Partie 2 */}
-        {administration && administration.members && administration.members.length > 3 && (
-          <Box {...ColumnProps}>
-            <Typography {...ColumnTitleProps} style={{ visibility: 'hidden' }}>.</Typography>
-            {administration.members.slice(3).map((member, key) => (
-              <Typography key={key} {...AdminMemberProps}>
-                {member.name} — {member.role}
-              </Typography>
-            ))}
-          </Box>
-        )}
+        {/* Colonne Suivez-nous */}
+        <Box {...ColumnProps}>
+          <Typography {...ColumnTitleProps}>Suivez-nous</Typography>
+          {socialLinks && socialLinks.length > 0 && (
+            <Box {...SocialLinksProps}>
+              {socialLinks.map((social, key) => {
+                const IconComp = social.icon;
+                return (
+                  <SocialIcon
+                    key={key}
+                    href={social.href}
+                    title={social.title}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconComp />
+                  </SocialIcon>
+                );
+              })}
+            </Box>
+          )}
+        </Box>
       </Grid>
+
+      {/* Bandeau Conseil d'Administration */}
+      {administration && administration.members && administration.members.length > 0 && (
+        <Box {...AdminBannerProps}>
+          <Typography {...AdminBannerTitleProps}>
+            {administration.title || "Conseil d'administration"}
+          </Typography>
+          <Box {...AdminMembersListProps}>
+            {administration.members.map((member, key) => (
+              <Typography key={key} {...AdminMemberProps}>
+                {member.name}{' '}
+                <span style={{ opacity: 0.6 }}>({member.role})</span>
+              </Typography>
+            ))}
+          </Box>
+        </Box>
+      )}
 
       {/* Barre inférieure */}
       <Box {...BottomBarProps}>
-        <Typography {...CopyrightProps}>{copyright}</Typography>
+        <Typography {...CopyrightProps}>
+          {copyright} · Theme by{' '}
+          <InlineCredit
+            href="https://wpriders.com/coffeecream-react-gatsby-theme/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Coffeecream
+          </InlineCredit>
+        </Typography>
         {legalLinks && legalLinks.length > 0 && (
           <Box {...LegalLinksProps}>
             {legalLinks.map((link, key) => (
@@ -273,78 +342,73 @@ Footer.propTypes = {
 Footer.defaultProps = {
   WrapperProps: {
     bg: 'primary',
-    color: 'white',
+    color: FOOTER_HEADING,
     pt: {
-      _: 10,
-      lg: 12,
+      _: '48px',
+      lg: '96px',
     },
     pb: {
-      _: 5,
-      lg: 6,
+      _: '24px',
+      lg: '48px',
     },
   },
-  ContainerProps: {
-    maxWidth: 1200,
-  },
+  ContainerProps: {},
   MainGridProps: {
     gridTemplateColumns: {
       _: '1fr',
       md: '1fr 1fr',
-      lg: '2fr 1fr 1fr 1fr 1fr',
+      lg: '1.5fr 1fr 1fr 1fr',
     },
-    gridGap: {
-      _: 4,
-      lg: 4,
-    },
-    mb: 5,
+    gridGap: { _: '24px', md: '40px' },
+    mb: { _: 3, lg: 5 },
   },
   ColumnProps: {
     mb: {
-      _: 4,
+      _: 3,
       lg: 0,
     },
   },
   LogoProps: {
     variant: 'h3',
-    color: 'white',
+    color: FOOTER_HEADING,
     mb: 3,
     mt: '50px',
     fontWeight: 'bold',
   },
   BaselineProps: {
     variant: 'body1',
-    color: 'gray.5',
-    mb: 4,
+    color: FOOTER_BODY,
+    mb: { _: 2, lg: 4 },
     lineHeight: 1.6,
   },
   SocialLinksProps: {
     display: 'flex',
     alignItems: 'center',
-    gap: '16px',
+    style: { gap: '14px' },
   },
   SocialLinkProps: {
-    color: 'gray.5',
+    color: FOOTER_BODY,
     fontSize: 24,
     '&:hover': {
-      color: 'white',
+      color: FOOTER_HEADING,
     },
   },
   ColumnTitleProps: {
     variant: 'h5',
-    color: 'white',
+    color: FOOTER_HEADING,
     mb: 3,
-    mt: '50px',
+    mt: { _: 0, lg: '50px' },
     fontWeight: 'bold',
   },
   ColumnLinkProps: {
     as: 'a',
     display: 'block',
     variant: 'body2',
-    color: 'gray.5',
+    color: FOOTER_BODY,
     mb: 2,
     textDecoration: 'none',
     '&:hover': {
-      color: 'white',
+      color: FOOTER_HEADING,
     },
   },
   ContactItemProps: {
@@ -353,27 +417,47 @@ Footer.defaultProps = {
     mb: 2,
   },
   ContactIconProps: {
-    color: 'gray.5',
+    color: FOOTER_BODY,
     fontSize: 16,
     mr: 2,
   },
   ContactTextProps: {
     variant: 'body2',
-    color: 'gray.5',
+    color: FOOTER_BODY,
     textDecoration: 'none',
     '&:hover': {
-      color: 'white',
+      color: FOOTER_HEADING,
     },
   },
   AdminTitleProps: {
     variant: 'h5',
-    color: 'white',
+    color: FOOTER_HEADING,
     mb: 3,
     fontWeight: 'bold',
   },
   AdminMemberProps: {
-    variant: 'body2',
-    color: 'gray.5',
+    color: FOOTER_BODY,
+    style: { whiteSpace: 'nowrap', fontSize: '14px', lineHeight: 1.6 },
+  },
+  AdminBannerProps: {
+    pt: { _: 3, md: 3 },
+    pb: { _: 3, md: 3 },
+    borderTopWidth: 1,
+    borderTopStyle: 'solid',
+    borderTopColor: 'gray.3',
+    mb: 0,
+    textAlign: { _: 'center', md: 'left' },
+  },
+  AdminMembersListProps: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: { _: 'center', md: 'flex-start' },
+    style: { gap: '8px 24px' },
+  },
+  AdminBannerTitleProps: {
+    variant: 'h5',
+    color: FOOTER_HEADING,
+    fontWeight: 'bold',
     mb: 2,
     fontSize: 14,
   },
@@ -388,25 +472,29 @@ Footer.defaultProps = {
     borderTopWidth: 1,
     borderTopStyle: 'solid',
     borderTopColor: 'gray.3',
-    pt: 4,
-    gap: 3,
+    pt: { _: 3, md: 4 },
+    pb: { _: 0, md: 3 },
+    gap: 2,
+    textAlign: { _: 'center', md: 'left' },
   },
   CopyrightProps: {
     variant: 'body2',
-    color: 'gray.5',
+    color: FOOTER_BODY,
   },
   LegalLinksProps: {
     display: 'flex',
-    gap: 4,
-    my: 3,
+    flexWrap: 'wrap',
+    justifyContent: { _: 'center', md: 'flex-start' },
+    style: { gap: '6px 4px' },
+    my: { _: 0, md: 3 },
   },
   LegalLinkProps: {
     as: 'a',
     variant: 'body2',
-    color: 'gray.5',
+    color: FOOTER_BODY,
     textDecoration: 'none',
     '&:hover': {
-      color: 'white',
+      color: FOOTER_HEADING,
     },
   },
   ...data.newFooter,

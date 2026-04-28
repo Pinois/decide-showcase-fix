@@ -10,6 +10,7 @@ import { smoothLinkProps } from '@pagerland/common/src/utils';
 
 import Logo from '../../components/Logo';
 import data from '../../data';
+import Background from '../About/Background';
 
 import AngleDown from '@pagerland/icons/src/line/AngleDown';
 
@@ -58,6 +59,7 @@ const Welcome = ({
   return (
     <Box name={name} as="section">
       <HeroWrapper>
+        <Background />
         <HeroLeft>
           <HeroLeftInner>
             <Logo

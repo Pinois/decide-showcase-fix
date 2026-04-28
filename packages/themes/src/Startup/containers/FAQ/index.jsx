@@ -15,14 +15,14 @@ import { colors } from '../../styles';
 
 const FAQItem = styled.div`
   background-color: white;
-  border-radius: 14px;
+  border-radius: 32px;
   border: 1px solid ${colors.gray[5]};
-  box-shadow: 0 2px 8px ${transparentize(0.92, colors.primary)};
+  box-shadow: 0 4px 14px ${transparentize(0.9, colors.primary)};
   overflow: hidden;
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 
   &:hover {
-    box-shadow: 0 6px 16px ${transparentize(0.88, colors.primary)};
+    box-shadow: 0 10px 28px ${transparentize(0.85, colors.primary)};
     border-color: ${transparentize(0.7, colors.primary)};
   }
 
@@ -37,7 +37,7 @@ const QuestionRow = styled.button`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 18px 22px;
+  padding: 28px 32px;
   background: none;
   border: 0;
   cursor: pointer;
@@ -45,7 +45,7 @@ const QuestionRow = styled.button`
   font: inherit;
   color: ${colors.primary};
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.4;
   transition: background-color 0.2s ease;
 
@@ -59,8 +59,8 @@ const Chevron = styled.span`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: ${transparentize(0.92, colors.primary)};
   transition: transform 0.3s ease, background-color 0.25s ease;
@@ -83,9 +83,9 @@ const AnswerInner = styled.div`
 
 const AnswerText = styled.p`
   margin: 0;
-  padding: 6px 22px 22px 22px;
+  padding: 4px 32px 32px 32px;
   color: ${colors.gray[1]};
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   text-align: left;
 `;
@@ -111,9 +111,11 @@ const FAQ = ({
   return (
     <Box name={name} {...WrapperProps}>
       <Container {...ContainerProps}>
-        <Typography {...TitleProps} className="animate-fade-in-up">
-          {title}
-        </Typography>
+        <Typography
+          {...TitleProps}
+          className="animate-fade-in-up"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
 
         <Grid {...GridProps}>
           {faqs.map((faq, index) => {
@@ -169,7 +171,6 @@ FAQ.defaultProps = {
       md: 64,
       lg: 96,
     },
-    backgroundColor: 'gray.6',
   },
   ContainerProps: {
     textAlign: 'center',
@@ -185,9 +186,7 @@ FAQ.defaultProps = {
       _: '1fr',
       md: 'repeat(2, 1fr)',
     },
-    gridGap: '20px',
-    maxWidth: 1100,
-    mx: 'auto',
+    gridGap: '28px',
     alignItems: 'start',
   },
   ...data.faq,

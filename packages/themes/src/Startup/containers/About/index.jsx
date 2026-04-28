@@ -45,31 +45,50 @@ const IconCircle = styled.div`
 const FeatureRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-bottom: 12px;
   text-align: left;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
+`;
+
+const CheckCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.82, '#ffffff')};
 
   svg {
-    flex-shrink: 0;
-    fill: ${transparentize(0.15, '#ffffff')};
+    fill: ${colors.primary};
   }
 `;
 
 const ExpertiseRow = styled.div`
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
   color: ${colors.gray[1]};
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
+`;
+
+const ExpertiseCheckCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.92, colors.primary)};
 
   svg {
-    flex-shrink: 0;
-    margin-top: 4px;
     fill: ${colors.primary};
   }
 `;
@@ -77,19 +96,28 @@ const ExpertiseRow = styled.div`
 const HighlightCallout = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  padding: 14px 18px;
+  gap: 14px;
+  margin-top: 32px;
+  padding: 20px 24px;
   background-color: ${transparentize(0.92, colors.accent)};
-  border-left: 3px solid ${colors.accent};
-  border-radius: 8px;
+  border-radius: 24px;
   color: ${colors.primary};
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
+`;
+
+const HighlightIconCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.78, colors.accent)};
 
   svg {
-    flex-shrink: 0;
     fill: ${colors.accent};
   }
 `;
@@ -122,7 +150,7 @@ const About = ({
     <Background />
     <Container {...ContainerProps}>
       <Box {...CaptionProps} className="animate-fade-in-up">
-        <Typography {...TitleProps}>{title}</Typography>
+        <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
         <Typography {...TextProps} dangerouslySetInnerHTML={text} />
       </Box>
 
@@ -145,7 +173,9 @@ const About = ({
               <Box mt={3}>
                 {service.features.map((feature, index) => (
                   <FeatureRow key={index}>
-                    <Check width={14} height={14} />
+                    <CheckCircle>
+                      <Check width={14} height={14} />
+                    </CheckCircle>
                     <span>{feature}</span>
                   </FeatureRow>
                 ))}
@@ -161,14 +191,18 @@ const About = ({
           <Box>
             {expertise.items && expertise.items.map((item, index) => (
               <ExpertiseRow key={index}>
-                <Check width={18} height={18} />
+                <ExpertiseCheckCircle>
+                  <Check width={16} height={16} />
+                </ExpertiseCheckCircle>
                 <span>{item}</span>
               </ExpertiseRow>
             ))}
           </Box>
           {expertise.highlightText && (
             <HighlightCallout>
-              <Lightbulb width={20} height={20} />
+              <HighlightIconCircle>
+                <Lightbulb width={20} height={20} />
+              </HighlightIconCircle>
               <span>{expertise.highlightText}</span>
             </HighlightCallout>
           )}
@@ -178,7 +212,7 @@ const About = ({
         </Box>
       </Grid>
 
-      <Box textAlign="center" mt={5}>
+      <Box textAlign="center" mt="80px" mb="40px">
         <Button {...CtaProps} {...cta}>
           {cta.label}
         </Button>
@@ -248,20 +282,18 @@ About.defaultProps = {
       lg: 'repeat(3, 1fr)',
     },
     gridGap: '32px',
-    maxWidth: 1100,
-    mx: 'auto',
-    mb: 5,
+    mb: '120px',
     alignItems: 'stretch',
   },
   ServiceCardProps: {
     textAlign: 'center',
     p: {
       _: 24,
-      md: 4,
+      md: 5,
     },
     borderRadius: {
       _: 'large',
-      md: 'xLarge',
+      md: 'xxxLarge',
     },
     backgroundColor: 'secondary',
     boxShadow: 'secondary',
@@ -276,7 +308,7 @@ About.defaultProps = {
     mb: 3,
   },
   ServiceDescriptionProps: {
-    variant: 'body2',
+    variant: 'body1',
     color: 'gray.6',
     mb: 3,
     lineHeight: 1.6,
@@ -304,10 +336,8 @@ About.defaultProps = {
     },
     gridGap: '48px',
     alignItems: 'center',
-    mt: 5,
-    mb: 4,
-    maxWidth: 1100,
-    mx: 'auto',
+    mt: '80px',
+    mb: '40px',
   },
   ExpertiseCaptionProps: {
     textAlign: {
