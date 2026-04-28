@@ -458,7 +458,7 @@ const Services = ({
               <ModalActions>
                 <ModalCtaPrimary
                   href={`mailto:contact@decideetvous.com?subject=${encodeURIComponent(
-                    `Demande de réservation — ${openService.title}`
+                    `Demande de réservation : ${openService.title}`
                   )}`}
                 >
                   Réserver cette formation →

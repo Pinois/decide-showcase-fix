@@ -714,11 +714,23 @@ export default {
     ],
     company: [
       {
-        label: 'À propos',
+        label: 'Accueil',
+        href: '#',
+      },
+      {
+        label: 'Nos formations',
+        href: '#services',
+      },
+      {
+        label: 'Prochaines dates',
+        href: '#agenda',
+      },
+      {
+        label: 'Accompagnements',
         href: '#about',
       },
       {
-        label: 'Notre équipe',
+        label: "L'équipe",
         href: '#team',
       },
       {
@@ -736,39 +748,39 @@ export default {
       address: 'Bruxelles, Belgique',
     },
     administration: {
-      title: 'Conseil d\'Admin.',
+      title: "Conseil d'administration",
       members: [
         {
-          name: 'M. Mannie',
+          name: 'Maïté Mannie',
           role: 'Présidente',
         },
         {
-          name: 'B. Walschaerts',
+          name: 'Bernard Walschaerts',
           role: 'Vice-Président',
         },
         {
-          name: 'V. Schmitz',
+          name: 'Véronique Schmitz',
           role: 'Secrétaire',
         },
         {
-          name: 'M. De Backer',
-          role: 'Admin. déléguée',
+          name: 'Marion De Backer',
+          role: 'Administratrice déléguée',
         },
         {
-          name: 'P. Drouillon',
+          name: 'Philippe Drouillon',
           role: 'Administrateur',
         },
       ],
     },
-    copyright: '© 2025 DEC!DE. Tous droits réservés.',
+    copyright: '© 2026 DEC!DE ASBL · Tous droits réservés.',
     legalLinks: [
       {
-        label: '<span role="img" aria-label="rocket">🚀</span> by G. Gustin | L. Lepinois',
+        label: 'by Guillaume Gustin',
         href: 'https://guillaumegustin.com/',
       },
       {
-        label: '<span role="img" aria-label="art">🎨</span> by Coffeecream',
-        href: '#',
+        label: '& Loïc Lepinois',
+        href: 'https://lepinois.dev',
       },
     ],
   },
