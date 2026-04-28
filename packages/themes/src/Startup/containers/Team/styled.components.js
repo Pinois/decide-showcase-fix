@@ -17,10 +17,10 @@ export const MemberCard = styled(Box)`
 `;
 
 export const MemberImageWrapper = styled(Box)`
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   margin-bottom: 24px;
-  border-radius: 80px 0;
+  border-radius: 48px;
   overflow: hidden;
   background-color: ${colors.gray[5]};
   box-shadow: 0 12px 28px ${transparentize(0.84, colors.primary)};
@@ -57,32 +57,23 @@ export const Description = styled.p`
 export const LinkedinLink = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   margin-top: auto;
-  color: ${colors.primary};
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid ${transparentize(0.78, colors.primary)};
+  color: ${colors.gray[2]};
   text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: 1px solid ${transparentize(0.7, colors.primary)};
   transition: all 0.2s ease;
 
   svg {
     display: block;
-    fill: ${colors.primary};
-    transform: translateY(-2px);
-    transition: fill 0.2s ease;
   }
 
   &:hover {
-    background-color: ${colors.primary};
     color: white;
+    background-color: ${colors.primary};
     border-color: ${colors.primary};
-
-    svg {
-      fill: white;
-    }
   }
 `;

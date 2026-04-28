@@ -21,7 +21,7 @@ const ServiceImage = styled(Box)`
 
 const ServiceCard = styled(Box)`
   background-color: white;
-  border-radius: 24px;
+  border-radius: 64px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 48, 61, 0.06);
   display: flex;
@@ -31,7 +31,7 @@ const ServiceCard = styled(Box)`
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 48, 61, 0.12);
+    box-shadow: 0 18px 40px ${transparentize(0.78, colors.primary)};
 
     ${ServiceImage} {
       transform: scale(1.02);
@@ -49,25 +49,26 @@ const Subtitle = styled.p`
 `;
 
 const CardFooter = styled.button`
-  display: flex;
+  align-self: center;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 18px 16px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
   font-size: 14px;
   font-weight: 700;
-  color: ${colors.gray[1]};
+  color: ${colors.primary};
   background-color: transparent;
   border: none;
-  border-top: 1px solid ${colors.gray[5]};
   cursor: pointer;
-  transition: all 0.2s ease;
   font-family: inherit;
+  transition: color 0.2s ease;
 
   &:hover {
-    background-color: ${transparentize(0.95, colors.primary)};
-    color: ${colors.primary};
+    color: ${colors.shades.primary[1]};
 
     span.arrow {
       transform: translateX(4px);
@@ -321,8 +322,6 @@ const Services = ({
           flexWrap="wrap"
           justifyContent="center"
           style={{ gap: '32px' }}
-          maxWidth={1200}
-          mx="auto"
           mb={5}
         >
           {services.map((service, key) => (
@@ -348,7 +347,7 @@ const Services = ({
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
               />
-              <Box px={4} pt={4} pb={3} display="flex" flexDirection="column" flex={1}>
+              <Box px="40px" pt="40px" pb="40px" display="flex" flexDirection="column" flex={1}>
                 <Typography {...ServiceTitleProps}>
                   {service.title}
                 </Typography>
@@ -356,17 +355,17 @@ const Services = ({
                   {...ServiceTextProps}
                   dangerouslySetInnerHTML={service.text}
                 />
+                <CardFooter
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenIndex(key);
+                  }}
+                >
+                  En savoir plus
+                  <span className="arrow">→</span>
+                </CardFooter>
               </Box>
-              <CardFooter
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setOpenIndex(key);
-                }}
-              >
-                En savoir plus
-                <span className="arrow">→</span>
-              </CardFooter>
             </ServiceCard>
           ))}
         </Box>
@@ -601,14 +600,12 @@ Services.defaultProps = {
       lg: 'repeat(3, 1fr)',
     },
     gridGap: '40px',
-    maxWidth: 1200,
-    mx: 'auto',
     mb: 4,
     justifyItems: 'center',
   },
   ServiceIconProps: {
     width: '100%',
-    height: 200,
+    height: 260,
   },
   ServiceTitleProps: {
     textAlign: 'center',

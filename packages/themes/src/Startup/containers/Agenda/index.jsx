@@ -18,7 +18,7 @@ const SessionCard = styled(Box)`
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 24px;
+  border-radius: 64px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 48, 61, 0.06);
   border: 1px solid ${colors.gray[5]};
@@ -26,13 +26,13 @@ const SessionCard = styled(Box)`
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 48, 61, 0.12);
+    box-shadow: 0 18px 40px ${transparentize(0.78, colors.primary)};
   }
 `;
 
 const CardHeader = styled(Box)`
   background-color: ${transparentize(0.82, colors.accent)};
-  padding: 18px 16px;
+  padding: 28px 24px;
   text-align: center;
 `;
 
@@ -54,7 +54,7 @@ const HeaderYear = styled.div`
 `;
 
 const CardBody = styled(Box)`
-  padding: 28px 24px;
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -120,23 +120,22 @@ const ContactLink = styled.a`
 `;
 
 const CardFooter = styled.a`
-  display: flex;
+  align-self: center;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 18px 16px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
   font-size: 14px;
   font-weight: 700;
-  color: ${colors.gray[1]};
+  color: ${colors.primary};
   text-decoration: none;
   background-color: transparent;
-  border-top: 1px solid ${colors.gray[5]};
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   cursor: pointer;
 
   &:hover {
-    background-color: ${transparentize(0.95, colors.primary)};
-    color: ${colors.primary};
+    color: ${colors.shades.primary[1]};
 
     span.arrow {
       transform: translateX(4px);
@@ -180,8 +179,6 @@ const Agenda = ({
         flexWrap="wrap"
         justifyContent="center"
         style={{ gap: '28px' }}
-        maxWidth={1100}
-        mx="auto"
       >
         {sessions
           .filter((session) => {
@@ -231,16 +228,15 @@ const Agenda = ({
                 </InfoText>
               </InfoLine>
 
+              <CardFooter
+                href={session.href || sessionCtaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {sessionCtaLabel}
+                <span className="arrow">→</span>
+              </CardFooter>
             </CardBody>
-
-            <CardFooter
-              href={session.href || sessionCtaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {sessionCtaLabel}
-              <span className="arrow">→</span>
-            </CardFooter>
           </SessionCard>
         ))}
       </Box>

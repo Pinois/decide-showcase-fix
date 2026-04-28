@@ -6,7 +6,7 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 
-import LinkedinAlt from '@pagerland/icons/src/line/LinkedinAlt';
+import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
 
 import data from '../../data';
 import {
@@ -56,9 +56,9 @@ const Team = ({
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Profil LinkedIn de ${member.name}`}
             >
-              <LinkedinAlt width={16} height={16} />
-              Voir le profil LinkedIn
+              <Linkedin width={22} height={22} />
             </LinkedinLink>
           </MemberCard>
         ))}
@@ -121,8 +121,6 @@ Team.defaultProps = {
       lg: 'repeat(3, 1fr)',
     },
     gridGap: '32px',
-    maxWidth: 1100,
-    mx: 'auto',
     alignItems: 'stretch',
   },
   MemberNameProps: {

@@ -164,7 +164,7 @@ const Footer = (props) => {
       <Grid {...MainGridProps}>
         {/* Colonne Logo / Baseline */}
         <Box {...ColumnProps}>
-          <Box mb={3} mt="50px">
+          <Box mb={3} mt={{ _: 0, lg: '50px' }}>
             <WhiteLogo />
           </Box>
           <Typography {...BaselineProps}>{baseline}</Typography>
@@ -344,29 +344,27 @@ Footer.defaultProps = {
     bg: 'primary',
     color: FOOTER_HEADING,
     pt: {
-      _: 10,
-      lg: 12,
+      _: '48px',
+      lg: '96px',
     },
     pb: {
-      _: 5,
-      lg: 6,
+      _: '24px',
+      lg: '48px',
     },
   },
-  ContainerProps: {
-    maxWidth: 1200,
-  },
+  ContainerProps: {},
   MainGridProps: {
     gridTemplateColumns: {
       _: '1fr',
       md: '1fr 1fr',
       lg: '1.5fr 1fr 1fr 1fr',
     },
-    gridGap: '40px',
-    mb: 5,
+    gridGap: { _: '24px', md: '40px' },
+    mb: { _: 3, lg: 5 },
   },
   ColumnProps: {
     mb: {
-      _: 4,
+      _: 3,
       lg: 0,
     },
   },
@@ -380,7 +378,7 @@ Footer.defaultProps = {
   BaselineProps: {
     variant: 'body1',
     color: FOOTER_BODY,
-    mb: 4,
+    mb: { _: 2, lg: 4 },
     lineHeight: 1.6,
   },
   SocialLinksProps: {
@@ -399,7 +397,7 @@ Footer.defaultProps = {
     variant: 'h5',
     color: FOOTER_HEADING,
     mb: 3,
-    mt: '50px',
+    mt: { _: 0, lg: '50px' },
     fontWeight: 'bold',
   },
   ColumnLinkProps: {
@@ -442,12 +440,19 @@ Footer.defaultProps = {
     style: { whiteSpace: 'nowrap', fontSize: '14px', lineHeight: 1.6 },
   },
   AdminBannerProps: {
-    pt: 3,
-    pb: 3,
+    pt: { _: 3, md: 3 },
+    pb: { _: 3, md: 3 },
     borderTopWidth: 1,
     borderTopStyle: 'solid',
     borderTopColor: 'gray.3',
     mb: 0,
+    textAlign: { _: 'center', md: 'left' },
+  },
+  AdminMembersListProps: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: { _: 'center', md: 'flex-start' },
+    style: { gap: '8px 24px' },
   },
   AdminBannerTitleProps: {
     variant: 'h5',
@@ -455,11 +460,6 @@ Footer.defaultProps = {
     fontWeight: 'bold',
     mb: 2,
     fontSize: 14,
-  },
-  AdminMembersListProps: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    style: { gap: '8px 24px' },
   },
   BottomBarProps: {
     display: 'flex',
@@ -472,9 +472,10 @@ Footer.defaultProps = {
     borderTopWidth: 1,
     borderTopStyle: 'solid',
     borderTopColor: 'gray.3',
-    pt: 4,
-    pb: 3,
-    gap: 3,
+    pt: { _: 3, md: 4 },
+    pb: { _: 0, md: 3 },
+    gap: 2,
+    textAlign: { _: 'center', md: 'left' },
   },
   CopyrightProps: {
     variant: 'body2',
@@ -483,8 +484,9 @@ Footer.defaultProps = {
   LegalLinksProps: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: { _: 'center', md: 'flex-start' },
     style: { gap: '6px 4px' },
-    my: 3,
+    my: { _: 0, md: 3 },
   },
   LegalLinkProps: {
     as: 'a',

@@ -45,16 +45,26 @@ const IconCircle = styled.div`
 const FeatureRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-bottom: 12px;
   text-align: left;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
+`;
+
+const CheckCircle = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: ${transparentize(0.82, '#ffffff')};
 
   svg {
-    flex-shrink: 0;
-    fill: ${transparentize(0.15, '#ffffff')};
+    fill: ${colors.primary};
   }
 `;
 
@@ -145,7 +155,9 @@ const About = ({
               <Box mt={3}>
                 {service.features.map((feature, index) => (
                   <FeatureRow key={index}>
-                    <Check width={14} height={14} />
+                    <CheckCircle>
+                      <Check width={14} height={14} />
+                    </CheckCircle>
                     <span>{feature}</span>
                   </FeatureRow>
                 ))}
@@ -248,8 +260,6 @@ About.defaultProps = {
       lg: 'repeat(3, 1fr)',
     },
     gridGap: '32px',
-    maxWidth: 1100,
-    mx: 'auto',
     mb: 5,
     alignItems: 'stretch',
   },
@@ -257,11 +267,11 @@ About.defaultProps = {
     textAlign: 'center',
     p: {
       _: 24,
-      md: 4,
+      md: 5,
     },
     borderRadius: {
       _: 'large',
-      md: 'xLarge',
+      md: 'xxxLarge',
     },
     backgroundColor: 'secondary',
     boxShadow: 'secondary',
@@ -276,7 +286,7 @@ About.defaultProps = {
     mb: 3,
   },
   ServiceDescriptionProps: {
-    variant: 'body2',
+    variant: 'body1',
     color: 'gray.6',
     mb: 3,
     lineHeight: 1.6,
@@ -306,8 +316,6 @@ About.defaultProps = {
     alignItems: 'center',
     mt: 5,
     mb: 4,
-    maxWidth: 1100,
-    mx: 'auto',
   },
   ExpertiseCaptionProps: {
     textAlign: {
