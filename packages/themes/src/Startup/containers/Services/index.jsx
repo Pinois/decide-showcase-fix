@@ -14,6 +14,7 @@ import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 
 import data from '../../data';
 import { colors } from '../../styles';
+import Background from '../About/Background';
 
 const ServiceImage = styled(Box)``;
 
@@ -21,7 +22,8 @@ const ServiceCard = styled(Box)`
   background-color: white;
   border-radius: 64px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 48, 61, 0.06);
+  box-shadow: 0 8px 24px ${transparentize(0.92, colors.primary)};
+  border: 1px solid ${colors.gray[5]};
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -29,7 +31,14 @@ const ServiceCard = styled(Box)`
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px ${transparentize(0.88, colors.primary)};
+    box-shadow: 0 14px 32px ${transparentize(0.85, colors.primary)};
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px ${colors.shades.secondary[3]},
+      0 14px 32px ${transparentize(0.85, colors.primary)};
   }
 `;
 
@@ -305,6 +314,7 @@ const Services = ({
 
   return (
     <Box name={name} {...WrapperProps}>
+      <Background />
       <Container {...ContainerProps}>
         <Box {...CaptionProps} className="animate-fade-in-up">
           <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
@@ -567,7 +577,8 @@ Services.defaultProps = {
       md: 64,
       lg: 96,
     },
-    backgroundColor: 'white',
+    position: 'relative',
+    overflow: 'hidden',
   },
   ContainerProps: {
     textAlign: 'center',

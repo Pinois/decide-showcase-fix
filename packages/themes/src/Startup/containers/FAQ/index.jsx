@@ -171,7 +171,6 @@ FAQ.defaultProps = {
       md: 64,
       lg: 96,
     },
-    backgroundColor: 'gray.6',
   },
   ContainerProps: {
     textAlign: 'center',

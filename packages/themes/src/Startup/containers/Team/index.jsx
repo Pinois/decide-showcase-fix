@@ -9,6 +9,7 @@ import Grid from '@pagerland/common/src/components/Grid';
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
 
 import data from '../../data';
+import Background from '../Pricing/Background';
 import {
   MemberCard,
   MemberImageWrapper,
@@ -31,6 +32,7 @@ const Team = ({
   MemberNameProps,
 }) => (
   <Box name={name} {...WrapperProps}>
+    <Background />
     <Container {...ContainerProps}>
       <Box {...CaptionProps} className="animate-fade-in-up">
         <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
@@ -96,6 +98,8 @@ Team.defaultProps = {
       md: 64,
       lg: 96,
     },
+    position: 'relative',
+    overflow: 'hidden',
   },
   ContainerProps: {
     textAlign: 'center',

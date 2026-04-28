@@ -7,8 +7,9 @@ const Svg = styled.svg`
   ${base};
   position: absolute;
   top: -150px;
+  left: -120px;
   z-index: -1;
-  width: 100%;
+  width: calc(100% + 120px);
   height: 100%;
   color: ${colors.gray[6]};
 

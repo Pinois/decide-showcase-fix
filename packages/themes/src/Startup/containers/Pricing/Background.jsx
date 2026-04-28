@@ -6,10 +6,11 @@ import { breakpoints, colors } from '../../styles';
 const Svg = styled.svg`
   ${base};
   position: absolute;
-  top: 0;
+  top: -150px;
+  right: -120px;
   z-index: -1;
-  width: 100%;
-  height: 80%;
+  width: calc(100% + 120px);
+  height: 100%;
   color: ${colors.gray[6]};
 
   @media (max-width: ${breakpoints.md}) {

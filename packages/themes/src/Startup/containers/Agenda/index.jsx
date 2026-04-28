@@ -294,7 +294,7 @@ Agenda.defaultProps = {
       md: 64,
       lg: 80,
     },
-    backgroundColor: 'gray.6',
+    backgroundColor: 'white',
   },
   ContainerProps: {
     textAlign: 'center',

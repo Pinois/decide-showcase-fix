@@ -4,9 +4,11 @@ import { transparentize } from 'polished';
 import { colors } from '../../styles';
 
 export const HeroWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow: hidden;
 
   ${media.greaterThan('large')`
     flex-direction: row;
