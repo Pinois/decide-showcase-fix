@@ -1,6 +1,10 @@
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
 import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
+import Building from '@pagerland/icons/src/line/Building';
+import Brain from '@pagerland/icons/src/line/Brain';
+import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
+
 import * as Yup from 'yup';
 
 import LandingImage from './assets/landing_image.jpeg';
@@ -89,6 +93,10 @@ export default {
         label: "L'équipe",
       },
       {
+        to: 'faq',
+        label: 'FAQ',
+      },
+      {
         to: 'contact',
         label: 'Contact',
       },
@@ -108,7 +116,9 @@ export default {
     ],
   },
   welcome: {
-    title: "Le coup de pouce dont l'écologie a besoin",
+    title: {
+      __html: "Le coup de pouce dont l'écologie a <span class=\"hl\">besoin</span>",
+    },
     text: {
       __html:
         "DEC!DE <b>sensibilise et forme</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
@@ -288,7 +298,7 @@ export default {
     
     services: [
       {
-        icon: "🏢",
+        icon: Building,
         title: "Accompagnement RSE / ESG",
         description: "Diagnostic, stratégie et mise en œuvre de votre démarche RSE adaptée aux enjeux de votre entreprise.",
         features: [
@@ -301,7 +311,7 @@ export default {
         ]
       },
       {
-        icon: "🧠",
+        icon: Brain,
         title: "Nudge",
         description: "Mise en place de dispositifs nudge pour inciter un changement de comportement",
         features: [
@@ -312,7 +322,7 @@ export default {
         ]
       },
       {
-        icon: "🎓",
+        icon: UsersAlt,
         title: "Dynamiques collectives",
         description: "Formation et accompagnement à la création de dynamique collective",
         features: [
@@ -330,7 +340,7 @@ export default {
         "Des connaissances approfondies des enjeux de la durabilité",
         "Une approche systémique basée sur les sciences comportementales",
       ],
-      highlight: "<span role=\"img\" aria-label=\"lightbulb\">💡</span> Un accompagnement sur mesure ? C'est possible !",
+      highlightText: "Un accompagnement sur mesure ? C'est possible !",
       image: {
         src: NudgeImage,
         srcSet: `${NudgeImage} 1x, ${NudgeImage} 2x`,

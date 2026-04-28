@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-scroll';
@@ -32,6 +32,20 @@ const Navbar = ({
   links,
   actions,
 }) => {
+  const [hiddenOnHero, setHiddenOnHero] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const handleScroll = () => {
+      setHiddenOnHero(window.scrollY < 80);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menu = onClick => (
     <>
       {links && (
@@ -67,7 +81,7 @@ const Navbar = ({
       )}
     >
       {({ onToggle, isOpen, onClose }) => (
-        <Wrapper {...WrapperProps}>
+        <Wrapper {...WrapperProps} hiddenOnHero={hiddenOnHero}>
           <Container {...ContainerProps}>
             <Box flexBox alignItems="center">
               {Logo && (

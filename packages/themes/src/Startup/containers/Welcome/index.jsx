@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@pagerland/common/src/components/Box';
@@ -6,9 +6,12 @@ import Typography from '@pagerland/common/src/components/Typography';
 import Button from '@pagerland/common/src/components/Button';
 
 import Avatar from '../../components/Avatar';
+import Logo from '../../components/Logo';
 import data from '../../data';
 
-import { ContainerWithBackground, RoundedImage } from './styled.components';
+import AngleDown from '@pagerland/icons/src/line/AngleDown';
+
+import { ContainerWithBackground, RoundedImage, HeroTitle, ScrollCue } from './styled.components';
 import Squares from './Squares';
 
 const Welcome = ({
@@ -21,121 +24,107 @@ const Welcome = ({
   WrapperProps,
   ContainerProps,
   CaptionProps,
-  TitleProps,
   TextProps,
   ActionButtonsProps,
   ImageWrapperProps,
   ImageProps,
   AvatarsProps,
-}) => (
-  <Box name={name} {...WrapperProps}>
-    <ContainerWithBackground {...ContainerProps}>
-      <Box {...CaptionProps} className="animate-fade-in-up">
-        <Typography {...TitleProps}>{title}</Typography>
-        <Typography {...TextProps} dangerouslySetInnerHTML={text} />
-        <Box {...ActionButtonsProps}>
-          {actions.map(({ label, ...props }, key) => (
-            <Button {...props} key={key}>
-              {label}
-            </Button>
-          ))}
+  LogoProps,
+}) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => setMounted(true));
+    return () => window.cancelAnimationFrame(id);
+  }, []);
+
+  const animCls = (n) => (mounted ? `animate-fade-in-up animate-delay-${n}` : '');
+  const hideStyle = mounted ? null : { opacity: 0, transform: 'translateY(20px)' };
+
+  return (
+    <Box name={name} {...WrapperProps}>
+      <ContainerWithBackground {...ContainerProps}>
+        <Box {...CaptionProps}>
+          <Logo
+            {...LogoProps}
+            className={animCls(1)}
+            style={{ ...(LogoProps.style || {}), ...(hideStyle || {}) }}
+          />
+          <HeroTitle
+            dangerouslySetInnerHTML={title}
+            className={animCls(2)}
+            style={hideStyle}
+          />
+          <Typography
+            {...TextProps}
+            dangerouslySetInnerHTML={text}
+            className={animCls(3)}
+            style={hideStyle}
+          />
+          <Box
+            {...ActionButtonsProps}
+            className={animCls(4)}
+            style={{ ...(ActionButtonsProps.style || {}), ...(hideStyle || {}) }}
+          >
+            {actions.map(({ label, ...props }, key) => (
+              <Button whiteSpace="nowrap" {...props} key={key}>
+                {label}
+              </Button>
+            ))}
+          </Box>
         </Box>
-      </Box>
-      <Box {...ImageWrapperProps} className="animate-fade-in-up">
-        {avatars.map((avatar, key) => (
-          <Avatar {...avatar} {...AvatarsProps[key]} key={key} />
-        ))}
-        <Squares />
-        <RoundedImage {...ImageProps} {...img} />
-      </Box>
-    </ContainerWithBackground>
-  </Box>
-);
+        <Box
+          {...ImageWrapperProps}
+          className={animCls(5)}
+          style={hideStyle}
+        >
+          {avatars.map((avatar, key) => (
+            <Avatar {...avatar} {...AvatarsProps[key]} key={key} />
+          ))}
+          <Squares />
+          <RoundedImage {...ImageProps} {...img} />
+        </Box>
+      </ContainerWithBackground>
+      <ScrollCue href="#services" aria-label="Scroller pour voir la suite">
+        <span className="chevron">
+          <AngleDown width={14} height={14} />
+        </span>
+      </ScrollCue>
+    </Box>
+  );
+};
 
 Welcome.propTypes = {
-  /**
-   * Name of container, can be used for anchors
-   */
   name: PropTypes.string.isRequired,
-  /**
-   * Wrapper props
-   * @See @pagerland/common/src/components/Box
-   */
   WrapperProps: PropTypes.object,
-  /**
-   * Component container props
-   * @See @pagerland/common/src/components/Container
-   */
   ContainerProps: PropTypes.object,
-  /**
-   * Caption props
-   * @See @pagerland/common/src/components/Box
-   */
   CaptionProps: PropTypes.object,
-  /**
-   * Title text props
-   * @See @pagerland/common/src/components/Typography
-   */
-  TitleProps: PropTypes.object,
-  /**
-   * Main text props
-   * @See @pagerland/common/src/components/Typography
-   */
   TextProps: PropTypes.object,
-  /**
-   * Wrapper with action buttons
-   * @See @pagerland/common/src/components/Box
-   */
   ActionButtonsProps: PropTypes.object,
-  /**
-   * Wrapper for image
-   * @See @pagerland/common/src/components/Box
-   */
   ImageWrapperProps: PropTypes.object,
-  /**
-   * Welcome image props
-   * @See @pagerland/common/src/components/Img
-   */
   ImageProps: PropTypes.object,
-  /**
-   * List of props for avatars
-   * @See @pagerland/common/src/components/Avatar
-   */
+  LogoProps: PropTypes.object,
   AvatarsProps: PropTypes.arrayOf(PropTypes.object),
-  /**
-   * Title node of component
-   */
-  title: PropTypes.node,
-  /**
-   * Main description
-   */
-  text: PropTypes.node,
-  /**
-   * Img details
-   */
+  title: PropTypes.object,
+  text: PropTypes.object,
   img: PropTypes.object,
-  /**
-   * Action buttons
-   */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
     })
   ),
-  /**
-   * List floating of avatars
-   */
   avatars: PropTypes.arrayOf(PropTypes.object),
 };
 
 Welcome.defaultProps = {
   WrapperProps: {
     overflow: 'hidden',
-    py: 4,
-    pb: {
-      _: 0,
-      lg: 60,
-    },
+    position: 'relative',
+    minHeight: { _: 'auto', lg: '100vh' },
+    display: 'flex',
+    alignItems: { _: 'center', lg: 'flex-start' },
+    pt: { _: 4, lg: '12vh' },
+    pb: 4,
   },
   ContainerProps: {
     display: 'flex',
@@ -149,25 +138,26 @@ Welcome.defaultProps = {
   CaptionProps: {
     my: {
       _: 30,
-      lg: 135,
+      lg: 0,
     },
-    maxWidth: 448,
+    maxWidth: 560,
   },
-  TitleProps: {
-    as: 'h1',
-    variant: 'h1',
-    mb: 4,
-    mx: 'auto',
-    color: 'black',
+  LogoProps: {
+    style: { width: 180, marginBottom: 48 },
   },
   TextProps: {
     variant: 'body1',
     color: 'gray.1',
+    fontSize: { _: '16px', lg: '18px' },
+    lineHeight: 1.7,
   },
   ActionButtonsProps: {
     mt: 5,
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: { _: 'column', md: 'row' },
+    alignItems: { _: 'stretch', md: 'center' },
+    flexWrap: 'nowrap',
+    style: { whiteSpace: 'nowrap' },
     gap: 4,
   },
   ImageWrapperProps: {
@@ -180,7 +170,7 @@ Welcome.defaultProps = {
   },
   ImageProps: {
     width: '100%',
-    maxWidth: 544,
+    maxWidth: 540,
   },
   AvatarsProps: [
     {

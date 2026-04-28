@@ -12,7 +12,15 @@ import Typography from '../../components/Typography';
 import { transition } from '../../styles';
 
 export const Wrapper = styled(Box)`
-  transition: ${transition.all};
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+  ${props =>
+    props.hiddenOnHero &&
+    css`
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    `}
 
   .sticky & {
     background-color: ${props => _.get(props.theme.colors, props.stickyBgColor)};
