@@ -1,9 +1,13 @@
 import Instagram from '@pagerland/icons/src/monochrome/Instagram';
 import LinkedinAlt from '@pagerland/icons/src/monochrome/LinkedinAlt';
 
+import Building from '@pagerland/icons/src/line/Building';
+import Brain from '@pagerland/icons/src/line/Brain';
+import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
+
 import * as Yup from 'yup';
 
-import LandingImage from './assets/landing_image.jpeg';
+import HeroTeam from './assets/hero-team.webp';
 
 import Avatar2 from './assets/avatars/avatar_backer.jpeg';
 import Avatar22x from './assets/avatars/avatar_backer.jpeg';
@@ -24,11 +28,11 @@ import Uliege from './assets/uliege.png';
 import LoterieNationale from './assets/loterie-nationale.png';
 
 // Workshop images (téléchargées via scripts/download-workshop-images.sh)
-import WorkshopFresque from './assets/workshop-fresque.jpg';
-import WorkshopNudge from './assets/workshop-nudge.jpg';
-import WorkshopMobiliser from './assets/workshop-mobiliser.jpg';
-import WorkshopNumerique from './assets/workshop-numerique.jpg';
-import WorkshopEvenements from './assets/workshop-evenements.jpg';
+import WorkshopFresque from './assets/workshop-fresque.webp';
+import WorkshopNudge from './assets/workshop-nudge.webp';
+import WorkshopMobiliser from './assets/workshop-mobiliser.webp';
+import WorkshopNumerique from './assets/workshop-numerique.webp';
+import WorkshopEvenements from './assets/rechauffe-ambiance.webp';
 
 // import Support from './assets/support.svg';
 
@@ -70,24 +74,28 @@ export default {
       },
       {
         to: 'services',
-        label: 'Ateliers',
+        label: 'Nos formations',
+      },
+      {
+        to: 'agenda',
+        label: 'Prochaines dates',
       },
       {
         to: 'about',
-        label: 'À propos',
+        label: 'Accompagnements',
+      },
+      {
+        to: 'partners',
+        label: 'Clients et partenaires',
       },
       {
         to: 'team',
         label: "L'équipe",
       },
-      /*{
-        to: 'pricing',
-        label: 'Pricing',
-      },*/
-      // {
-      //   to: 'blog',
-      //   label: 'Actus',
-      // },
+      {
+        to: 'faq',
+        label: 'FAQ',
+      },
       {
         to: 'contact',
         label: 'Contact',
@@ -108,10 +116,12 @@ export default {
     ],
   },
   welcome: {
-    title: "Le coup de pouce dont l'écologie a besoin",
+    title: {
+      __html: "Le coup de pouce dont l'écologie a <span class=\"hl\">besoin</span>",
+    },
     text: {
       __html:
-        "DEC!DE <b>sensibilise</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
+        "DEC!DE <b>sensibilise et forme</b> les organisations aux enjeux environnementaux et les <b>accompagne</b> dans l'intégration de la durabilité dans leur stratégie ainsi que dans la mise en place de dynamiques collectives pour mener à bien les projets de transition.",
     },
     actions: [
       {
@@ -133,8 +143,8 @@ export default {
       },
     ],
     img: {
-      src: LandingImage,
-      srcSet: `${LandingImage} 1x, ${LandingImage} 2x`,
+      src: HeroTeam,
+      srcSet: `${HeroTeam} 1x, ${HeroTeam} 2x`,
     },
     avatars: [
       {
@@ -152,55 +162,79 @@ export default {
     ],
   },
   services: {
-    title: 'Nos ateliers',
+    title: 'Nos formations',
+    subtitle: 'Sur mesure, dans votre organisation',
     text: {
-      __html: 'Des modules pratiques et immersifs pour comprendre/ressentir/agir, d\'une introduction à une exploration de la thématique approfondie, de 1h30 à 1 jour.',
+      __html: 'Des modules thématiques pratiques et immersifs pour comprendre et agir.<br/>D\'une introduction à une exploration approfondie.<br/>De 1h30 à deux journées.',
     },
 
     services: [
       {
         icon: WorkshopFresque,
         title: 'La Fresque du Climat',
-        duration: '3h',
         text: {
           __html: 'Comprendre les enjeux climatiques et leurs interconnexions',
+        },
+        details: {
+          longDescription: "Cette formation permet à chacun·e de comprendre le fonctionnement, l'ampleur et la complexité des enjeux liés aux dérèglements climatiques. À la suite de l'animation, nous abordons les questions liées à l'effondrement de la biodiversité et introduisons une réflexion autour des moyens à notre disposition pour nous mettre en action collectivement. Le débriefing est adapté en fonction de vos besoins.",
+          duration: '3h',
+          participants: 'Entre 6 et 15 personnes',
+          link: 'https://www.fresqueduclimat.org',
         },
       },
       {
         icon: WorkshopNudge,
         title: 'Nudge',
-        duration: '2h',
         text: {
-          __html: 'Activer des leviers psychologiques pour changer les comportements',
+          __html: 'Introduction aux sciences comportementales et découverte du concept',
+        },
+        details: {
+          longDescription: "Le nudge, traduit « coup de pouce », tente de guider les individus dans leur prise de décisions sans les contraindre ou les obliger, et donc en maintenant leur liberté de choisir. Cette formation vise à vulgariser les sciences de l'économie comportementale, à théoriser le concept de nudge et à en créer un ensemble.",
+          duration: 'De 1h à 1 journée',
+          participants: "Jusqu'à 20 personnes",
         },
       },
       {
         icon: WorkshopMobiliser,
         title: 'Mobiliser ses collègues',
-        duration: '4h',
         text: {
-          __html: 'Fédérer une équipe autour d\'actions concrètes',
+          __html: 'Comprendre les fondamentaux de la conduite du changement pour réussir à mobiliser ses collègues autour des projets de durabilité',
+        },
+        details: {
+          longDescription: "Durant cette formation, nous aborderons les mécanismes psychologiques à l'œuvre lors d'un processus de changement et qui freinent la mise en place des projets de durabilité. Vous repartirez avec des outils concrets afin d'accompagner vos collègues vers une transition fluide.",
+          duration: '2h',
+          participants: "Jusqu'à 20 personnes",
         },
       },
       {
         icon: WorkshopNumerique,
-        title: 'Numérique : un monde dématérialisé ?',
-        duration: '6h',
+        title: 'Numérique',
         text: {
-          __html: 'Explorer l\'impact environnemental du numérique',
+          __html: 'Explorer l\'impact environnemental du numérique et de l\'IA',
+        },
+        details: {
+          longDescription: "Cet atelier met en lumière la matérialité, souvent dissimulée, du monde numérique. Il rend visibles ses impacts sociétaux, environnementaux et sociaux et met en évidence les ordres de grandeurs permettant d'identifier les bonnes pratiques.",
+          duration: '3h',
+          participants: 'Entre 6 et 15 personnes',
         },
       },
       {
         icon: WorkshopEvenements,
         title: 'Réchauffe l\'ambiance, pas la planète',
-        duration: '3h',
         text: {
-          __html: 'Rendre ses événements plus durables',
+          __html: 'Un spectacle immersif et participatif qui déconstruit les idées reçues et traverse les questions du climat',
+        },
+        details: {
+          longDescription: "Ce spectacle itinérant permet de découvrir les enjeux autour du climat de manière innovante. Mélange de théâtre, de cinéma et de témoignages d'experts, il aborde notre rapport aux bouleversements climatiques et invite à déconstruire les idées reçues sur les grands thèmes qui traversent la question du climat : risques, démocratie, géopolitique, économie…",
+          partnership: "En partenariat avec Climate Voices et la compagnie de théâtre « Histoire Publique »",
+          participants: '50 personnes (jusqu\'à 2 représentations par jour)',
+          format: "Peut aussi être donné en format conférence",
+          logistics: "Espace scénique 5m × 7m requis. Salle au rez-de-chaussée (le matériel est lourd). Montage 1h, démontage 1h, arrivée 1h-1h30 avant.",
         },
       },
     ],
 
-    bottomText: 'Découvrez l\'ensemble de nos ateliers',
+    bottomText: 'Découvrez l\'ensemble de nos formations',
     cta: {
       label: 'Télécharger notre brochure',
       as: 'a',
@@ -215,6 +249,47 @@ export default {
          'To Do',
      }, */
   },
+  agenda: {
+    title: 'Notre formation inter-entreprises',
+    subtitle: 'À Bruxelles, sur dates ouvertes',
+    text: {
+      __html: "Une formation de 2 jours pour outiller la mobilisation de vos collègues : conduite du changement, coopération, nudge marketing. Repartez avec un plan d'action concret et des bonnes pratiques.",
+    },
+    contactNote: 'Des questions sur cette formation ?',
+    contactLabel: 'Contactez Marie',
+    contactHref: 'mailto:marie@decideetvous.com',
+    sessions: [
+      {
+        month: 'Mars',
+        year: '2026',
+        days: '2 & 3',
+        location: 'Bruxelles',
+        endDate: '2026-03-03',
+      },
+      {
+        month: 'Avril',
+        year: '2026',
+        days: '13 & 14',
+        location: 'Bruxelles',
+        endDate: '2026-04-14',
+      },
+      {
+        month: 'Septembre',
+        year: '2026',
+        days: '28 & 29',
+        location: 'Bruxelles',
+        endDate: '2026-09-29',
+        href: 'https://forms.gle/haJXnYzRAC1h3icH8',
+      },
+    ],
+    sessionCtaLabel: "S'inscrire",
+    sessionCtaHref: '#',
+    info: {
+      location: 'Village Partenaire (Bruxelles)',
+      capacity: 'Maximum 15 places',
+      audience: 'Chargés de projets durables et responsables RSE',
+    },
+  },
   about: {
     title: "Accompagner le changement dans votre structure",
     text: {
@@ -223,22 +298,22 @@ export default {
     
     services: [
       {
-        icon: "🏢",
+        icon: Building,
         title: "Accompagnement RSE / ESG",
         description: "Diagnostic, stratégie et mise en œuvre de votre démarche RSE adaptée aux enjeux de votre entreprise.",
         features: [
           "Audit",
           "Bilan Carbone",
-          "Analyse Comportementale",
+          "Analyse comportementale",
           "Plan d'action",
           "Suivi",
           "Rapport"
         ]
       },
       {
-        icon: "🧠",
+        icon: Brain,
         title: "Nudge",
-        description: "Une approche douce pour inciter un changement de comportement",
+        description: "Mise en place de dispositifs nudge pour inciter un changement de comportement",
         features: [
           "Audit",
           "Formation",
@@ -247,8 +322,8 @@ export default {
         ]
       },
       {
-        icon: "🎓",
-        title: "Green Team",
+        icon: UsersAlt,
+        title: "Dynamiques collectives",
         description: "Formation et accompagnement à la création de dynamique collective",
         features: [
           "Mobilisation",
@@ -261,8 +336,11 @@ export default {
     
     expertise: {
       title: "Nos expertises",
-      text: "Une approche systémique basée sur les sciences comportementales afin de créer des dynamiques collectives pour mobiliser vos collaborateurs, ainsi qu'une connaissance généralisée des enjeux de la durabilité",
-      highlight: "<span role=\"img\" aria-label=\"lightbulb\">💡</span> Un accompagnement sur mesure ? C'est possible !",
+      items: [
+        "Des connaissances approfondies des enjeux de la durabilité",
+        "Une approche systémique basée sur les sciences comportementales",
+      ],
+      highlightText: "Un accompagnement sur mesure ? C'est possible !",
       image: {
         src: NudgeImage,
         srcSet: `${NudgeImage} 1x, ${NudgeImage} 2x`,
@@ -325,7 +403,7 @@ export default {
           srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
-        description: "Après une carrière dans le secteur privé, Manon s'est réorientée vers l'accompagnement environnemental. Elle apporte son expertise business et sa vision pragmatique des enjeux RSE.",
+        description: "Après une carrière dans le secteur privé, Manon se réoriente vers l'éco-conseil. Elle apporte son expertise d'accompagnement humain et stratégique des transitions écologiques et organisationnelles, fondé sur l'analyse, la conception de solutions sur mesure et l'évolution des représentations et des modes de pensée.",
       },
       {
         name: 'Marie Debournoux',

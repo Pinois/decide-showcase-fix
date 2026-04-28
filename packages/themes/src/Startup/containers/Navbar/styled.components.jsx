@@ -12,12 +12,17 @@ import Typography from '../../components/Typography';
 import { transition } from '../../styles';
 
 export const Wrapper = styled(Box)`
-  transition: ${transition.all};
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: ${props => _.get(props.theme.colors, props.stickyBgColor)};
+  box-shadow: 0 36px 64px rgba(34, 39, 43, 0.06);
 
-  .sticky & {
-    background-color: ${props => _.get(props.theme.colors, props.stickyBgColor)};
-    box-shadow: 0 36px 64px rgba(34, 39, 43, 0.06);
-  }
+  ${props =>
+    props.hiddenOnHero &&
+    css`
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    `}
 `;
 
 export const LogoWrapper = styled.a`

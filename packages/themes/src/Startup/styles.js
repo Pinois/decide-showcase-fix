@@ -92,15 +92,17 @@ export const global = css`
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out both;
   }
 
   /* Délais pour les animations en cascade */
-  .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
-  .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
-  .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
-  .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
-  .animate-delay-5 { animation-delay: 0.5s; opacity: 0; }
+  .animate-delay-1 { animation-delay: 0.1s; }
+  .animate-delay-2 { animation-delay: 0.2s; }
+  .animate-delay-3 { animation-delay: 0.3s; }
+  .animate-delay-4 { animation-delay: 0.4s; }
+  .animate-delay-5 { animation-delay: 0.5s; }
 
   /* Respecter les préférences utilisateur pour réduire les animations */
   @media (prefers-reduced-motion: reduce) {

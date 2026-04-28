@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Sticky from 'react-sticky-el';
 
 import {Helmet} from 'react-helmet';
 
@@ -10,6 +9,7 @@ import {
   Footer,
   Welcome,
   Services,
+  Agenda,
   About,
   // Testimonials, // TODO: En attente des vrais témoignages
   Team,
@@ -41,11 +41,12 @@ const Startup = ({url}) => (
       ></script>
     </Helmet>
     <SEO title="DEC!DE" />
-    <Sticky style={{zIndex: 999, position: 'relative'}}>
+    <div style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 999}}>
       <Navbar />
-    </Sticky>
+    </div>
     <Welcome name="" />
     <Services name="services" />
+    <Agenda name="agenda" />
     <About name="about" />
     {/* <Testimonials name="testimonials" /> // TODO: En attente des vrais témoignages */}
     <Partners name="partners" />

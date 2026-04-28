@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-scroll';
@@ -32,6 +32,20 @@ const Navbar = ({
   links,
   actions,
 }) => {
+  const [hiddenOnHero, setHiddenOnHero] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const handleScroll = () => {
+      setHiddenOnHero(window.scrollY < 80);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menu = onClick => (
     <>
       {links && (
@@ -67,7 +81,7 @@ const Navbar = ({
       )}
     >
       {({ onToggle, isOpen, onClose }) => (
-        <Wrapper {...WrapperProps}>
+        <Wrapper {...WrapperProps} hiddenOnHero={hiddenOnHero}>
           <Container {...ContainerProps}>
             <Box flexBox alignItems="center">
               {Logo && (
@@ -179,9 +193,13 @@ Navbar.defaultProps = {
     as: Link,
     to: '',
     ...smoothLinkProps,
-    mx: {
+    ml: {
       _: 'auto',
-      md: '0',
+      md: 0,
+    },
+    mr: {
+      _: 'auto',
+      md: 4,
     },
   },
   LinksWrapperProps: {
@@ -191,17 +209,21 @@ Navbar.defaultProps = {
       lg: 'row',
     },
     alignItems: 'center',
-    mx: 'auto',
+    ml: {
+      _: 0,
+      lg: 'auto',
+    },
   },
   LinkProps: {
     mx: {
       _: 0,
-      lg: 3,
+      lg: 2,
     },
     my: {
       _: 3,
       lg: 0,
     },
+    whiteSpace: 'nowrap',
     as: Link,
     activeColor: 'secondary',
     ...smoothLinkProps,
@@ -213,12 +235,16 @@ Navbar.defaultProps = {
     },
     ml: {
       _: 0,
-      lg: 'auto',
+      lg: 3,
     },
   },
   ActionProps: {
     variant: 'accent',
     as: 'a',
+    px: 3,
+    py: 2,
+    fontSize: '14px',
+    whiteSpace: 'nowrap',
   },
   ToggleButtonProps: {
     buttonWidth: 24,

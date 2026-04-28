@@ -5,10 +5,17 @@ import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
-import Button from '@pagerland/common/src/components/Button';
+
+import LinkedinAlt from '@pagerland/icons/src/line/LinkedinAlt';
+
 import data from '../../data';
-import Img from '@pagerland/common/src/components/Img';
-import { MemberCard, MemberImageWrapper } from './styled.components';
+import {
+  MemberCard,
+  MemberImageWrapper,
+  RoleChip,
+  Description,
+  LinkedinLink,
+} from './styled.components';
 
 const Team = ({
   name,
@@ -21,12 +28,7 @@ const Team = ({
   TitleProps,
   TextProps,
   TeamGridProps,
-  MemberCardProps,
-  MemberImageProps,
   MemberNameProps,
-  MemberPositionProps,
-  MemberDescriptionProps,
-  LinkedinButtonProps,
 }) => (
   <Box name={name} {...WrapperProps}>
     <Container {...ContainerProps}>
@@ -37,31 +39,27 @@ const Team = ({
 
       <Grid {...TeamGridProps}>
         {members.map((member, index) => (
-          <MemberCard {...MemberCardProps} key={index} className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}>
-            <MemberImageWrapper
-              width={200}
-              height={200}
-              mb={3}
-              mx="auto"
-              borderRadius="12px"
-              overflow="hidden"
-              backgroundColor="gray.5"
-            >
-              <Img
+          <MemberCard
+            key={index}
+            className={`animate-fade-in-up animate-delay-${Math.min(index + 1, 5)}`}
+          >
+            <MemberImageWrapper>
+              <img
                 src={member.image.src}
                 alt={member.name}
-                width="100%"
-                height="100%"
-                style={{ objectFit: 'cover', objectPosition: 'top' }}
-                borderRadius="12px"
               />
             </MemberImageWrapper>
             <Typography {...MemberNameProps}>{member.name}</Typography>
-            <Typography {...MemberPositionProps}>{member.position}</Typography>
-            <Typography {...MemberDescriptionProps} flex="1">{member.description}</Typography>
-            <Button {...LinkedinButtonProps} href={member.linkedin}>
-              <span role="img" aria-label="link">🔗</span> Voir le profil LinkedIn
-            </Button>
+            <RoleChip>{member.position}</RoleChip>
+            <Description>{member.description}</Description>
+            <LinkedinLink
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinAlt width={16} height={16} />
+              Voir le profil LinkedIn
+            </LinkedinLink>
           </MemberCard>
         ))}
       </Grid>
@@ -70,112 +68,25 @@ const Team = ({
 );
 
 Team.propTypes = {
-  ImageWrapperProps: PropTypes.object,
-  /**
-   * Welcome image props
-   * @See @pagerland/common/src/components/Img
-   */
-  /**
-   * Name of container, can be used for anchors
-   */
   name: PropTypes.string.isRequired,
-  /**
-   * Wrapper props
-   * @See @pagerland/common/src/components/Box
-   */
   WrapperProps: PropTypes.object,
-  /**
-   * Component container props
-   * @See @pagerland/common/src/components/Container
-   */
   ContainerProps: PropTypes.object,
-  /**
-   * Caption props
-   * @See @pagerland/common/src/components/Box
-   */
   CaptionProps: PropTypes.object,
-  /**
-   * Title text props
-   * @See @pagerland/common/src/components/Typography
-   */
   TitleProps: PropTypes.object,
-  /**
-   * Main text props
-   * @See @pagerland/common/src/components/Typography
-   */
   TextProps: PropTypes.object,
-  /**
-   * Props of services grid wrapper
-   * @See @pagerland/common/src/components/Grid
-   */
-  GridProps: PropTypes.object,
-  /**
-   * Props of button below grid
-   * @See @pagerland/common/src/components/Button
-   */
-  CtaProps: PropTypes.object,
-  /**
-   * Props of single person item wrapper
-   * @See @pagerland/common/src/components/Box
-   */
-  PersonWrapperProps: PropTypes.object,
-  /**
-   * Props of person avatar
-   */
-  AvatarProps: PropTypes.object,
-  /**
-   * Props of person name
-   */
-  NameProps: PropTypes.object,
-  /**
-   * Props of person position
-   */
-  PositionProps: PropTypes.object,
-  DescProps: PropTypes.object,
-  /**
-   * Props of linkedin link icon
-   */
-  LinkedinIconProps: PropTypes.object,
-  /**
-   * Props of twitter link icon
-   */
-  TwitterIconProps: PropTypes.object,
-  /**
-   * Props of skype link icon
-   */
-  SkypeIconProps: PropTypes.object,
-  /**
-   * Title node of component
-   */
+  TeamGridProps: PropTypes.object,
+  MemberNameProps: PropTypes.object,
   title: PropTypes.node,
-  /**
-   * Main description
-   */
   text: PropTypes.node,
-  /**
-   * Cta button details
-   */
-  cta: PropTypes.arrayOf(
+  members: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.node,
+      name: PropTypes.string,
+      position: PropTypes.string,
+      description: PropTypes.string,
+      linkedin: PropTypes.string,
+      image: PropTypes.object,
     })
   ),
-  /**
-   * List of team members
-   */
-  people: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.object,
-      name: PropTypes.node,
-      position: PropTypes.node,
-      social: PropTypes.shape({
-        linkedin: PropTypes.string,
-        twitter: PropTypes.string,
-        skype: PropTypes.string,
-      }),
-    })
-  ),
-  imgMarie: PropTypes.object,
 };
 
 Team.defaultProps = {
@@ -196,7 +107,7 @@ Team.defaultProps = {
     as: 'h2',
     variant: 'h2',
     color: 'black',
-    mb: 4,
+    mb: 3,
   },
   TextProps: {
     variant: 'body1',
@@ -209,50 +120,16 @@ Team.defaultProps = {
       md: 'repeat(2, 1fr)',
       lg: 'repeat(3, 1fr)',
     },
-    gridGap: '40px',
-    maxWidth: 1200,
+    gridGap: '32px',
+    maxWidth: 1100,
     mx: 'auto',
-  },
-  MemberCardProps: {
-    textAlign: 'center',
-    p: 4,
-    borderRadius: '12px',
-    backgroundColor: 'white',
-    boxShadow: '0 4px 12px rgba(0, 48, 61, 0.1)',
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  },
-  MemberImageProps: {
-    width: 200,
-    height: 200,
-    mb: 3,
-    mx: 'auto',
-    borderRadius: '50%',
+    alignItems: 'stretch',
   },
   MemberNameProps: {
+    as: 'h3',
     variant: 'h4',
     color: 'black',
     mb: 2,
-  },
-  MemberPositionProps: {
-    variant: 'body2',
-    color: 'secondary',
-    mb: 3,
-    fontStyle: 'italic',
-  },
-  MemberDescriptionProps: {
-    variant: 'body2',
-    color: 'gray.1',
-    mb: 4,
-    textAlign: 'left',
-  },
-  LinkedinButtonProps: {
-    as: 'a',
-    target: '_blank',
-    rel: 'noopener noreferrer',
-    variant: 'default',
-    fontSize: 'body2',
   },
   ...data.team,
 };
