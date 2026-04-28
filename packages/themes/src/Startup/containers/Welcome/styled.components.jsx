@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import Container from '@pagerland/common/src/components/Container';
 import Img from '@pagerland/common/src/components/Img';
 import { colors } from '../../styles';
 
 export const ContainerWithBackground = styled(Container)`
   position: relative;
+
+  ${media.greaterThan('large')`
+    width: 1170px;
+    max-width: 1170px;
+  `}
 
   &::after {
     position: absolute;

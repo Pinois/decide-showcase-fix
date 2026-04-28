@@ -7,6 +7,8 @@ import logo from '../../assets/Logo.svg';
 
 const Img = styled.img`
   display: block;
+  width: 110px;
+  height: auto;
   ${base};
 `;
 

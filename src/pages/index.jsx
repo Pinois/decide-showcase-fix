@@ -10,6 +10,7 @@ import {
   Footer,
   Welcome,
   Services,
+  Agenda,
   About,
   // Testimonials, // TODO: En attente des vrais témoignages
   Team,
@@ -46,6 +47,7 @@ const Startup = ({url}) => (
     </Sticky>
     <Welcome name="" />
     <Services name="services" />
+    <Agenda name="agenda" />
     <About name="about" />
     {/* <Testimonials name="testimonials" /> // TODO: En attente des vrais témoignages */}
     <Partners name="partners" />

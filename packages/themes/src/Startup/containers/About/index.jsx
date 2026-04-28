@@ -33,6 +33,7 @@ const About = ({
   ExpertiseContainerProps,
   ExpertiseCaptionProps,
   ExpertiseImageProps,
+  ExpertiseItemProps,
   CtaProps,
 }) => (
   <Box name={name} {...WrapperProps}>
@@ -65,7 +66,13 @@ const About = ({
       <Container {...ExpertiseContainerProps} className="animate-fade-in-up">
         <Box {...ExpertiseCaptionProps}>
           <Typography {...TitleProps}>{expertise.title}</Typography>
-          <Typography {...TextProps}>{expertise.text}</Typography>
+          <Box mb={3}>
+            {expertise.items && expertise.items.map((item, index) => (
+              <Typography {...ExpertiseItemProps} key={index}>
+                <span role="img" aria-label="check">✔️</span> {item}
+              </Typography>
+            ))}
+          </Box>
           <Typography {...ServiceFeatureProps} mt={3} dangerouslySetInnerHTML={{__html: expertise.highlight}} />
         </Box>
         <Box>
@@ -228,10 +235,20 @@ About.defaultProps = {
     lineHeight: 1.6,
   },
   ServiceFeatureProps: {
-    variant: 'body1',
+    variant: 'body2',
     color: 'white',
     mb: 2,
     textAlign: 'left',
+  },
+  ExpertiseItemProps: {
+    variant: 'body1',
+    color: 'gray.1',
+    mb: 2,
+    textAlign: {
+      _: 'center',
+      lg: 'left',
+    },
+    lineHeight: 1.6,
   },
   ExpertiseContainerProps: {
     display: 'flex',

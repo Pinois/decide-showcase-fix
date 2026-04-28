@@ -13,11 +13,17 @@ const Container = styled.div`
   margin: 0 auto;
 
   ${media.greaterThan('medium')`
-    width: 720px;
+    width: 100%;
+    max-width: 960px;
   `}
 
   ${media.greaterThan('large')`
-    width: 1170px;
+    width: 100%;
+    max-width: 1280px;
+  `}
+
+  ${media.greaterThan('huge')`
+    max-width: 1440px;
   `}
 
   ${theme('Layout')}

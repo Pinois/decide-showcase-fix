@@ -179,9 +179,13 @@ Navbar.defaultProps = {
     as: Link,
     to: '',
     ...smoothLinkProps,
-    mx: {
+    ml: {
       _: 'auto',
-      md: '0',
+      md: 0,
+    },
+    mr: {
+      _: 'auto',
+      md: 4,
     },
   },
   LinksWrapperProps: {
@@ -191,17 +195,21 @@ Navbar.defaultProps = {
       lg: 'row',
     },
     alignItems: 'center',
-    mx: 'auto',
+    ml: {
+      _: 0,
+      lg: 'auto',
+    },
   },
   LinkProps: {
     mx: {
       _: 0,
-      lg: 3,
+      lg: 2,
     },
     my: {
       _: 3,
       lg: 0,
     },
+    whiteSpace: 'nowrap',
     as: Link,
     activeColor: 'secondary',
     ...smoothLinkProps,
@@ -213,12 +221,16 @@ Navbar.defaultProps = {
     },
     ml: {
       _: 0,
-      lg: 'auto',
+      lg: 3,
     },
   },
   ActionProps: {
     variant: 'accent',
     as: 'a',
+    px: 3,
+    py: 2,
+    fontSize: '14px',
+    whiteSpace: 'nowrap',
   },
   ToggleButtonProps: {
     buttonWidth: 24,
