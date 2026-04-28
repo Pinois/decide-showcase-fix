@@ -7,7 +7,7 @@ import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 
 import * as Yup from 'yup';
 
-import LandingImage from './assets/landing_image.jpeg';
+import HeroTeam from './assets/hero-team.webp';
 
 import Avatar2 from './assets/avatars/avatar_backer.jpeg';
 import Avatar22x from './assets/avatars/avatar_backer.jpeg';
@@ -143,8 +143,8 @@ export default {
       },
     ],
     img: {
-      src: LandingImage,
-      srcSet: `${LandingImage} 1x, ${LandingImage} 2x`,
+      src: HeroTeam,
+      srcSet: `${HeroTeam} 1x, ${HeroTeam} 2x`,
     },
     avatars: [
       {

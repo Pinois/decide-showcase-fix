@@ -13,6 +13,8 @@ import { transition } from '../../styles';
 
 export const Wrapper = styled(Box)`
   transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: ${props => _.get(props.theme.colors, props.stickyBgColor)};
+  box-shadow: 0 36px 64px rgba(34, 39, 43, 0.06);
 
   ${props =>
     props.hiddenOnHero &&
@@ -21,11 +23,6 @@ export const Wrapper = styled(Box)`
       opacity: 0;
       pointer-events: none;
     `}
-
-  .sticky & {
-    background-color: ${props => _.get(props.theme.colors, props.stickyBgColor)};
-    box-shadow: 0 36px 64px rgba(34, 39, 43, 0.06);
-  }
 `;
 
 export const LogoWrapper = styled.a`
