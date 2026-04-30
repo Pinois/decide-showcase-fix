@@ -13,6 +13,7 @@ import FocusTarget from '@pagerland/icons/src/line/FocusTarget';
 
 import data from '../../data';
 import { colors } from '../../styles';
+import Background from '../Pricing/Background';
 
 const SessionCard = styled(Box)`
   display: flex;
@@ -167,6 +168,7 @@ const Agenda = ({
   TextProps,
 }) => (
   <Box name={name} {...WrapperProps}>
+    <Background />
     <Container {...ContainerProps}>
       <Box {...CaptionProps} className="animate-fade-in-up">
         <Typography {...TitleProps} dangerouslySetInnerHTML={{ __html: title }} />
@@ -294,7 +296,8 @@ Agenda.defaultProps = {
       md: 64,
       lg: 80,
     },
-    backgroundColor: 'white',
+    position: 'relative',
+    overflow: 'hidden',
   },
   ContainerProps: {
     textAlign: 'center',

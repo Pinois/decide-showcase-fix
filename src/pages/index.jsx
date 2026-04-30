@@ -45,11 +45,11 @@ const Startup = ({url}) => (
       <Navbar />
     </div>
     <Welcome name="" />
+    <Partners name="partners" />
     <Services name="services" />
     <Agenda name="agenda" />
     <About name="about" />
     {/* <Testimonials name="testimonials" /> // TODO: En attente des vrais témoignages */}
-    <Partners name="partners" />
     <Team name="team" />
     <FAQ name="faq" />
     {/* <Blog name="blog" /> */}

@@ -103,15 +103,15 @@ export const ScrollCue = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: ${colors.gray[1]};
+  gap: 6px;
+  color: ${colors.gray[2]};
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.65;
   z-index: 10;
   transition: opacity 0.3s ease, transform 0.3s ease;
 
@@ -131,11 +131,22 @@ export const ScrollCue = styled.a`
     opacity: 1;
   }
 
+  .hint {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .hint[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .chevron {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 1.5px solid ${colors.gray[1]};
+    border: 1.5px solid ${colors.gray[2]};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +154,7 @@ export const ScrollCue = styled.a`
   }
 
   .chevron svg {
-    fill: ${colors.gray[1]};
+    fill: ${colors.gray[2]};
   }
 
   @keyframes scrollBounce {

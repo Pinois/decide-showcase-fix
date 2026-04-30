@@ -7,6 +7,7 @@ import Container from '@pagerland/common/src/components/Container';
 import Grid from '@pagerland/common/src/components/Grid';
 
 import Linkedin from '@pagerland/icons/src/monochrome/Linkedin';
+import EnvelopeAlt from '@pagerland/icons/src/line/EnvelopeAlt';
 
 import data from '../../data';
 import Background from '../Pricing/Background';
@@ -15,7 +16,8 @@ import {
   MemberImageWrapper,
   RoleChip,
   Description,
-  LinkedinLink,
+  SocialActions,
+  SocialIconLink,
 } from './styled.components';
 
 const Team = ({
@@ -54,14 +56,24 @@ const Team = ({
             <Typography {...MemberNameProps}>{member.name}</Typography>
             <RoleChip>{member.position}</RoleChip>
             <Description>{member.description}</Description>
-            <LinkedinLink
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Profil LinkedIn de ${member.name}`}
-            >
-              <Linkedin width={22} height={22} />
-            </LinkedinLink>
+            <SocialActions>
+              {member.email && (
+                <SocialIconLink
+                  href={`mailto:${member.email}`}
+                  aria-label={`Envoyer un mail à ${member.name}`}
+                >
+                  <EnvelopeAlt width={20} height={20} />
+                </SocialIconLink>
+              )}
+              <SocialIconLink
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Profil LinkedIn de ${member.name}`}
+              >
+                <Linkedin width={22} height={22} />
+              </SocialIconLink>
+            </SocialActions>
           </MemberCard>
         ))}
       </Grid>

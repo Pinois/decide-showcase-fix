@@ -1,10 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 import SquareBlur from '../../components/Squares/SquareBlur';
 import Square from '../../components/Squares/Square';
 
+const Wrapper = styled.div`
+  ${media.lessThan('medium')`
+    display: none;
+  `}
+`;
+
 const Squares = () => (
-  <>
+  <Wrapper>
     <Square
       color="secondary"
       zIndex={-1}
@@ -77,7 +85,7 @@ const Squares = () => (
       height={186}
       position="absolute"
     />
-  </>
+  </Wrapper>
 );
 
 export default Squares;

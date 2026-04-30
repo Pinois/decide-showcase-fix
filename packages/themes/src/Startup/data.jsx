@@ -77,16 +77,8 @@ export default {
         label: 'Nos formations',
       },
       {
-        to: 'agenda',
-        label: 'Prochaines dates',
-      },
-      {
         to: 'about',
         label: 'Accompagnements',
-      },
-      {
-        to: 'partners',
-        label: 'Clients et partenaires',
       },
       {
         to: 'team',
@@ -393,6 +385,7 @@ export default {
           srcSet: `${MarionPhoto} 1x, ${MarionPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
+        email: 'marion@decideetvous.com',
         description: "Experte en nudge marketing et changements comportementaux, Marion accompagne les organisations dans leur transformation écologique avec des approches innovantes et participatives.",
       },
       {
@@ -403,6 +396,7 @@ export default {
           srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        email: 'manon@decideetvous.com',
         description: "Après une carrière dans le secteur privé, Manon se réoriente vers l'éco-conseil. Elle apporte son expertise d'accompagnement humain et stratégique des transitions écologiques et organisationnelles, fondé sur l'analyse, la conception de solutions sur mesure et l'évolution des représentations et des modes de pensée.",
       },
       {
@@ -413,6 +407,7 @@ export default {
           srcSet: `${ManonPhoto} 1x, ${ManonPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marie-debournoux-96a441155/',
+        email: 'marie@decideetvous.com',
         description: "Spécialiste de l'accompagnement du changement, Marie combine expertise technique et approche pédagogique pour faciliter la transition écologique des organisations.",
       },
     ],

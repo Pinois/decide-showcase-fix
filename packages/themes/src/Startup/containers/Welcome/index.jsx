@@ -5,9 +5,6 @@ import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Button from '@pagerland/common/src/components/Button';
 
-import { Link } from 'react-scroll';
-import { smoothLinkProps } from '@pagerland/common/src/utils';
-
 import Logo from '../../components/Logo';
 import data from '../../data';
 import Background from '../About/Background';
@@ -36,6 +33,7 @@ const Welcome = ({
 }) => {
   const [mounted, setMounted] = useState(false);
   const [scrollCueHidden, setScrollCueHidden] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setMounted(true));
@@ -44,14 +42,27 @@ const Welcome = ({
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
+    const timer = window.setTimeout(() => setShowHint(true), 8000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
 
     const handleScroll = () => {
-      setScrollCueHidden(window.scrollY > window.innerHeight * 0.3);
+      setScrollCueHidden(window.scrollY > 80);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleScrollCueClick = (e) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+    }
+  };
 
   const animCls = (n) => (mounted ? `animate-fade-in-up animate-delay-${n}` : '');
   const hideStyle = mounted ? null : { opacity: 0, transform: 'translateY(20px)' };
@@ -101,12 +112,12 @@ const Welcome = ({
         </HeroRight>
       </HeroWrapper>
       <ScrollCue
-        as={Link}
-        to="services"
-        {...smoothLinkProps}
+        href="#"
+        onClick={handleScrollCueClick}
         aria-label="Scroller pour voir la suite"
         $cueHidden={scrollCueHidden}
       >
+        <span className="hint" data-visible={showHint}>par ici</span>
         <span className="chevron">
           <AngleDown width={14} height={14} />
         </span>
