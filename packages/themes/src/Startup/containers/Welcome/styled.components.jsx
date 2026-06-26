@@ -59,13 +59,82 @@ export const HeroRight = styled.div`
   `}
 `;
 
-export const HeroImage = styled.img`
+export const SlideshowFrame = styled.div`
   position: absolute;
   inset: 0;
-  width: 100%;
+  overflow: hidden;
+`;
+
+export const Slide = styled.div`
+  position: absolute;
+  inset: 0;
+  opacity: ${props => (props.$active ? 1 : 0)};
+  transition: opacity 800ms ease;
+  will-change: opacity;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+`;
+
+export const ProgressTrack = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: ${transparentize(0.92, colors.primary)};
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+`;
+
+const heroProgress = css`
+  @keyframes heroProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+`;
+
+export const ProgressFill = styled.div`
+  ${heroProgress};
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  width: 100%;
+  background: ${transparentize(0.15, colors.accent)};
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation-name: heroProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+`;
+
+export const HeroActions = styled.div`
+  margin-top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+
+  @media (min-width: 768px) and (max-width: 1169px) {
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  @media (min-width: 1700px) {
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+  }
 `;
 
 export const HeroTitle = styled.h1`

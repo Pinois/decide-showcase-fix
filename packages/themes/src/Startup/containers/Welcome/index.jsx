@@ -8,6 +8,7 @@ import Button from '@pagerland/common/src/components/Button';
 import Logo from '../../components/Logo';
 import data from '../../data';
 import Background from '../About/Background';
+import HeroSlideshow from './HeroSlideshow';
 
 import AngleDown from '@pagerland/icons/src/line/AngleDown';
 
@@ -16,8 +17,8 @@ import {
   HeroLeft,
   HeroLeftInner,
   HeroRight,
-  HeroImage,
   HeroTitle,
+  HeroActions,
   ScrollCue,
 } from './styled.components';
 
@@ -25,10 +26,9 @@ const Welcome = ({
   name,
   title,
   text,
-  img,
+  images,
   actions,
   TextProps,
-  ActionButtonsProps,
   LogoProps,
 }) => {
   const [mounted, setMounted] = useState(false);
@@ -89,26 +89,25 @@ const Welcome = ({
               className={animCls(3)}
               style={hideStyle}
             />
-            <Box
-              {...ActionButtonsProps}
+            <HeroActions
               className={animCls(4)}
-              style={{ ...(ActionButtonsProps.style || {}), ...(hideStyle || {}) }}
+              style={hideStyle}
             >
               {actions.map(({ label, ...props }, key) => (
                 <Button
                   {...props}
-                  style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+                  style={{ whiteSpace: 'nowrap' }}
                   px="28px"
                   key={key}
                 >
                   {label}
                 </Button>
               ))}
-            </Box>
+            </HeroActions>
           </HeroLeftInner>
         </HeroLeft>
         <HeroRight className={animCls(5)} style={hideStyle}>
-          <HeroImage src={img.src} srcSet={img.srcSet} alt="" />
+          <HeroSlideshow images={images} />
         </HeroRight>
       </HeroWrapper>
       <ScrollCue
@@ -129,11 +128,15 @@ const Welcome = ({
 Welcome.propTypes = {
   name: PropTypes.string.isRequired,
   TextProps: PropTypes.object,
-  ActionButtonsProps: PropTypes.object,
   LogoProps: PropTypes.object,
   title: PropTypes.object,
   text: PropTypes.object,
-  img: PropTypes.object,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+    })
+  ),
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
@@ -151,15 +154,6 @@ Welcome.defaultProps = {
     fontSize: { _: '17px', lg: '20px' },
     lineHeight: 1.7,
     mb: 0,
-  },
-  ActionButtonsProps: {
-    mt: '96px',
-    display: 'flex',
-    flexDirection: { _: 'column', md: 'row' },
-    alignItems: { _: 'stretch', md: 'center' },
-    flexWrap: 'nowrap',
-    style: { whiteSpace: 'nowrap', width: 'max-content', maxWidth: '100%' },
-    gap: 4,
   },
   ...data.welcome,
 };
