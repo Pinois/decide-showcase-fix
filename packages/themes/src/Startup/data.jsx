@@ -7,6 +7,8 @@ import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 
 import * as Yup from 'yup';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import Hero46 from './assets/hero/decide-46.jpg';
 import Hero47 from './assets/hero/decide-47.jpg';
 import Hero48 from './assets/hero/decide-48.jpg';
@@ -651,10 +653,12 @@ export default {
           body: encode({'form-name': 'contact', ...values}),
         })
           .then(() => {
+            track('contact_form_submit', { status: 'success' });
             alert('DEC!DE vous remercie de ce message ! À bientôt.');
             actions.resetForm();
           })
           .catch(() => {
+            track('contact_form_submit', { status: 'error' });
             alert('Une erreur est survenue. Veuillez réessayer.');
           })
           .finally(() => actions.setSubmitting(false));

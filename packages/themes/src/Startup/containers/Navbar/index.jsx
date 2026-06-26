@@ -10,6 +10,8 @@ import List from '@pagerland/common/src/components/List';
 import Button from '@pagerland/common/src/components/Button';
 import NavbarWrapper from '@pagerland/common/src/components/Navbar';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import LanderPagerLogo from '../../components/Logo';
 
 import data from '../../data';
@@ -62,7 +64,17 @@ const Navbar = ({
       {actions && (
         <Box {...ActionsWrapperProps}>
           {actions.map(({ label, ...link }, i) => (
-            <Button {...ActionProps} onClick={onClick} {...link} key={i}>
+            <Button
+              {...ActionProps}
+              {...link}
+              key={i}
+              onClick={(e) => {
+                if (link.href && link.href.includes('calendly.com')) {
+                  track('cta_calendly_click', { source: 'navbar' });
+                }
+                if (onClick) onClick(e);
+              }}
+            >
               {label}
             </Button>
           ))}

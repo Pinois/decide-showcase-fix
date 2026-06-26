@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Button from '@pagerland/common/src/components/Button';
+import { track } from '@pagerland/common/src/utils/track';
 
 import Logo from '../../components/Logo';
 import data from '../../data';
@@ -93,16 +94,27 @@ const Welcome = ({
               className={animCls(4)}
               style={hideStyle}
             >
-              {actions.map(({ label, ...props }, key) => (
-                <Button
-                  {...props}
-                  style={{ whiteSpace: 'nowrap' }}
-                  px="28px"
-                  key={key}
-                >
-                  {label}
-                </Button>
-              ))}
+              {actions.map(({ label, ...props }, key) => {
+                const href = props.href || '';
+                const eventName = href.includes('calendly.com')
+                  ? 'cta_calendly_click'
+                  : href.includes('Catalogue-DECIDE')
+                  ? 'brochure_download'
+                  : null;
+                return (
+                  <Button
+                    {...props}
+                    style={{ whiteSpace: 'nowrap' }}
+                    px="28px"
+                    key={key}
+                    onClick={() => {
+                      if (eventName) track(eventName, { source: 'hero' });
+                    }}
+                  >
+                    {label}
+                  </Button>
+                );
+              })}
             </HeroActions>
           </HeroLeftInner>
         </HeroLeft>

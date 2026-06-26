@@ -12,6 +12,8 @@ import Button from '@pagerland/common/src/components/Button';
 import Clock from '@pagerland/icons/src/line/Clock';
 import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import data from '../../data';
 import { colors } from '../../styles';
 import Background from '../About/Background';
@@ -312,6 +314,12 @@ const Services = ({
 
   const openService = openIndex !== null ? services[openIndex] : null;
 
+  const openModal = (key) => {
+    setOpenIndex(key);
+    const service = services[key];
+    if (service) track('formation_modal_open', { formation: service.title });
+  };
+
   return (
     <Box name={name} {...WrapperProps}>
       <Background />
@@ -334,13 +342,13 @@ const Services = ({
               key={key}
               className={`animate-fade-in-up animate-delay-${Math.min(key + 1, 5)}`}
               width={{ _: '100%', md: 'calc(50% - 16px)', lg: 'calc(33.333% - 22px)' }}
-              onClick={() => setOpenIndex(key)}
+              onClick={() => openModal(key)}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  setOpenIndex(key);
+                  openModal(key);
                 }
               }}
             >
@@ -363,7 +371,7 @@ const Services = ({
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setOpenIndex(key);
+                    openModal(key);
                   }}
                 >
                   En savoir plus
@@ -381,7 +389,16 @@ const Services = ({
           </Box>
         )}
         {cta && (
-          <Button {...CtaProps} {...cta} className="animate-fade-in-up">
+          <Button
+            {...CtaProps}
+            {...cta}
+            className="animate-fade-in-up"
+            onClick={() => {
+              if (cta.href && cta.href.includes('Catalogue-DECIDE')) {
+                track('brochure_download', { source: 'services_cta' });
+              }
+            }}
+          >
             {cta.label}
           </Button>
         )}
@@ -463,6 +480,9 @@ const Services = ({
                   href={`mailto:contact@decideetvous.com?subject=${encodeURIComponent(
                     `Demande de réservation : ${openService.title}`
                   )}`}
+                  onClick={() =>
+                    track('formation_book_click', { formation: openService.title })
+                  }
                 >
                   Réserver cette formation →
                 </ModalCtaPrimary>
@@ -470,6 +490,12 @@ const Services = ({
                   href="https://github.com/Pinois/files/raw/main/Catalogue-DECIDE-2025.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    track('brochure_download', {
+                      source: 'service_modal',
+                      formation: openService.title,
+                    })
+                  }
                 >
                   Télécharger la brochure ↓
                 </ModalCtaSecondary>

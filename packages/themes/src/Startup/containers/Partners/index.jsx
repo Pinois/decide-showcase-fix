@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Container from '@pagerland/common/src/components/Container';
+import { track } from '@pagerland/common/src/utils/track';
 import data from '../../data';
 import { Marquee, Track, LogoList, LogoItem, PartnerLink } from './styled.components';
 
@@ -23,6 +24,7 @@ const Partners = ({
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={ariaHidden ? -1 : 0}
+            onClick={() => track('partner_click', { partner: partner.name })}
           >
             <img src={partner.logo} alt={ariaHidden ? '' : partner.name} />
           </PartnerLink>

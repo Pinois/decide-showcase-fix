@@ -10,6 +10,8 @@ import Grid from '@pagerland/common/src/components/Grid';
 
 import AngleDown from '@pagerland/icons/src/line/AngleDown';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import data from '../../data';
 import { colors } from '../../styles';
 
@@ -102,10 +104,13 @@ const FAQ = ({
   const [openItems, setOpenItems] = useState({});
 
   const toggleItem = (index) => {
-    setOpenItems((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+    setOpenItems((prev) => {
+      const willOpen = !prev[index];
+      if (willOpen && faqs[index]) {
+        track('faq_open', { question: faqs[index].question });
+      }
+      return { ...prev, [index]: willOpen };
+    });
   };
 
   return (

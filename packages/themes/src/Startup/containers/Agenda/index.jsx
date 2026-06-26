@@ -11,6 +11,8 @@ import MapPin from '@pagerland/icons/src/line/MapPin';
 import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 import FocusTarget from '@pagerland/icons/src/line/FocusTarget';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import data from '../../data';
 import { colors } from '../../styles';
 import Background from '../Pricing/Background';
@@ -234,6 +236,12 @@ const Agenda = ({
                 href={session.href || sessionCtaHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track('agenda_session_click', {
+                    month: session.month,
+                    year: session.year,
+                  })
+                }
               >
                 {sessionCtaLabel}
                 <span className="arrow">→</span>
@@ -246,7 +254,17 @@ const Agenda = ({
       {contactHref && (
         <ContactNote className="animate-fade-in-up animate-delay-4">
           {contactNote}{' '}
-          <ContactLink href={contactHref}>
+          <ContactLink
+            href={contactHref}
+            onClick={() => {
+              if (contactHref && contactHref.startsWith('mailto:')) {
+                track('mailto_click', {
+                  source: 'agenda',
+                  address: contactHref.replace('mailto:', '').split('?')[0],
+                });
+              }
+            }}
+          >
             {contactLabel} →
           </ContactLink>
         </ContactNote>
