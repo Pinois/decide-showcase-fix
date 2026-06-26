@@ -41,6 +41,20 @@ import Icedd from './assets/icedd.png';
 import Uliege from './assets/uliege.png';
 import LoterieNationale from './assets/loterie-nationale.png';
 
+import GroupeOne from './assets/partners/groupe-one.webp';
+import ClimateVoices from './assets/partners/climate-voices.svg';
+import ZeroWasteBelgium from './assets/partners/zero-waste-belgium.svg';
+import Association21 from './assets/partners/association-21.png';
+import InstitutEcoConseil from './assets/partners/institut-eco-conseil.png';
+import ServiceCitoyen from './assets/partners/service-citoyen.jpg';
+import Bruxeo from './assets/partners/bruxeo.svg';
+import Condorcet from './assets/partners/condorcet.png';
+import Inbw from './assets/partners/inbw.png';
+import MjVerte from './assets/partners/mj-verte.png';
+import Partenamut from './assets/partners/partenamut.svg';
+import He2b from './assets/partners/he2b.svg';
+import Helha from './assets/partners/helha.svg';
+
 // Workshop images (téléchargées via scripts/download-workshop-images.sh)
 import WorkshopFresque from './assets/workshop-fresque.webp';
 import WorkshopNudge from './assets/workshop-nudge.webp';
@@ -875,6 +889,23 @@ export default {
         logo: Uliege,
         url: 'https://www.uliege.be/',
       },
+    ],
+  },
+  partnersSecondary: {
+    partners: [
+      { name: 'Groupe One', logo: GroupeOne, url: 'https://www.groupeone.be/' },
+      { name: 'Climate Voices', logo: ClimateVoices, url: 'https://www.climatevoices.eu/' },
+      { name: 'Zero Waste Belgium', logo: ZeroWasteBelgium, url: 'https://www.zerowastebelgium.org/' },
+      { name: 'Association 21', logo: Association21, url: 'https://www.associations21.org/' },
+      { name: 'Institut Eco-Conseil', logo: InstitutEcoConseil, url: 'https://www.eco-conseil.be/' },
+      { name: 'Service Citoyen', logo: ServiceCitoyen, url: 'https://www.service-citoyen.be/' },
+      { name: 'Bruxeo', logo: Bruxeo, url: 'https://www.bruxeo.be/' },
+      { name: 'Condorcet', logo: Condorcet, url: 'https://www.condorcet.be/' },
+      { name: 'INBW', logo: Inbw, url: 'https://www.inbw.be/' },
+      { name: 'MJ Verte', logo: MjVerte, url: 'https://www.mjverte.be/' },
+      { name: 'Partenamut', logo: Partenamut, url: 'https://www.partenamut.be/' },
+      { name: 'HE2B', logo: He2b, url: 'https://www.he2b.be/' },
+      { name: 'HELHa', logo: Helha, url: 'https://www.helha.be/' },
     ],
   },
 };
