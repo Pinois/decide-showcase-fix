@@ -175,7 +175,7 @@ Events actuellement émis (suit l'évolution si tu ajoutes/retires) :
 | `formation_modal_open` | `{ formation: <titre> }` | Services (`openModal`) |
 | `formation_book_click` | `{ formation: <titre> }` | Services modal (mailto contact@) |
 | `faq_open` | `{ question: <texte> }` | FAQ (ouverture uniquement, pas fermeture) |
-| `partner_click` | `{ partner: <nom> }` | Partners (chaque logo) |
+| `partner_click` | `{ partner: <nom>, list: 'main' \| 'secondary' }` | Partners (chaque logo, les 2 lignes) |
 | `agenda_session_click` | `{ month, year }` | Agenda (CTA session) |
 | `mailto_click` | `{ source, address }` | Agenda (mailto Marie) |
 

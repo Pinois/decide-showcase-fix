@@ -3,13 +3,14 @@ import Box from '@pagerland/common/src/components/Box';
 
 const slide = keyframes`
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(calc(-100% / 3), 0, 0); }
 `;
 
 export const Track = styled.div`
   display: flex;
   width: max-content;
-  animation: ${slide} 35s linear infinite;
+  animation: ${slide} var(--marquee-duration, 60s) linear infinite;
+  animation-direction: ${props => (props.$reverse ? 'reverse' : 'normal')};
   will-change: transform;
 
   @media (prefers-reduced-motion: reduce) {
@@ -45,11 +46,60 @@ export const Marquee = styled(Box)`
 export const LogoList = styled.ul`
   display: flex;
   align-items: center;
-  gap: 80px;
-  margin: 0 40px 0 0;
-  padding: 0;
+  gap: 120px;
+  margin: 0;
+  padding: 0 120px 0 0;
   list-style: none;
   flex: 0 0 auto;
+`;
+
+export const MarqueeOuter = styled(Box)`
+  position: relative;
+`;
+
+export const NudgeWrapper = styled.div`
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+export const NudgeButton = styled.button`
+  position: absolute;
+  top: 50%;
+  ${props => (props.$side === 'left' ? 'left: 0;' : 'right: 0;')}
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: #00303d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  svg {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    ${props => (props.$side === 'left' ? 'left: -40px;' : 'right: -40px;')}
+  }
 `;
 
 export const LogoItem = styled.li`

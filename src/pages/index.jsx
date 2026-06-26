@@ -21,6 +21,7 @@ import preview from '@pagerland/themes/src/Startup/assets/preview.png';
 
 import SEO from '../components/SEO';
 import Partners from '@pagerland/themes/src/Startup/containers/Partners';
+import data from '@pagerland/themes/src/Startup/data';
 
 const Startup = ({url}) => (
   <Theme>
@@ -45,7 +46,15 @@ const Startup = ({url}) => (
       <Navbar />
     </div>
     <Welcome name="" />
-    <Partners name="partners" />
+    <Partners name="partners" WrapperProps={{ pt: { _: 100, lg: 100 }, pb: 40 }} />
+    <Partners
+      name="partners-secondary"
+      list="secondary"
+      reverse
+      title=""
+      partners={data.partnersSecondary.partners}
+      WrapperProps={{ pt: 40, pb: { _: 100, lg: 100 } }}
+    />
     <Services name="services" />
     <Agenda name="agenda" />
     <About name="about" />
