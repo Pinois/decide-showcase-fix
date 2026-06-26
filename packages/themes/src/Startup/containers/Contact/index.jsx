@@ -15,6 +15,8 @@ import Check from '@pagerland/icons/src/line/Check';
 import Bolt from '@pagerland/icons/src/line/Bolt';
 import Envelope from '@pagerland/icons/src/line/Envelope';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import { colors } from '../../styles';
 import data from '../../data';
 import Background from './Background';
@@ -125,7 +127,18 @@ const Contact = ({
               ))}
             </Box>
           </Box>
-          <Button {...CTAButtonProps} href={cta.button.href} as="a" target="_blank" rel="noopener noreferrer">
+          <Button
+            {...CTAButtonProps}
+            href={cta.button.href}
+            as="a"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              if (cta.button.href && cta.button.href.includes('calendly.com')) {
+                track('cta_calendly_click', { source: 'contact_cta' });
+              }
+            }}
+          >
             {cta.button.label}
           </Button>
         </HoverCard>

@@ -7,7 +7,21 @@ import UsersAlt from '@pagerland/icons/src/line/UsersAlt';
 
 import * as Yup from 'yup';
 
-import HeroTeam from './assets/hero-team.webp';
+import { track } from '@pagerland/common/src/utils/track';
+
+import Hero46 from './assets/hero/decide-46.jpg';
+import Hero47 from './assets/hero/decide-47.jpg';
+import Hero48 from './assets/hero/decide-48.jpg';
+import Hero94 from './assets/hero/decide-94.jpg';
+import Hero110 from './assets/hero/decide-110.jpg';
+import Hero117 from './assets/hero/decide-117.jpg';
+import Hero124 from './assets/hero/decide-124.jpg';
+import Hero139 from './assets/hero/decide-139.jpg';
+import Hero140 from './assets/hero/decide-140.jpg';
+import Hero154 from './assets/hero/decide-154.jpg';
+import Hero157 from './assets/hero/decide-157.jpg';
+import Hero162 from './assets/hero/decide-162.jpg';
+import Hero176 from './assets/hero/decide-176.jpg';
 
 import Avatar2 from './assets/avatars/avatar_backer.jpeg';
 import Avatar22x from './assets/avatars/avatar_backer.jpeg';
@@ -55,6 +69,22 @@ import MarionPhoto from './assets/Decide 68.jpg';
 import ManonPhoto from './assets/Decide 79.jpg';
 import MariePhoto from './assets/Decide 89.jpg';
 
+const heroImages = [
+  { src: Hero124, alt: "L'équipe de DEC!DE ASBL, trois fondatrices côte à côte" },
+  { src: Hero140, alt: 'Atelier Jeu de la Ficelle : deux participantes étudient une carte autour de la table' },
+  { src: Hero154, alt: 'Participante attentive durant un atelier collaboratif DEC!DE' },
+  { src: Hero176, alt: 'Formatrice DEC!DE animant une session au tableau devant un groupe' },
+  { src: Hero162, alt: 'Gros plan sur le Jeu de la Ficelle : pelote de ficelle et carte d’atelier en mains' },
+  { src: Hero46, alt: 'Trois collaboratrices en séance de travail autour d’un ordinateur portable' },
+  { src: Hero47, alt: 'Préparation d’atelier : prise de notes manuscrites concentrée' },
+  { src: Hero48, alt: 'Animatrice DEC!DE en échange convivial autour d’une table de travail' },
+  { src: Hero94, alt: 'Portrait noir et blanc d’une co-fondatrice de DEC!DE ASBL' },
+  { src: Hero110, alt: 'Portrait posé d’une membre de l’équipe DEC!DE en costume bleu' },
+  { src: Hero117, alt: 'Portrait en noir et blanc d’une co-fondatrice de DEC!DE en lumière naturelle' },
+  { src: Hero139, alt: 'Lecture attentive d’une fiche d’atelier durant une session DEC!DE' },
+  { src: Hero157, alt: 'Trois participantes en pleine réflexion collective autour de fiches d’atelier' },
+];
+
 const encode = (data) => {
   return Object.keys(data)
     .map(
@@ -77,16 +107,8 @@ export default {
         label: 'Nos formations',
       },
       {
-        to: 'agenda',
-        label: 'Prochaines dates',
-      },
-      {
         to: 'about',
         label: 'Accompagnements',
-      },
-      {
-        to: 'partners',
-        label: 'Clients et partenaires',
       },
       {
         to: 'team',
@@ -142,10 +164,7 @@ export default {
         variant: 'default',
       },
     ],
-    img: {
-      src: HeroTeam,
-      srcSet: `${HeroTeam} 1x, ${HeroTeam} 2x`,
-    },
+    images: heroImages,
     avatars: [
       {
         src: Avatar2,
@@ -393,6 +412,7 @@ export default {
           srcSet: `${MarionPhoto} 1x, ${MarionPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marion-de-backer1618/',
+        email: 'marion@decideetvous.com',
         description: "Experte en nudge marketing et changements comportementaux, Marion accompagne les organisations dans leur transformation écologique avec des approches innovantes et participatives.",
       },
       {
@@ -403,6 +423,7 @@ export default {
           srcSet: `${MariePhoto} 1x, ${MariePhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/manon-berhin-0aa82154/',
+        email: 'manon@decideetvous.com',
         description: "Après une carrière dans le secteur privé, Manon se réoriente vers l'éco-conseil. Elle apporte son expertise d'accompagnement humain et stratégique des transitions écologiques et organisationnelles, fondé sur l'analyse, la conception de solutions sur mesure et l'évolution des représentations et des modes de pensée.",
       },
       {
@@ -413,6 +434,7 @@ export default {
           srcSet: `${ManonPhoto} 1x, ${ManonPhoto} 2x`,
         },
         linkedin: 'https://www.linkedin.com/in/marie-debournoux-96a441155/',
+        email: 'marie@decideetvous.com',
         description: "Spécialiste de l'accompagnement du changement, Marie combine expertise technique et approche pédagogique pour faciliter la transition écologique des organisations.",
       },
     ],
@@ -631,10 +653,12 @@ export default {
           body: encode({'form-name': 'contact', ...values}),
         })
           .then(() => {
+            track('contact_form_submit', { status: 'success' });
             alert('DEC!DE vous remercie de ce message ! À bientôt.');
             actions.resetForm();
           })
           .catch(() => {
+            track('contact_form_submit', { status: 'error' });
             alert('Une erreur est survenue. Veuillez réessayer.');
           })
           .finally(() => actions.setSubmitting(false));

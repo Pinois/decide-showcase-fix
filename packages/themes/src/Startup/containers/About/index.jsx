@@ -12,6 +12,8 @@ import Button from '@pagerland/common/src/components/Button';
 import Check from '@pagerland/icons/src/line/Check';
 import Lightbulb from '@pagerland/icons/src/line/Lightbulb';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import data from '../../data';
 import { colors } from '../../styles';
 import { RoundedImage } from './styled.components';
@@ -213,7 +215,15 @@ const About = ({
       </Grid>
 
       <Box textAlign="center" mt="80px" mb="40px">
-        <Button {...CtaProps} {...cta}>
+        <Button
+          {...CtaProps}
+          {...cta}
+          onClick={() => {
+            if (cta.href && cta.href.includes('calendly.com')) {
+              track('cta_calendly_click', { source: 'about_cta' });
+            }
+          }}
+        >
           {cta.label}
         </Button>
       </Box>

@@ -13,6 +13,8 @@ import MobilePhone from '@pagerland/icons/src/monochrome/MobilePhone';
 import MapMarker from '@pagerland/icons/src/monochrome/MapMarker';
 import Check from '@pagerland/icons/src/monochrome/Check';
 
+import { track } from '@pagerland/common/src/utils/track';
+
 import Logo from '../../components/Logo';
 
 import data from '../../data';
@@ -150,6 +152,7 @@ const Footer = (props) => {
   const handleCopy = async (text, field) => {
     try {
       await navigator.clipboard.writeText(text);
+      track('contact_copy', { field });
       setCopiedField(field);
       setTimeout(() => setCopiedField(null), 2000);
     } catch (err) {

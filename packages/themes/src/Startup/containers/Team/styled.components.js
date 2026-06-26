@@ -54,11 +54,18 @@ export const Description = styled.p`
   text-align: center;
 `;
 
-export const LinkedinLink = styled.a`
+export const SocialActions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+`;
+
+export const SocialIconLink = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -69,6 +76,7 @@ export const LinkedinLink = styled.a`
 
   svg {
     display: block;
+    fill: currentColor;
   }
 
   &:hover {

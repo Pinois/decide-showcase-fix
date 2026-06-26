@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import Box from '@pagerland/common/src/components/Box';
 import Typography from '@pagerland/common/src/components/Typography';
 import Button from '@pagerland/common/src/components/Button';
-
-import { Link } from 'react-scroll';
-import { smoothLinkProps } from '@pagerland/common/src/utils';
+import { track } from '@pagerland/common/src/utils/track';
 
 import Logo from '../../components/Logo';
 import data from '../../data';
 import Background from '../About/Background';
+import HeroSlideshow from './HeroSlideshow';
 
 import AngleDown from '@pagerland/icons/src/line/AngleDown';
 
@@ -19,8 +18,8 @@ import {
   HeroLeft,
   HeroLeftInner,
   HeroRight,
-  HeroImage,
   HeroTitle,
+  HeroActions,
   ScrollCue,
 } from './styled.components';
 
@@ -28,14 +27,14 @@ const Welcome = ({
   name,
   title,
   text,
-  img,
+  images,
   actions,
   TextProps,
-  ActionButtonsProps,
   LogoProps,
 }) => {
   const [mounted, setMounted] = useState(false);
   const [scrollCueHidden, setScrollCueHidden] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
     const id = window.requestAnimationFrame(() => setMounted(true));
@@ -44,14 +43,27 @@ const Welcome = ({
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
+    const timer = window.setTimeout(() => setShowHint(true), 8000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
 
     const handleScroll = () => {
-      setScrollCueHidden(window.scrollY > window.innerHeight * 0.3);
+      setScrollCueHidden(window.scrollY > 80);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleScrollCueClick = (e) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+    }
+  };
 
   const animCls = (n) => (mounted ? `animate-fade-in-up animate-delay-${n}` : '');
   const hideStyle = mounted ? null : { opacity: 0, transform: 'translateY(20px)' };
@@ -78,35 +90,45 @@ const Welcome = ({
               className={animCls(3)}
               style={hideStyle}
             />
-            <Box
-              {...ActionButtonsProps}
+            <HeroActions
               className={animCls(4)}
-              style={{ ...(ActionButtonsProps.style || {}), ...(hideStyle || {}) }}
+              style={hideStyle}
             >
-              {actions.map(({ label, ...props }, key) => (
-                <Button
-                  {...props}
-                  style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
-                  px="28px"
-                  key={key}
-                >
-                  {label}
-                </Button>
-              ))}
-            </Box>
+              {actions.map(({ label, ...props }, key) => {
+                const href = props.href || '';
+                const eventName = href.includes('calendly.com')
+                  ? 'cta_calendly_click'
+                  : href.includes('Catalogue-DECIDE')
+                  ? 'brochure_download'
+                  : null;
+                return (
+                  <Button
+                    {...props}
+                    style={{ whiteSpace: 'nowrap' }}
+                    px="28px"
+                    key={key}
+                    onClick={() => {
+                      if (eventName) track(eventName, { source: 'hero' });
+                    }}
+                  >
+                    {label}
+                  </Button>
+                );
+              })}
+            </HeroActions>
           </HeroLeftInner>
         </HeroLeft>
         <HeroRight className={animCls(5)} style={hideStyle}>
-          <HeroImage src={img.src} srcSet={img.srcSet} alt="" />
+          <HeroSlideshow images={images} />
         </HeroRight>
       </HeroWrapper>
       <ScrollCue
-        as={Link}
-        to="services"
-        {...smoothLinkProps}
+        href="#"
+        onClick={handleScrollCueClick}
         aria-label="Scroller pour voir la suite"
         $cueHidden={scrollCueHidden}
       >
+        <span className="hint" data-visible={showHint}>par ici</span>
         <span className="chevron">
           <AngleDown width={14} height={14} />
         </span>
@@ -118,11 +140,15 @@ const Welcome = ({
 Welcome.propTypes = {
   name: PropTypes.string.isRequired,
   TextProps: PropTypes.object,
-  ActionButtonsProps: PropTypes.object,
   LogoProps: PropTypes.object,
   title: PropTypes.object,
   text: PropTypes.object,
-  img: PropTypes.object,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+    })
+  ),
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.node,
@@ -140,15 +166,6 @@ Welcome.defaultProps = {
     fontSize: { _: '17px', lg: '20px' },
     lineHeight: 1.7,
     mb: 0,
-  },
-  ActionButtonsProps: {
-    mt: '96px',
-    display: 'flex',
-    flexDirection: { _: 'column', md: 'row' },
-    alignItems: { _: 'stretch', md: 'center' },
-    flexWrap: 'nowrap',
-    style: { whiteSpace: 'nowrap', width: 'max-content', maxWidth: '100%' },
-    gap: 4,
   },
   ...data.welcome,
 };
