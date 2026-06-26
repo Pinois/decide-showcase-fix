@@ -33,6 +33,9 @@
     "typescript": "4.0.3"
   },
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "dev": "gatsby develop",
