@@ -301,7 +301,7 @@ export default {
         year: '2026',
         days: '28 & 29',
         endDate: '2026-09-29',
-        href: 'https://lnkd.in/ejN2aK-i',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUMU1GQTlWRjhCTlQwTU1KRERBR0o0SThUTS4u&route=shorturl',
       },
       {
         title: "Fresque de l'Entreprise Régénérative",
@@ -311,7 +311,7 @@ export default {
         year: '2026',
         days: '20',
         endDate: '2026-10-20',
-        href: 'https://lnkd.in/e3yGJB8E',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUNU5FN0xXQUpJNFZaWkFVSEVSTDZPVTlSMi4u&route=shorturl',
       },
       {
         title: 'Numérique & IA : la matérialité cachée',
@@ -321,7 +321,7 @@ export default {
         year: '2026',
         days: '3',
         endDate: '2026-12-03',
-        href: 'https://lnkd.in/e3yGJB8E',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUNU5FN0xXQUpJNFZaWkFVSEVSTDZPVTlSMi4u&route=shorturl',
       },
     ],
     sessionCtaLabel: "S'inscrire",
