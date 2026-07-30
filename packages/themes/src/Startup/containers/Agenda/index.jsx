@@ -63,6 +63,25 @@ const CardBody = styled(Box)`
   flex: 1;
 `;
 
+const FormationTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 700;
+  color: ${colors.primary};
+  text-align: left;
+  line-height: 1.35;
+  margin: 0 0 12px 0;
+`;
+
+const FormationText = styled.p`
+  font-size: 14px;
+  line-height: 1.6;
+  color: ${colors.gray[1]};
+  text-align: left;
+  margin: 0 0 24px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid ${colors.gray[6]};
+`;
+
 const InfoLine = styled(Box)`
   display: flex;
   align-items: flex-start;
@@ -205,6 +224,9 @@ const Agenda = ({
             </CardHeader>
 
             <CardBody>
+              <FormationTitle>{session.title}</FormationTitle>
+              <FormationText>{session.text}</FormationText>
+
               <InfoLine>
                 <InfoIconWrap>
                   <MapPin width={16} height={16} />
@@ -285,9 +307,13 @@ Agenda.propTypes = {
   text: PropTypes.node,
   sessions: PropTypes.arrayOf(
     PropTypes.shape({
+      title: PropTypes.string,
+      text: PropTypes.string,
       month: PropTypes.string,
       year: PropTypes.string,
       days: PropTypes.string,
+      endDate: PropTypes.string,
+      href: PropTypes.string,
     })
   ),
   sessionCtaLabel: PropTypes.string,

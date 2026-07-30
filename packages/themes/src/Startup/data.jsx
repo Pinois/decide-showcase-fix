@@ -283,36 +283,45 @@ export default {
      }, */
   },
   agenda: {
-    title: 'Notre formation inter-entreprises',
-    subtitle: 'À Bruxelles, sur dates ouvertes',
+    title: 'Nos formations inter-entreprises',
+    subtitle: 'Trois thématiques, trois dates à Bruxelles',
     text: {
-      __html: "Une formation de 2 jours pour outiller la mobilisation de vos collègues : conduite du changement, coopération, nudge marketing. Repartez avec un plan d'action concret et des bonnes pratiques.",
+      __html:
+        "Trois formations sur trois thématiques différentes. Les formations inter-entreprises permettent de se former et s'outiller sur un sujet spécifique afin de passer à l'action, tout en rencontrant d'autres acteurs et en partageant ses défis et ses réussites.",
     },
-    contactNote: 'Des questions sur cette formation ?',
+    contactNote: 'Des questions sur ces formations ?',
     contactLabel: 'Contactez Marie',
     contactHref: 'mailto:marie@decideetvous.com',
     sessions: [
       {
-        month: 'Mars',
-        year: '2026',
-        days: '2 & 3',
-        location: 'Bruxelles',
-        endDate: '2026-03-03',
-      },
-      {
-        month: 'Avril',
-        year: '2026',
-        days: '13 & 14',
-        location: 'Bruxelles',
-        endDate: '2026-04-14',
-      },
-      {
+        title: 'Embarquez vos collègues dans la transition',
+        text:
+          "Embarquer ses collaborateurs, c'est le levier le plus puissant pour transformer durablement les pratiques. Cette formation associe apports théoriques et outils actionnables pour faire de votre stratégie durabilité une aventure humaine, fédératrice et enthousiasmante.",
         month: 'Septembre',
         year: '2026',
         days: '28 & 29',
-        location: 'Bruxelles',
         endDate: '2026-09-29',
-        href: 'https://forms.gle/haJXnYzRAC1h3icH8',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUMU1GQTlWRjhCTlQwTU1KRERBR0o0SThUTS4u&route=shorturl',
+      },
+      {
+        title: "Fresque de l'Entreprise Régénérative",
+        text:
+          "Et si votre entreprise devenait un acteur au service du vivant ? Cette fresque interactive vous plonge au cœur des interdépendances entre votre activité et les écosystèmes humains et naturels, puis construit avec vous un plan d'action concret pour amorcer une transformation durable.",
+        month: 'Octobre',
+        year: '2026',
+        days: '20',
+        endDate: '2026-10-20',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUNU5FN0xXQUpJNFZaWkFVSEVSTDZPVTlSMi4u&route=shorturl',
+      },
+      {
+        title: 'Numérique & IA : la matérialité cachée',
+        text:
+          "Cette formation lève le voile sur les impacts invisibles du numérique et de l'IA, donne des repères chiffrés pour distinguer les vraies bonnes pratiques, et aide à bâtir un plan d'action sur mesure pour vos usages professionnels.",
+        month: 'Décembre',
+        year: '2026',
+        days: '3',
+        endDate: '2026-12-03',
+        href: 'https://forms.cloud.microsoft/pages/responsepage.aspx?id=zue7Lmj_4U-RpAJIZJgcE_0FhWxDdvxBo5ScSwIfchVUNU5FN0xXQUpJNFZaWkFVSEVSTDZPVTlSMi4u&route=shorturl',
       },
     ],
     sessionCtaLabel: "S'inscrire",
